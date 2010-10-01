@@ -1,0 +1,17 @@
+<h1>Welcome to Mumbls!~</h1>
+
+<p>List of current users</p>
+<table>
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.name %></td>
+  </tr>
+<% end %>
+</table>
+<% if current_user %>
+	<%= link_to 'Listings', listings_path %>
+<% else %>
+	<p>Please Login in order to view listings</p>
+<% end %>
+
+

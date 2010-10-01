@@ -1,11 +1,15 @@
 AuthlogicRails3Example::Application.routes.draw do |map|
+  resources :listings
+
+  get "home/index"
+
   resources :users
   
   get    'login(.:format)'  => 'user_session#new',     :as => :login
   post   'login(.:format)'  => 'user_session#create',  :as => :login
   delete 'logout(.:format)' => 'user_session#destroy', :as => :logout
 
-  root :to => 'user_session#new' # login page
+  root :to => 'home#index' # login page
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
