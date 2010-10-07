@@ -1,4 +1,8 @@
 AuthlogicRails3Example::Application.routes.draw do |map|
+  get "activations/new"
+
+  get "activations/create"
+
   resources :listings
 
   get "home/index"
@@ -10,6 +14,10 @@ AuthlogicRails3Example::Application.routes.draw do |map|
   delete 'logout(.:format)' => 'user_session#destroy', :as => :logout
 
   root :to => 'home#index' # login page
+  
+  match '/register/:activation_code' => 'activations#new'
+  match '/activate/:id' => 'activations#create'
+  match '/profile/:alias' => 'users#show_profile'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

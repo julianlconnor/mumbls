@@ -14,6 +14,14 @@ class UsersController < ApplicationController
 
   # GET /users/1
   # GET /users/1.xml
+  def show_profile
+    @user = User.find(:first, :conditions => [ "alias = ?", params[:alias]])
+
+    respond_to do |format|
+      format.html { render "/users/show" }
+      format.xml  { render :xml => @user }
+    end
+  end
   def show
     @user = User.find(params[:id])
 
@@ -22,6 +30,7 @@ class UsersController < ApplicationController
       format.xml  { render :xml => @user }
     end
   end
+    
 
   # GET /users/new
   # GET /users/new.xml
@@ -44,9 +53,13 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
 
+    # Saving without session maintenance to skip
+    # auto-login which can't happen here because
+    # the User has not yet been activated
     respond_to do |format|
       if @user.save
-        format.html { redirect_to(@user, :notice => 'User was successfully created.') }
+        UserMailer.activation_email(@user).deliver
+        format.html { redirect_to(:controller => :home, :notice => "Your account has been created. Please check your e-mail for your account activation instructions!") }
         format.xml  { render :xml => @user, :status => :created, :location => @user }
       else
         format.html { render :action => "new" }

@@ -14,10 +14,10 @@ development:
 production:
   adapter: mysql
   encoding: utf8
-  database: mumbls
+  database: mumbls_dev
   pool: 5
-  username: root
-  password:
+  username: mumbls_yerp
+  password: &#eHt{RN@?w~
   socket: /tmp/mysql.sock
 
 # Warning: The database defined as "test" will be erased and
