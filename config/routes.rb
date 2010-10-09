@@ -16,8 +16,14 @@ AuthlogicRails3Example::Application.routes.draw do |map|
   root :to => 'home#index' # login page
   
   match '/register/:activation_code' => 'activations#new'
-  match '/activate/:id' => 'activations#create'
+  match '/activate/:activation_code' => 'activations#create'
   match '/profile/:alias' => 'users#show_profile'
+  
+  match 'logout', :to => 'user_session#destroy', :as => :logout
+  match 'resend_form', :to => 'activations#resend_form', :as => 'resend_form'
+  match 'resend_activation', :to => 'activations#resend_activation', :as => 'resend_activation'
+  
+  map.activate 'activate', :controller => 'activations'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,10 +1,11 @@
 class User < ActiveRecord::Base
-  validates_uniqueness_of :name,  :presence => true
+  validates_uniqueness_of :alias,  :presence => true
   validates :email, :presence => true, :uniqueness => true, :email_format => true
   
   def active?
     active
   end
+  
   def active!
     self.active = true
     save

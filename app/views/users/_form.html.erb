@@ -1,0 +1,39 @@
+<% form_for @user do |f| %>
+  <%- if @user.errors.any? %>
+    <div id='errorExplanation'>
+     <h2><%= "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:" %></h2>
+      <ul>
+        <%- @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+		<% end %>
+	  </ul>
+	 </div>
+   <% end %>
+
+	<div class='field'>
+	    <%= f.label :name %>
+	    <%= f.text_field :name %>
+	</div>
+	<div class='field'>
+	    <%= f.label :alias %>
+	    <%= f.text_field :alias %>
+	</div>
+	<div class='field'>
+	    <%= f.label :email %>
+	    <%= f.text_field :email %>
+	</div>
+	<div class='field'>
+	    <%= f.label :password %>
+	    <%= f.password_field :password %>
+	</div>
+	<div class='field'>
+	    <%= f.label :password_confirmation %>
+	    <%= f.password_field :password_confirmation %>
+	</div>
+	<%= f.hidden_field :activation_code, {:value => "#{Digest::MD5.hexdigest(Time.new.to_s)}" }%>
+	<div class='field'>
+		<div class='actions'>
+	    	<%= f.submit 'Save' %>
+		</div>
+	</div>
+<% end %>

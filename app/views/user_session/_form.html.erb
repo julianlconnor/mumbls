@@ -1,4 +1,4 @@
-<%= form_for @user_session, :url => login_path do |f| %>
+<% form_for :user_session, @user_session, :url => { :action => "create" } do |f| %>
 	<% if @user_session.errors.any? %>
 		<div id='errorExplanation'>
 			<h2><%= "#{pluralize(@user_session.errors.count, "error")} prohibited this user from being saved:" %></h2>
@@ -27,3 +27,4 @@
 <% end %>
 
 <%= link_to 'Not yet a member?', new_user_path %>
+<%= link_to 'Need another activation email?', resend_form_path %>
