@@ -9,6 +9,12 @@
 <body>
 <%= link_to 'Home', :controller => :home %>
 <p>
+	<% flash.each do |key, msg| %>
+	    <%= content_tag :div, msg, :class => [key, " message"], :id => "notice_ #{key}" %>
+	    <%= content_tag :script, :type => "text/javascript" do -%>
+	        setTimeout("new Effect.Fade('notice_<%= key %>');", 15000);
+	    <% end %>
+	<% end %>
 	<% if current_user %>
 	  Hello <%= current_user.name %> (<%= link_to 'Logout', logout_path, :method => :delete %>)
 	<% else %>

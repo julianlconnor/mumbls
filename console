@@ -1,0 +1,10 @@
+Script started on Thu Oct  7 15:08:29 2010
+bash-3.2$ @user = User.find(:first)
+bash: syntax error near unexpected token `('
+bash-3.2$ ;
+bash: syntax error near unexpected token `;'
+bash-3.2$ 
+bash-3.2$ exit
+exit
+
+Script done on Thu Oct  7 15:08:51 2010

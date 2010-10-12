@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101004192352) do
+ActiveRecord::Schema.define(:version => 20101008183745) do
 
   create_table "listings", :force => true do |t|
     t.string   "author"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(:version => 20101004192352) do
     t.string   "last_login_ip"
     t.boolean  "active",              :default => false, :null => false
     t.string   "alias"
+    t.string   "activation_code"
   end
 
 end

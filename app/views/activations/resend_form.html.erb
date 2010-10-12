@@ -1,0 +1,9 @@
+<% form_for :activation, :url => { :action => "resend_activation" } do |f| %>
+	<div class='field'>
+		<%= f.label :email %>
+		<%= f.text_field :email %>
+	</div>
+	<div class='action'>
+		<%= f.submit "Resend Activation" %>
+	</div>
+<% end %>
