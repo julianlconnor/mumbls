@@ -31,6 +31,9 @@ module AuthlogicRails3Example
     # config.i18n.default_locale = :de
 
     # Configure generators values. Many other options are available, be sure to check the documentation.
+    
+    Paperclip::Railtie.insert
+    
     config.generators do |g|
       g.template_engine :haml
       g.test_framework  :rspec

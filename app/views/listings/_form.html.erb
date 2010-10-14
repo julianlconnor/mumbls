@@ -1,27 +1,43 @@
-<%= form_for(@listing) do |f| %>
-  <% if @listing.errors.any? %>
-  <div id="errorExplanation">
-    <h2><%= pluralize(@listing.errors.count, "error") %> prohibited this post from being saved:</h2>
-    <ul>
-    <% @listing.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
-  <% end %>
+<%= form_for @listing, :html => { :multipart => true } do |f| %>
+	<% if @listing.errors.any? %>
+		<div id="errorExplanation">
+			<h2><%= pluralize(@listing.errors.count, "error") %> prohibited this post from being saved:</h2>
+			<ul>
+				<% @listing.errors.full_messages.each do |msg| %>
+					<li><%= msg %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
 
-  <div class="field">
-    <%= f.hidden_field :author, :value => current_user.name %><br />
-  </div>
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+	<div class="field">
+		<%= f.hidden_field :author, :value => current_user.name %><br />
+	</div>
+	<div class="field">
+		<%= f.label :title %><br />
+		<%= f.text_field :title %>
+	</div>
+	<div class="field">
+		<%= f.label :description %><br />
+		<%= f.text_area :description %>
+	</div>
+	
+	<%= f.fields_for :listing_images do |builder| %>
+		<% if builder.object.new_record? %>
+			<div class="actions">
+				<%= builder.label :photo, "Image File" %>
+				<%= builder.file_field :photo %>
+			</div>
+			<div class="actions">
+				<%= builder.label :caption, "Image caption" %>
+				<%= builder.text_field :caption %>
+			</div>
+		<% end %>
+	<% end %>
+
+
+	<div class="actions">
+		<%= f.submit %>
+	</div>
 <% end %>
+

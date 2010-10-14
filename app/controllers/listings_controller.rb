@@ -13,8 +13,8 @@ class ListingsController < ApplicationController
   # GET /listings/1
   # GET /listings/1.xml
   def show
-    @listing = Listing.find(params[:id])
-
+    @show_listing = Listing.find(params[:id])
+    flash[:error] = "Listing not found" and return unless @show_listing
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @listing }
@@ -25,7 +25,7 @@ class ListingsController < ApplicationController
   # GET /listings/new.xml
   def new
     @listing = Listing.new
-
+    3.times {@listing.listing_images.build} #initializes 3 images for each user
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @listing }
@@ -35,6 +35,7 @@ class ListingsController < ApplicationController
   # GET /listings/1/edit
   def edit
     @listing = Listing.find(params[:id])
+    3.times {@listing.listing_images.build} #initializes 3 images for each user
   end
 
   # POST /listings

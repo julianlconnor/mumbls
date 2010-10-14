@@ -5,6 +5,7 @@
     <th>Author</th>
     <th>Title</th>
     <th>Description</th>
+	<th>Pic</th>
     <th></th>
     <th></th>
     <th></th>
@@ -15,6 +16,11 @@
     <td><%= listing.author %></td>
     <td><%= listing.title %></td>
     <td><%= listing.description %></td>
+    <td>
+	<% listing.listing_images do |image| %>
+		<%= image_tag image.photo.url(:small) %>
+	<% end %>
+	</td>
     <td><%= link_to 'Show', listing %></td>
     <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
     <td><%= link_to 'Destroy', listing, :confirm => 'Are you sure?', :method => :delete %></td>

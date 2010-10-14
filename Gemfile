@@ -13,7 +13,7 @@ gem 'haml'
 gem 'authlogic'
 
 # Add support for paperclip (used for uploading content and profile pics)
-# gem 'paperclip'
+gem 'paperclip'
 
 # Add S3 support for attaching files with paperclip
 # gem 'aws-s3', :require => 'aws/s3'

@@ -5,6 +5,7 @@
 <% @users.each do |user| %>
   <tr>
     <td><%= user.name %></td>
+	<td><%= image_tag user.avatar.url(:thumb) %>
   </tr>
 <% end %>
 </table>

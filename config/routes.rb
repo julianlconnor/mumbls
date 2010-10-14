@@ -18,6 +18,7 @@ AuthlogicRails3Example::Application.routes.draw do |map|
   match '/register/:activation_code' => 'activations#new'
   match '/activate/:activation_code' => 'activations#create'
   match '/profile/:alias' => 'users#show_profile'
+  match '/:listings/:id' => 'listings#show'
   
   match 'logout', :to => 'user_session#destroy', :as => :logout
   match 'resend_form', :to => 'activations#resend_form', :as => 'resend_form'

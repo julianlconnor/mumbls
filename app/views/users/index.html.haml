@@ -3,6 +3,8 @@
 %table
   %tr
     %th Name
+    %th Big Photo
+    %th Small Photo
     %th
     %th
     %th
@@ -10,6 +12,8 @@
   - @users.each do |user|
     %tr
       %td= user.name
+	  %td= image_tag @user.avatar.url
+	  %td= image_tag @user.avatar.url(:thumb)
       %td= link_to 'Show', user
       %td= link_to 'Edit', edit_user_path(user)
       %td= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete
