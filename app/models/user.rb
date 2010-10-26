@@ -6,8 +6,7 @@ class User < ActiveRecord::Base
   has_attached_file :avatar,
                     :styles => { :thumb=> "100x100#",
                                  :small  => "150x150>" }
-  validates_attachment_size :avatar, :less_than => 1.megabytes, :message => "File size can not be larger than 2mb."                            
-  validates_attachment_content_type :avatar, :content_type => 'image/jpeg'                              
+  validates_attachment_size :avatar, :less_than => 1.megabytes, :message => "File size can not be larger than 2mb.", :content_type => 'image/jpeg'                              
                                  
   def active?
     active

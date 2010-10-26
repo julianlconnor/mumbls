@@ -1,9 +1,12 @@
-<p>List of current users</p>
+<p>Current Listings</p>
 <table>
-<% @users.each do |user| %>
+<% @listings.each do |listing| %>
   <tr>
-    <td><%= user.name %></td>
-	<td><%= image_tag user.avatar.url(:thumb) %>
+	<td>
+		<%= link_to image_tag(listing.listing_images.first.photo.url(:small)), listing %>
+	</td>
+    <td><%= link_to listing.title, listing %> by <%= listing.author %></td>
+	<td><%= listing.description %></td>
   </tr>
 <% end %>
 </table>

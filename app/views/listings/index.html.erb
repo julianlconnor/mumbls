@@ -1,33 +1,22 @@
-<h1>Listings</h1>
-
-<table>
-  <tr>
-    <th>Author</th>
-    <th>Title</th>
-    <th>Description</th>
-	<th>Pic</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<h1 class = "page_title">Listings</h1>
 
 <% @listings.each do |listing| %>
-  <tr>
-    <td><%= listing.author %></td>
-    <td><%= listing.title %></td>
-    <td><%= listing.description %></td>
-    <td>
-	<% listing.listing_images do |image| %>
-		<%= image_tag image.photo.url(:small) %>
-	<% end %>
-	</td>
-    <td><%= link_to 'Show', listing %></td>
-    <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
-    <td><%= link_to 'Destroy', listing, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
+	<div class = "<%= cycle("listing_even","listing_odd") %>">
+		<span class = "listing_header"><%= link_to "#{listing.title} by #{listing.author}" -%></span>
+		<br/>
+		<span class = "listing_description"><%= truncate(listing.description, :length => 200) -%></span>
 
-<br />
+		<% listing.listing_images do |image| %>
+			<%= image_tag image.photo.url(:small) %>
+		<% end %>
+
+		<% if current_user && (listing.author == current_user.name || current_user.user_role == "admin") %>
+			<%= link_to 'Show', listing %>
+			<%= link_to 'Edit', edit_listing_path(listing) %>
+			<%= link_to 'Destroy', listing, :confirm => 'Are you sure?', :method => :delete %>
+		<% end %>
+	</div>
+<% end %>
+
 
 <%= link_to 'New listing', new_listing_path %>

@@ -1,0 +1,32 @@
+<h1>Listing users</h1>
+
+<table>
+  <tr>
+    <th> Name </th>
+    <th> Big Photo </th>
+    <th> Small Photo </th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.name %></td>
+	  <td><%= image_tag @user.avatar.url %></td>
+	  <td><%= image_tag @user.avatar.url(:thumb) %></td>
+	  <td><%= link_to 'Show', user %></td>
+	  <% if user.id == current_user.id %>
+      	<%= link_to 'Edit', edit_user_path(user) %>
+	  <% end %>
+	  </td>
+      <td>
+	  <% if current_user.user_status == "admin" %>
+	  	<%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %>
+	  <% end %>
+	  </td>
+    </tr>
+</table>
+
+<br>
+
+<%= link_to 'New user', new_user_path %>

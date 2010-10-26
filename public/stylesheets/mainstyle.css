@@ -1,5 +1,6 @@
 html, body { 
-  background-color: #ababab; 
+  /*background-color: #ababab;*/
+  background-color: #FFFFFF;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 12px;
   line-height: 18px;
@@ -16,7 +17,7 @@ text-transform: uppercase;
 }
 
 a:hover {
-color: #fff;
+color: #000000;
 }
 
 #clear {
@@ -46,23 +47,60 @@ height: auto !important;
 margin: 0 auto;
 position: relative;
 min-height: 70%;
-background: url('../images/middle_split.png') repeat-y;
+/*background: url('../images/middle_split.png') repeat-y;*/
 }
 
 #top_content {
-height: 4px;
-width: 100%;
+height: 75px;
+width: 1024px;
 margin-top: 9px;
-background: url('../images/top_split.png') repeat-y;
+/*background: url('../images/top_split.png') repeat-y;*/
+}
+#top_content #logo {
+	height: 50px;
+	width: 500px;
+	font: 72px Impact,Helvetica,arial,sans-serif;
+}
+#top_content #nav {
+	font: 25px Impact,Helvetica,arial,sans-serif;
+	height: 30px;
+	width: 550px;
+}
+#top_content #nav li {
+	float: right;
+	padding: 0px 10px 0px 10px;
+	list-style-type: none;
+	border-bottom: 3px solid #90C3F9;
+}
+#top_content #nav li:hover {
+	border-bottom: 3px solid #659dd9;
+}
+#rpi_pic {
+	margin: 40px 0px 0px 0px;
+	border: 5px solid #90C3F9;
+}
+.page_title {
+	background-color: #659dd9;
 }
 
-
 #middle {
-width: 824px;
-padding: 20px 100px 100px 100px;
+width: 1024px;
+padding: 10px 0px 100px 0px;
 float: left;
 }
 
+.listing_even {
+	margin-bottom: 15px;
+}
+
+.listing_odd {
+	background: #e8e8e8;
+}
+.listing_header {
+	background-color: #90C3F9;
+	font-size: 12px;
+	padding: 3px;
+}
 
 #footer {
 bottom: 0;
