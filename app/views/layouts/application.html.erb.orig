@@ -8,6 +8,24 @@
 </head>
 <body> 
   <div id = "wrapper">
+<<<<<<< HEAD
+    <div id = "top_content">
+		<div id = "logo">
+			<%= link_to 'MUMBLS @ RPI', :controller => :home %>
+		</div>
+		<div id = "nav">
+			<ul>
+				<li><%= link_to "Gigs" %></li>
+				<li><%= link_to "Jobs" %></li>
+				<li><%= link_to "Housing" %></li>
+				<li><%= link_to "For Sale", listings_path %></li>
+			</ul>
+		</div>
+    </div>
+	<div id = "rpi_pic">
+		<%= image_tag "rpi_strip.png" %>
+	</div>
+=======
     <div id = "header">
       <div id = "header_content">
         <div id = "leftcolumn">
@@ -54,6 +72,7 @@
       </div><!--header_content -->
     </div> <!-- header -->
     
+>>>>>>> d4ac2357bb19ce0ddfeb6cb23c117f9744fa9d87
     <div id = "middle">
       <div id = "middle_content">   
         <!-- rendering partial for search_bar -->

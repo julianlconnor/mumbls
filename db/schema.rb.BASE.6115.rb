@@ -9,16 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(:version => 20101014234356) do
-=======
-ActiveRecord::Schema.define(:version => 20101026022643) do
-
-  create_table "categories", :force => true do |t|
-    t.string "name"
-    t.string "type"
-  end
->>>>>>> d4ac2357bb19ce0ddfeb6cb23c117f9744fa9d87
+ActiveRecord::Schema.define(:version => 20101012015418) do
 
   create_table "listing_images", :force => true do |t|
     t.string   "caption"
@@ -47,29 +38,25 @@ ActiveRecord::Schema.define(:version => 20101026022643) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "email",               :default => "",     :null => false
-    t.string   "crypted_password",    :default => "",     :null => false
-    t.string   "password_salt",       :default => "",     :null => false
-    t.string   "persistence_token",   :default => "",     :null => false
-    t.string   "single_access_token", :default => "",     :null => false
-    t.string   "perishable_token",    :default => "",     :null => false
-    t.integer  "login_count",         :default => 0,      :null => false
-    t.integer  "failed_login_count",  :default => 0,      :null => false
+    t.string   "email",               :default => "",    :null => false
+    t.string   "crypted_password",    :default => "",    :null => false
+    t.string   "password_salt",       :default => "",    :null => false
+    t.string   "persistence_token",   :default => "",    :null => false
+    t.string   "single_access_token", :default => "",    :null => false
+    t.string   "perishable_token",    :default => "",    :null => false
+    t.integer  "login_count",         :default => 0,     :null => false
+    t.integer  "failed_login_count",  :default => 0,     :null => false
     t.datetime "last_request_at"
     t.datetime "current_login_at"
     t.datetime "last_login_at"
     t.string   "current_login_ip"
     t.string   "last_login_ip"
-    t.boolean  "active",              :default => false,  :null => false
+    t.boolean  "active",              :default => false, :null => false
     t.string   "alias"
     t.string   "activation_code"
-    t.string   "avatar_file_name"
-    t.string   "avatar_content_type"
-    t.integer  "avatar_file_size"
-<<<<<<< HEAD
-    t.string   "user_role",           :default => "user"
-=======
->>>>>>> d4ac2357bb19ce0ddfeb6cb23c117f9744fa9d87
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
   end
 
 end

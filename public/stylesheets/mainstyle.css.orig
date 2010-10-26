@@ -1,5 +1,12 @@
+<<<<<<< HEAD
+html, body { 
+  /*background-color: #ababab;*/
+  background-color: #FFFFFF;
+  font-family: verdana, arial, helvetica, sans-serif;
+=======
 html, body {  
   font-family: Arial, Helvetica, Verdana, sans-serif;
+>>>>>>> d4ac2357bb19ce0ddfeb6cb23c117f9744fa9d87
   font-size: 12px;
   line-height: 18px;
   height: 100%;
@@ -18,7 +25,11 @@ color: #000;
 }
 
 a:hover {
+<<<<<<< HEAD
+color: #000000;
+=======
 text-decoration: underline;
+>>>>>>> d4ac2357bb19ce0ddfeb6cb23c117f9744fa9d87
 }
 
 #clear {
@@ -54,11 +65,17 @@ margin-top: 30px;
 
 #wrapper {
 margin: 0 auto;
+<<<<<<< HEAD
+position: relative;
+min-height: 70%;
+/*background: url('../images/middle_split.png') repeat-y;*/
 }
 
-#header {
-height: 85px;
-
+#top_content {
+height: 75px;
+width: 1024px;
+margin-top: 9px;
+/*background: url('../images/top_split.png') repeat-y;*/
 }
 #top_content #logo {
 	height: 50px;
@@ -85,6 +102,32 @@ height: 85px;
 }
 .page_title {
 	background-color: #659dd9;
+}
+
+#middle {
+width: 1024px;
+padding: 10px 0px 100px 0px;
+float: left;
+}
+
+.listing_even {
+	margin-bottom: 15px;
+}
+
+.listing_odd {
+	background: #e8e8e8;
+}
+.listing_header {
+	background-color: #90C3F9;
+	font-size: 12px;
+	padding: 3px;
+}
+=======
+}
+
+#header {
+height: 85px;
+
 }
 
 #rightcolumn {
@@ -172,6 +215,7 @@ text-align: center;
 margin-top: 20px;
 }
 
+>>>>>>> d4ac2357bb19ce0ddfeb6cb23c117f9744fa9d87
 
 #footer {
 bottom: 0;

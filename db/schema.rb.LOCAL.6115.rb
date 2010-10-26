@@ -9,16 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20101014234356) do
-=======
-ActiveRecord::Schema.define(:version => 20101026022643) do
-
-  create_table "categories", :force => true do |t|
-    t.string "name"
-    t.string "type"
-  end
->>>>>>> d4ac2357bb19ce0ddfeb6cb23c117f9744fa9d87
 
   create_table "listing_images", :force => true do |t|
     t.string   "caption"
@@ -66,10 +57,7 @@ ActiveRecord::Schema.define(:version => 20101026022643) do
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
-<<<<<<< HEAD
     t.string   "user_role",           :default => "user"
-=======
->>>>>>> d4ac2357bb19ce0ddfeb6cb23c117f9744fa9d87
   end
 
 end
