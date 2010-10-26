@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   end
 
   # GET /users/1
-  # GET /users/1.xml
+  # GET /users/1.xmlurrent_user.name 
   def show_profile
     @user = User.find(:first, :conditions => [ "alias = ?", params[:alias]])
 

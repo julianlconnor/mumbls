@@ -1,14 +1,18 @@
-1287092149
+1288062484
 ActivationsController	/home/panfia/Documents/mumbls/app/controllers/activations_controller.rb	class ActivationsController 
 ActivationsHelper	/home/panfia/Documents/mumbls/app/helpers/activations_helper.rb	module ActivationsHelper
 AddActivationCodeToUsers	/home/panfia/Documents/mumbls/db/migrate/20101008183745_add_activation_code_to_users.rb	class AddActivationCodeToUsers 
 AddActiveToUsers	/home/panfia/Documents/mumbls/db/migrate/20101004171353_add_active_to_users.rb	class AddActiveToUsers 
 AddAliasToUsers	/home/panfia/Documents/mumbls/db/migrate/20101004192352_add_alias_to_users.rb	class AddAliasToUsers 
 AddAuthenticationToUser	/home/panfia/Documents/mumbls/db/migrate/20100701044600_add_authentication_to_user.rb	class AddAuthenticationToUser 
+AddCategories	/home/panfia/Documents/mumbls/db/migrate/20101026022643_add_categories.rb	class AddCategories 
+AddPhotoDetailsToListing	/home/panfia/Documents/mumbls/db/migrate/20101012015418_add_photo_details_to_listing.rb	class AddPhotoDetailsToListing 
 Application	/home/panfia/Documents/mumbls/config/application.rb	  class Application 
 ApplicationController	/home/panfia/Documents/mumbls/app/controllers/application_controller.rb	class ApplicationController 
 ApplicationHelper	/home/panfia/Documents/mumbls/app/helpers/application_helper.rb	module ApplicationHelper
 AuthlogicRails3Example	/home/panfia/Documents/mumbls/config/application.rb	module AuthlogicRails3Example
+Category	/home/panfia/Documents/mumbls/app/models/category.rb	class Category 
+CreateListingImages	/home/panfia/Documents/mumbls/db/migrate/20101012005934_create_listing_images.rb	class CreateListingImages 
 CreateListings	/home/panfia/Documents/mumbls/db/migrate/20101001034548_create_listings.rb	class CreateListings 
 CreateNotifiers	/home/panfia/Documents/mumbls/db/migrate/20101004172341_create_notifiers.rb	class CreateNotifiers 
 CreateUsers	/home/panfia/Documents/mumbls/db/migrate/20100701043032_create_users.rb	class CreateUsers 
@@ -16,6 +20,7 @@ EmailFormatValidator	/home/panfia/Documents/mumbls/lib/email_format_validator.rb
 HomeController	/home/panfia/Documents/mumbls/app/controllers/home_controller.rb	class HomeController 
 HomeHelper	/home/panfia/Documents/mumbls/app/helpers/home_helper.rb	module HomeHelper
 Listing	/home/panfia/Documents/mumbls/app/models/listing.rb	class Listing 
+ListingImage	/home/panfia/Documents/mumbls/app/models/listing_image.rb	class ListingImage 
 ListingsController	/home/panfia/Documents/mumbls/app/controllers/listings_controller.rb	class ListingsController 
 ListingsHelper	/home/panfia/Documents/mumbls/app/helpers/listings_helper.rb	module ListingsHelper
 User	/home/panfia/Documents/mumbls/app/models/user.rb	class User 
@@ -44,6 +49,9 @@ down	/home/panfia/Documents/mumbls/db/migrate/20101004171353_add_active_to_users
 down	/home/panfia/Documents/mumbls/db/migrate/20101004172341_create_notifiers.rb	  def self.down
 down	/home/panfia/Documents/mumbls/db/migrate/20101004192352_add_alias_to_users.rb	  def self.down
 down	/home/panfia/Documents/mumbls/db/migrate/20101008183745_add_activation_code_to_users.rb	  def self.down
+down	/home/panfia/Documents/mumbls/db/migrate/20101012005934_create_listing_images.rb	  def self.down
+down	/home/panfia/Documents/mumbls/db/migrate/20101012015418_add_photo_details_to_listing.rb	  def self.down
+down	/home/panfia/Documents/mumbls/db/migrate/20101026022643_add_categories.rb	  def self.down
 edit	/home/panfia/Documents/mumbls/app/controllers/listings_controller.rb	  def edit
 edit	/home/panfia/Documents/mumbls/app/controllers/users_controller.rb	  def edit
 index	/home/panfia/Documents/mumbls/app/controllers/home_controller.rb	  def index
@@ -73,6 +81,9 @@ up	/home/panfia/Documents/mumbls/db/migrate/20101004171353_add_active_to_users.r
 up	/home/panfia/Documents/mumbls/db/migrate/20101004172341_create_notifiers.rb	  def self.up
 up	/home/panfia/Documents/mumbls/db/migrate/20101004192352_add_alias_to_users.rb	  def self.up
 up	/home/panfia/Documents/mumbls/db/migrate/20101008183745_add_activation_code_to_users.rb	  def self.up
+up	/home/panfia/Documents/mumbls/db/migrate/20101012005934_create_listing_images.rb	  def self.up
+up	/home/panfia/Documents/mumbls/db/migrate/20101012015418_add_photo_details_to_listing.rb	  def self.up
+up	/home/panfia/Documents/mumbls/db/migrate/20101026022643_add_categories.rb	  def self.up
 update	/home/panfia/Documents/mumbls/app/controllers/listings_controller.rb	  def update
 update	/home/panfia/Documents/mumbls/app/controllers/users_controller.rb	  def update
 validate_each	/home/panfia/Documents/mumbls/lib/email_format_validator.rb	  def validate_each

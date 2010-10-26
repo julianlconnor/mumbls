@@ -1,6 +1,5 @@
-html, body { 
-  background-color: #ababab; 
-  font-family: verdana, arial, helvetica, sans-serif;
+html, body {  
+  font-family: Arial, Helvetica, Verdana, sans-serif;
   font-size: 12px;
   line-height: 18px;
   height: 100%;
@@ -10,72 +9,248 @@ html, body {
 
 
 a {
-color: #000;
+color: #fff;
 text-decoration: none;
-text-transform: uppercase;
+}
+
+#categories a {
+color: #000;
 }
 
 a:hover {
-color: #fff;
+text-decoration: underline;
 }
 
 #clear {
 clear: both;
 }
 
+#categories li.line {
+margin-bottom: 15px;
+}
+
+#categories li.subtitle {
+font-weight: bold;
+border-bottom: solid 1px #b5ccde;
+padding-left: 0;
+}
+
 #links {
 padding: 20px;
 }
 
-#header {
-width: 100%;
-height: 104px;
-background: url('../images/top_blue_gradient.png') repeat-x;
-text-align: right;
+#wrapper, #header, #middle, #footer {
+width: 1100px;
 }
 
-#line {
-width: 100%;
-height: 4px;
-background: url('../images/top_black_strip.png') repeat-x;
+#header_content, #middle_content, #footer_content {
+width: 1050px;
+margin: 0 auto;
+}
+
+#header img {
+margin-top: 30px;
 }
 
 #wrapper {
-width: 1024px;
-height: auto !important;
 margin: 0 auto;
-position: relative;
-min-height: 70%;
-background: url('../images/middle_split.png') repeat-y;
 }
 
-#top_content {
-height: 4px;
-width: 100%;
-margin-top: 9px;
-background: url('../images/top_split.png') repeat-y;
+#header {
+height: 85px;
+
 }
 
+#rightcolumn {
+float: right;
+width: 460px;
+}
 
-#middle {
-width: 824px;
-padding: 20px 100px 100px 100px;
+#leftcolumn {
 float: left;
+margin-right: 90px;
+height: 76px;
+background-color: #ccc;
+width: 340px;
+-moz-border-radius-bottomright: 2px;
+-moz-border-radius-bottomleft: 2px;
+padding-left: 30px;
+}
+
+h1 {
+text-transform: lowercase;
+font-weight: bold;
+font-size: 24pt;
+}
+
+#minimenu {
+background-color: #6094bc;
+padding: 5px;
+-moz-border-radius-bottomright: 2px;
+-moz-border-radius-bottomleft: 2px;
+}
+
+ul {
+margin: 0;
+padding: 0;
+}
+
+#nav {
+margin-top: 15px;
+}
+
+#nav ul {
+float: left;
+}
+
+#nav ul li:hover {
+background-color: #b5ccde;
+border: solid 1px #000;
+}
+
+#nav ul li{
+background-color: #eee;
+-moz-border-radius: 5px;
+border: solid 1px #ccc;
+float: right;
+list-style-type: none;
+padding: 6px 15px;
+margin-right: 20px;
+width: 50px;
+text-align: center;
+}
+
+#nav ul li a {
+color: #000;
+text-decoration: none;
+}
+
+#nav ul li a:hover {
+color: #000;
+text-decoration: none;
+}
+
+#minimenu ul {
+float: left;
+padding-left: 16px;
+}
+
+#minimenu ul li {
+float: right;
+list-style-type: none;
+padding-right: 18px;
+text-align: center;
+}
+
+#middle_content {
+margin-top: 20px;
 }
 
 
 #footer {
 bottom: 0;
-width: 100%;
-background: #ececec url('../images/bottom_gradient.png') repeat-x;
-height: 200px;
+border-top: solid 1px #b5ccde;
+height: 50px;
 }
 
-#footer_content {
-width: 1030px;
-background: url('../images/page.png') repeat-y;
-height: 100px;
-margin: 0 auto;
+select {
+border: solid 1px #b5ccde;
+padding: 7px;
+-moz-border-radius: 8px;
+background-color: #fff;
+width: 210px;
+margin-right: 20px;
+height: 32px;
 }
 
+input#searchbar {
+width: 507px;
+-moz-border-radius: 8px;
+border: solid 1px #b5ccde;
+background-color: #fff;
+height: 27px;
+}
+
+input#button {
+-moz-border-radius: 8px;
+border: none;
+background-color: #fff;
+height: 27px;
+width: 100px;
+font-size: 14pt;
+font-weight: bold;
+letter-spacing: -1px;
+font-family: Arial;
+}
+
+p.title {
+font-size: 14pt;
+font-weight: bold;
+letter-spacing: -1px;
+margin-bottom: 10px;
+margin-left: 5px;
+margin-top: 25px;
+}
+
+#container {
+float: left;
+margin-right: 25px;
+}
+
+#categories {
+width: 189px;
+-moz-border-radius: 8px;
+border: solid 1px #b5ccde;
+padding: 10px;
+margin-left: 2px;
+}
+
+#content {
+float: left;
+/*margin-top: 54px;*/
+}
+
+#categories li {
+list-style-type: none;
+line-height: 22px;
+padding-left: 10px;
+}
+
+div.item {
+margin-right: 26px;
+width: 148px;
+height: 160px;
+border: solid 1px #b5ccde;
+padding: 10px;
+float: left;
+}
+
+div.lastitem {
+width: 148px;
+height: 160px;
+border: solid 1px #b5ccde;
+padding: 10px;
+float: left;
+}
+
+
+div#job_rent {
+margin-top: 15px;
+}
+
+div#recent_jobs {
+margin-right: 25px;
+}
+
+div#recent_jobs, div#recent_rent {
+float: left;
+width: 365px;
+}
+
+div#listings {
+width: 350px;
+height: 300px;
+border: solid 1px #b5ccde;
+padding: 10px;
+}
 

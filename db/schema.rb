@@ -9,7 +9,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101012015418) do
+ActiveRecord::Schema.define(:version => 20101026022643) do
+
+  create_table "categories", :force => true do |t|
+    t.string "name"
+    t.string "type"
+  end
 
   create_table "listing_images", :force => true do |t|
     t.string   "caption"
@@ -54,9 +59,9 @@ ActiveRecord::Schema.define(:version => 20101012015418) do
     t.boolean  "active",              :default => false, :null => false
     t.string   "alias"
     t.string   "activation_code"
-    t.string   "photo_file_name"
-    t.string   "photo_content_type"
-    t.integer  "photo_file_size"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
   end
 
 end
