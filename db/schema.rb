@@ -13,7 +13,7 @@ ActiveRecord::Schema.define(:version => 20101026022643) do
 
   create_table "categories", :force => true do |t|
     t.string "name"
-    t.string "parent"
+    t.string "type"
   end
 
   create_table "listing_images", :force => true do |t|

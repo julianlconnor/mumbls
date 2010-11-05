@@ -9,12 +9,12 @@ html, body {
 
 
 a {
-color: #fff;
+color: #000;
 text-decoration: none;
 }
 
-#categories a {
-color: #000;
+#minimenu a {
+color: #fff;
 }
 
 a:hover {
@@ -43,13 +43,18 @@ padding: 20px;
 width: 1100px;
 }
 
+#header_content {
+border-bottom: solid 1px #6094bc;
+padding-bottom: 25px;
+}
+
 #header_content, #middle_content, #footer_content {
 width: 1050px;
 margin: 0 auto;
 }
 
 #header img {
-margin-top: 30px;
+margin-top: 15px;
 }
 
 #wrapper {
@@ -57,9 +62,9 @@ margin: 0 auto;
 }
 
 #header {
-height: 85px;
-
+margin-bottom: 25px;
 }
+
 #top_content #logo {
 	height: 50px;
 	width: 500px;
@@ -96,11 +101,9 @@ width: 460px;
 float: left;
 margin-right: 90px;
 height: 76px;
-background-color: #ccc;
 width: 340px;
 -moz-border-radius-bottomright: 2px;
 -moz-border-radius-bottomleft: 2px;
-padding-left: 30px;
 }
 
 h1 {
@@ -177,6 +180,9 @@ margin-top: 20px;
 bottom: 0;
 border-top: solid 1px #b5ccde;
 height: 50px;
+color: #6094BC;
+margin-top: 30px;
+padding-top: 5px;
 }
 
 select {
@@ -243,17 +249,17 @@ padding-left: 10px;
 }
 
 div.item {
-margin-right: 26px;
-width: 148px;
-height: 160px;
+margin-right: 30px;
+width: 158px;
+height: 170px;
 border: solid 1px #b5ccde;
 padding: 10px;
 float: left;
 }
 
 div.lastitem {
-width: 148px;
-height: 160px;
+width: 158px;
+height: 170px;
 border: solid 1px #b5ccde;
 padding: 10px;
 float: left;
@@ -279,4 +285,14 @@ height: 300px;
 border: solid 1px #b5ccde;
 padding: 10px;
 }
+
+#footer ul {
+float: left;
+margin-left: 25px;
+}
+
+#footer ul li {
+list-style-type: none;
+float: right;
+padding-right: 20px;}
 

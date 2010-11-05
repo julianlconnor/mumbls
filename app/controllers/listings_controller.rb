@@ -3,8 +3,7 @@ class ListingsController < ApplicationController
   # GET /listings.xml
   def index
     @listings = Listing.all
-    @categories = Category.where(:parent => "Items")
-    @recently_added = Listing.find()
+    @categories = Category.where(:parent => "Items")    
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @listings }
