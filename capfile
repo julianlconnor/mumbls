@@ -1,0 +1,1 @@
+Dir['lib/recipes/**/*.rb'].each { |plugin| load(plugin) }

@@ -15,6 +15,19 @@ gem 'authlogic'
 # Add support for paperclip (used for uploading content and profile pics)
 gem 'paperclip'
 
+# Add capistrano
+gem 'capistrano'
+
+# Add mongrel
+gem 'mongrel'
+# Add bundler
+gem 'bundler'
+# Add nokogiri
+gem 'nokogiri'
+
+# Indexing powered by Solr
+gem 'sunspot_rails', '1.2.rc4'
+
 # Add S3 support for attaching files with paperclip
 # gem 'aws-s3', :require => 'aws/s3'
 # gem 'right_aws'

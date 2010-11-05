@@ -4,7 +4,7 @@ class ListingsController < ApplicationController
   def index
     @listings = Listing.all
     @categories = Category.where(:parent => "Items")
-    @recently_added = Listing.find()
+    @latest_listings = Listing.order("created_at DESC").limit(4)
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @listings }
@@ -21,6 +21,17 @@ class ListingsController < ApplicationController
       format.xml  { render :xml => @listing }
     end
   end
+  
+  def search
+    @search = Listing.search() do
+      keywords(params[:searchbar])
+    end
+  end
+    
+  def list_by_category
+    @listings = Listing.where(:category_id => params[:id])
+  end
+
 
   # GET /listings/new
   # GET /listings/new.xml

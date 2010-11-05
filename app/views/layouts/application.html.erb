@@ -28,7 +28,7 @@
               <li><%= link_to 'Network: RPI' -%></li>
               <li><%= link_to 'Conversations (0)' -%></li>
               <li><%= link_to 'Watch List (0)' -%></li>
-              <li><%= link_to 'My Account' -%></li>   
+              <li><%= link_to 'My Account', '/profile/'+current_user.alias -%></li>   
             </ul>
             <% else %>
             <ul>

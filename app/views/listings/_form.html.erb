@@ -9,10 +9,11 @@
 			</ul>
 		</div>
 	<% end %>
-
-	<div class="field">
-		<%= f.hidden_field :author, :value => current_user.name %><br />
-	</div>
+	<% if current_user %>
+		<div class="field">
+			<%= f.hidden_field :author, :value => current_user.name %><br />
+		</div>
+	<% end %>
 	<div class="field">
 		<%= f.label :title %><br />
 		<%= f.text_field :title %>

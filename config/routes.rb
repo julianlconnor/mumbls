@@ -1,4 +1,6 @@
 AuthlogicRails3Example::Application.routes.draw do |map|
+  resources :housings
+
   get "activations/new"
 
   get "activations/create"
@@ -20,6 +22,26 @@ AuthlogicRails3Example::Application.routes.draw do |map|
   match '/profile/:alias' => 'users#show_profile'
   match '/:listings/:id' => 'listings#show'
   
+  # Start routes for listings
+  match '/listings/category/:nam' => 'listings#list_by_category', :id => 1
+  match '/listings/category/furniture' => 'listings#list_by_category', :id => 2
+  match '/listings/category/electronics' => 'listings#list_by_category', :id => 3
+  match '/listings/category/textbooks' => 'listings#list_by_category', :id => 4
+  match '/listings/category/sports-equipment' => 'listings#list_by_category', :id => 5
+  match '/listings/category/video-games' => 'listings#list_by_category', :id => 6
+  match '/listings/category/co-op' => 'listings#list_by_category', :id => 7
+  match '/listings/category/internship' => 'listings#list_by_category', :id => 8
+  match '/listings/category/part-time' => 'listings#list_by_category', :id => 9
+  match '/listings/category/full-time' => 'listings#list_by_category', :id => 10
+  match '/listings/category/services' => 'listings#list_by_category', :id => 11
+  match '/listings/category/apartments-2-br' => 'listings#list_by_category', :id => 12
+  match '/listings/category/apartments-3-br' => 'listings#list_by_category', :id => 13
+  match '/listings/category/apartments-4-br' => 'listings#list_by_category', :id => 14
+  match '/listings/category/sublet-short-term' => 'listings#list_by_category', :id => 15
+  # End Routes for listings
+  
+  
+  match 'listingsearch', :to => 'listings#search'
   match 'logout', :to => 'user_session#destroy', :as => :logout
   match 'resend_form', :to => 'activations#resend_form', :as => 'resend_form'
   match 'resend_activation', :to => 'activations#resend_activation', :as => 'resend_activation'

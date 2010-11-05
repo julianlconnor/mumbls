@@ -1,0 +1,7 @@
+
+	<span>Name: <%= @user.name %></span>
+  	<span>Alias:<%= @user.alias %></span>
+	<%= image_tag @user.avatar.url(:small) %>
+
+<span><%= link_to 'Edit', edit_user_path(@user) %></span>
+<span><%= link_to 'Back', users_path %></span>
