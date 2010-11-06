@@ -1,4 +1,4 @@
-1289081866
+1289081962
 ActivationsController	/home/panfia/Documents/mumbls/app/controllers/activations_controller.rb	class ActivationsController 
 ActivationsHelper	/home/panfia/Documents/mumbls/app/helpers/activations_helper.rb	module ActivationsHelper
 AddActivationCodeToUsers	/home/panfia/Documents/mumbls/db/migrate/20101008183745_add_activation_code_to_users.rb	class AddActivationCodeToUsers 
@@ -90,6 +90,7 @@ require_no_user	/home/panfia/Documents/mumbls/app/controllers/application_contro
 require_user	/home/panfia/Documents/mumbls/app/controllers/application_controller.rb	    def require_user
 resend_activation	/home/panfia/Documents/mumbls/app/controllers/activations_controller.rb	  def resend_activation
 resend_form	/home/panfia/Documents/mumbls/app/controllers/activations_controller.rb	  def resend_form
+search	/home/panfia/Documents/mumbls/app/controllers/home_controller.rb	  def search
 search	/home/panfia/Documents/mumbls/app/controllers/housings_controller.rb	  def search
 search	/home/panfia/Documents/mumbls/app/controllers/listings_controller.rb	  def search
 show	/home/panfia/Documents/mumbls/app/controllers/housings_controller.rb	  def show
