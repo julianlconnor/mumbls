@@ -108,7 +108,9 @@ color: #2d2d2d;
 background-color: #eee;
 padding: 5px;
 -moz-border-radius-bottomright: 2px;
+border-bottom-right-radius: 2px;
 -moz-border-radius-bottomleft: 2px;
+border-bottom-left-radius: 2px;
 }
 
 ul {
@@ -127,6 +129,7 @@ float: left;
 a.button {
 background: #eee;
 background:-moz-linear-gradient(center bottom , #ccc, #eee) repeat scroll 0 0 transparent;
+background:-webkit-gradient(linear, left top, left bottom, from(#eee), to(#ccc));
 border: 1px solid #ccc;
 color: #2d2d2d;
 width: 60px;
@@ -141,10 +144,12 @@ margin-left: 120px;
 a.button:hover {
 text-decoration: none;
 background:-moz-linear-gradient(center bottom , #aaa, #ededed) repeat scroll 0 0 transparent;
+background:-webkit-gradient(linear, left top, left bottom, from(#ededed), to(#aaa));
 }
 
 .button {
 -moz-border-radius:0.5em 0.5em 0.5em 0.5em;
+border-radius: 0.5em 0.5em 0.5em 0.5em;
 -moz-box-shadow:0 1px 2px rgba(0, 0, 0, 0.2);
 cursor:pointer;
 display:inline-block;
@@ -185,7 +190,7 @@ margin-top: 20px;
 bottom: 0;
 border-top: solid 1px #999999;
 height: 50px;
-color: #999999;
+color: #999;
 margin-top: 30px;
 padding-top: 5px;
 }
@@ -194,6 +199,7 @@ select {
 border: solid 1px #999999;
 padding: 7px;
 -moz-border-radius: 8px;
+border-radius: 8px;
 background-color: #fff;
 width: 210px;
 margin-right: 20px;
@@ -203,6 +209,7 @@ height: 32px;
 input#searchbar {
 width: 507px;
 -moz-border-radius: 8px;
+border-radius: 8px;
 border: solid 1px #999999;
 background-color: #fff;
 height: 27px;
@@ -210,6 +217,7 @@ height: 27px;
 
 input#button {
 -moz-border-radius: 8px;
+border-radius: 8px;
 border: none;
 background-color: #fff;
 height: 27px;
@@ -238,6 +246,7 @@ margin-right: 25px;
 #categories {
 width: 189px;
 -moz-border-radius: 8px;
+border-radius: 8px;
 border: solid 1px #999999;
 padding: 10px;
 margin-left: 2px;
