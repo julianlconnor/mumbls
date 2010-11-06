@@ -31,6 +31,7 @@ margin-bottom: 15px;
 font-weight: bold;
 border-bottom: solid 1px #999999;
 padding-left: 0;
+margin-top: 12px;
 }
 
 #links {
@@ -126,7 +127,7 @@ margin-top: 15px;
 float: left;
 }
 
-a.button {
+.button {
 background: #eee;
 background:-moz-linear-gradient(center bottom , #ccc, #eee) repeat scroll 0 0 transparent;
 background:-webkit-gradient(linear, left top, left bottom, from(#eee), to(#ccc));
@@ -141,7 +142,7 @@ width: 70px;
 margin-left: 120px;
 }
 
-a.button:hover {
+.button:hover {
 text-decoration: none;
 background:-moz-linear-gradient(center bottom , #aaa, #ededed) repeat scroll 0 0 transparent;
 background:-webkit-gradient(linear, left top, left bottom, from(#ededed), to(#aaa));
@@ -247,7 +248,7 @@ width: 189px;
 -moz-border-radius: 8px;
 border-radius: 8px;
 border: solid 1px #999999;
-padding: 10px;
+padding: 0px 10px 10px 10px;
 margin-left: 2px;
 }
 
@@ -308,5 +309,48 @@ margin-left: 25px;
 #footer ul li {
 list-style-type: none;
 float: right;
-padding-right: 20px;}
+padding-right: 20px;
+}
+
+#login {
+margin: 0 auto;
+width: 355px;
+border: solid 1px #999;
+padding: 15px;
+-moz-border-radius: 8px;
+border-radius: 8px;
+background:-moz-linear-gradient(center bottom , #ededed, #fffdfd) repeat scroll 0 0 transparent;
+background:-webkit-gradient(linear, left top, left bottom, from(#fffdfd), to(#ededed));
+}
+
+#login input {
+margin-left: 15px;
+border: solid 1px #999;
+-moz-border-radius: 5px;
+border-radius: 5px;
+height: 20px;
+}
+
+#login input#user_session_submit {
+border: solid 1px #999;
+background:-moz-linear-gradient(center bottom , #fff, #ededed) repeat scroll 0 0 transparent;
+background:-webkit-gradient(linear, left top, left bottom, from(#ededed), to(#eee));
+height: 35px !important;
+}
+
+#user_session_submit:hover {
+background:-moz-linear-gradient(center bottom , #fff, #ededed) repeat scroll 0 0 transparent;
+background:-webkit-gradient(linear, left top, left bottom, from(#ededed), to(#eee));
+}
+
+
+#login p {
+padding: 0px;
+margin: 0px;
+font-size: 24px;
+margin-bottom: 20px;
+padding-bottom: 10px;
+border-bottom: solid 1px #999;
+}
+
 
