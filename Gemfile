@@ -22,8 +22,7 @@ gem 'capistrano'
 gem 'mongrel'
 # Add bundler
 gem 'bundler'
-# Add nokogiri
-gem 'nokogiri'
+
 
 # Indexing powered by Solr
 gem 'sunspot_rails', '1.2.rc4'
