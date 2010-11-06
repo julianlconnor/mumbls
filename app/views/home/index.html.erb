@@ -5,7 +5,7 @@
 	  <table>
 	        <tr>
 	        <td>
-				<select>
+				<select name="category_id">
 					<option value="0">All</option>
 					<% @categories.each do |category| %>
 						<option value="<%= category.id %>"><%= category.name %></option>

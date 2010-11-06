@@ -5,9 +5,11 @@ class HomeController < ApplicationController
     @latest_housings = Housing.order("created_at DESC").limit(4)
   end
   def search
-    puts params
     @search = Housing.search() do
       keywords(params[:searchbar])
+      if params[:category_id].to_i > 0
+        with(:category_id).equal_to(params[:category_id])
+      end
     end
   end
 end
