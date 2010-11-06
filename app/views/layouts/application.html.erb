@@ -10,7 +10,7 @@
   <div id = "header">
     <div id = "header_content">
         <div id = "leftcolumn">
-          <img src = "/images/mumbls_sun_logo.png"/>
+          <a href = "http://localhost:3000"><img src = "/images/mumbls_sun_logo.png" border="0"/></a>
         </div>
         <div id = "rightcolumn">
           <div id = "minimenu">
@@ -41,7 +41,7 @@
           </div><!-- minimenu -->
           <div id = "nav">
             <ul>
-              <li><%= link_to 'For Rent', housings_path, :class => 'button' -%></li>
+              <li><%= link_to 'Housing', housings_path, :class => 'button' -%></li>
               <li><%= link_to 'Jobs', housings_path, :class => 'button' -%></li>
               <li><%= link_to 'For Sale', listings_path, :class => 'button' -%></li> 
             </ul>    
