@@ -1,19 +1,93 @@
-<p>Current Listings</p>
-<table>
-<% @listings.each do |listing| %>
-  <tr>
-	<td>
-		<%= link_to image_tag(listing.listing_images.first.photo.url(:small)), listing %>
-	</td>
-    <td><%= link_to listing.title, listing %> by <%= listing.author %></td>
-	<td><%= listing.description %></td>
-  </tr>
-<% end %>
-</table>
-<% if current_user %>
-	<%= link_to 'Listings', listings_path %>
-<% else %>
-	<p>Please Login in order to view listings</p>
-<% end %>
+<div id = "middle">
+  <div id = "middle_content">   
+    <!-- rendering partial for search_bar -->
+	<%= form_tag(homesearch_path, :method => 'get') do %>
+	  <table>
+	        <tr>
+	        <td>
+				<select>
+					<option value="0">All</option>
+					<% @categories.each do |category| %>
+						<option value="<%= category.id %>"><%= category.name %></option>
+					<% end %>
+				</select>
+			</td>
+	        <td><%= text_field_tag "searchbar"%></td>
+			<td><%= submit_tag("Search") %></td>
+	      </tr>
+	    </table>
+	<% end %>
+    
+    <div id = "container">
+    <p class="title">Categories</p>
+    <div id = "categories">
+      <ul>
+        <li class="subtitle">Items</li>
+		<% @categories.each do |category| %>
+        <li><%= link_to category.name, "housings/category/#{category.name.downcase.sub('(','').sub(')','').sub(' ','-')}" %></li>
+		<% end %>
+      </ul>
+    </div>
+    </div>
+    <div id = "content">
+      <!-- <img src = "/images/rpi_strip.png" width="675px"> -->
+      <p class="title">Premium Items</p>
+      <div id = "recent_items">
+        <% for i in (1..3) %>
+          <div class="item"></div>
+        <% end -%>
+        <div class="lastitem"></div>
+        <div class="bigarrow"></div>
+        <div id = "clear"></div>
+      </div>
+
+      <p class="title">Recently Added Classifieds</p>
+      <div id = "recent_items">
+        <% @latest_listings.each do |recent| %>
+          <div class="item">
+			<% if !recent.listing_images.empty? %>
+				<%= image_tag(recent.listing_images.first.photo.url(:small)) %>
+			<% end %>
+		  </div>
+        <% end -%>
+        <div class="lastitem"></div>
+        <div class="bigarrow"></div>
+        <div id = "clear"></div>
+      </div>
+
+	 <p class="title">Recently Added Housing Classifieds</p>
+      <div id = "recent_housings">
+        <% @latest_housings.each do |recent| %>
+          <div class="item">
+			<% if !recent.housing_images.empty? %>
+				<%= image_tag(recent.housing_images.first.photo.url(:small)) %>
+			<% end %>
+		  </div>
+        <% end -%>
+        <div class="lastitem"></div>
+        <div class="bigarrow"></div>
+        <div id = "clear"></div>
+      </div>
+
+      <div id = "job_rent">
+         <div id = "recent_jobs">
+           <p class="title">Recently Added Housing Classifieds</p>
+           <div id = "listings"></div>
+         </div>
+         <div id = "recent_rent">
+           <p class="title">New Rent Listings</p>
+           <div id = "listings"></div>
+           </div>-
+         <div id = "clear"></div>
+      </div>
+
+    </div> <!-- content -->
+    <div id = "clear"></div>
+  </div><!-- middle content -->
+  <div id = "clear"></div>
+
+</div><!-- middle end -->    
+<div id = "clear"></div>
 
 
+<%= link_to 'New Housing Listing', new_housing_path %>

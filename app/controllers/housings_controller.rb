@@ -32,7 +32,7 @@ class HousingsController < ApplicationController
   # GET /housings/new.xml
   def new
     @housing = Housing.new
-
+    3.times {@housing.housing_images.build} #initializes 3 images for each housing listing
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @housing }
@@ -42,13 +42,13 @@ class HousingsController < ApplicationController
   # GET /housings/1/edit
   def edit
     @housing = Housing.find(params[:id])
+    3.times {@housing.housing_images.build} #initializes 3 images for each housing listing
   end
 
   # POST /housings
   # POST /housings.xml
   def create
     @housing = Housing.new(params[:housing])
-
     respond_to do |format|
       if @housing.save
         format.html { redirect_to(@housing, :notice => 'Housing was successfully created.') }

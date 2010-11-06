@@ -36,7 +36,11 @@
       <p class="title">Recently Added Items</p>
       <div id = "recent_items">
         <% @latest_listings.each do |recent| %>
-          <div class="item"><%= image_tag(recent.listing_images.first.photo.url(:small)) %></div>
+          <div class="item">
+			<% if !recent.housing_images.empty? %>
+				<%= image_tag(recent.housing_images.first.photo.url(:small)) %>
+			<% end %>
+		  </div>
         <% end -%>
         <div class="lastitem"></div>
         <div class="bigarrow"></div>
@@ -60,24 +64,6 @@
 
 </div><!-- middle end -->    
 <div id = "clear"></div>
-
-<% @housings.each do |listing| %>
-	<div class = "<%= cycle("listing_even","listing_odd") %>">
-		<span class = "listing_header"><%= link_to "#{listing.title} by #{listing.author}" -%></span>
-		<br/>
-		<span class = "listing_description"><%= truncate(listing.description, :length => 200) -%></span>
-
-		<% listing.listing_images do |image| %>
-			<%= image_tag image.photo.url(:small) %>
-		<% end %>
-
-		<% if current_user && (listing.author == current_user.name || current_user.user_role == "admin") %>
-			<%= link_to 'Show', listing %>
-			<%= link_to 'Edit', edit_listing_path(listing) %>
-			<%= link_to 'Destroy', listing, :confirm => 'Are you sure?', :method => :delete %>
-		<% end %>
-	</div>
-<% end %>
 
 
 <%= link_to 'New Housing Listing', new_housing_path %>

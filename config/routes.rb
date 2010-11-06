@@ -41,8 +41,13 @@ AuthlogicRails3Example::Application.routes.draw do |map|
   # End Routes for listings
   
   
+  # Start routes for searches
+  match 'homesearch', :to => 'home#search'
   match 'listingsearch', :to => 'listings#search'
   match 'housingsearch', :to => 'housings#search'
+  # End routes for searches
+  
+  
   match 'logout', :to => 'user_session#destroy', :as => :logout
   match 'resend_form', :to => 'activations#resend_form', :as => 'resend_form'
   match 'resend_activation', :to => 'activations#resend_activation', :as => 'resend_activation'
