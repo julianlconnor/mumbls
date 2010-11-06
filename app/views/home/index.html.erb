@@ -22,9 +22,17 @@
     <p class="title">Categories</p>
     <div id = "categories">
       <ul>
-        <li class="subtitle">Items</li>
-		<% @categories.each do |category| %>
-        <li><%= link_to category.name, "housings/category/#{category.name.downcase.sub('(','').sub(')','').sub(' ','-')}" %></li>
+		<li class="subtitle">Items</li>
+		<% @items.each do |item| %>
+        	<li><%= link_to item.name, "listings/category/#{item.name.downcase.sub('(','').sub(')','').sub(' ','-')}" %></li>
+		<% end %>
+		<li class="subtitle">Jobs</li>
+		<% @jobs.each do |job| %>
+        	<li><%= link_to job.name, "jobs/category/#{job.name.downcase.sub('(','').sub(')','').sub(' ','-')}" %></li>
+		<% end %>
+		<li class="subtitle">Rent</li>
+		<% @rent.each do |r| %>
+        	<li><%= link_to r.name, "rent/category/#{r.name.downcase.sub('(','').sub(')','').sub(' ','-')}" %></li>
 		<% end %>
       </ul>
     </div>
