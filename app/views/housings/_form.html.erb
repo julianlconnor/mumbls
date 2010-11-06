@@ -22,7 +22,10 @@
 		<%= f.label :description %><br />
 		<%= f.text_area :description %>
 	</div>
-	
+	<div class="field">
+		<%= f.label :price %>
+		<%= f.text_field :price %>
+	</div>
 	<%= f.fields_for :housing_images do |builder| %>
 		<% if builder.object.new_record? %>
 			<div class="actions">
@@ -35,7 +38,6 @@
 			</div>
 		<% end %>
 	<% end %>
-
 
 	<div class="actions">
 		<%= f.submit %>

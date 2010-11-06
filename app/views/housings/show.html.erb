@@ -1,19 +1,17 @@
-<h1>Showing listing <%= @show_listing.title %></h1>
+<h1>Showing listing <%= @housing.title %></h1>
 <h2><%= flash[:notice] %></h2>
 <table>
 	<tr>
-		<th>Author</th>
 		<th>Title</th>
 		<th>Description</th>
 		<th>Pics</th>
 		<th></th>
 	</tr>
 	<tr>
-		<td><%= @show_listing.author %></td>
-		<td><%= @show_listing.title %></td>
-		<td><%= @show_listing.description %></td>
+		<td><%= @housing.title %></td>
+		<td><%= @housing.description %></td>
 		<td>
-			<% @show_listing.listing_images.each do |image| %>
+			<% @housing.housing_images.each do |image| %>
 				<%= image_tag image.photo.url(:small) %>
 			<% end %>
 		</td>
@@ -23,4 +21,4 @@
 </table>
 <br />
 
-<%= link_to 'New listing', new_listing_path %>
+<%= link_to 'New listing', new_housing_path %>
