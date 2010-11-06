@@ -4,4 +4,6 @@ class Housing < ActiveRecord::Base
   validates :price,  :presence => true
   validates :title,   :presence => true,
                       :length   => { :minimum => 5 }
+                      
+  has_many :housing_images, :dependent => :destroy
 end

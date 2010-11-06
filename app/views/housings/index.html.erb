@@ -17,7 +17,7 @@
       <ul>
         <li class="subtitle">Items</li>
 		<% @categories.each do |category| %>
-        <li><%= link_to category.name, "listings/category/#{category.name.downcase.sub('(','').sub(')','').sub(' ','-')}" %></li>
+        <li><%= link_to category.name, "housings/category/#{category.name.downcase.sub('(','').sub(')','').sub(' ','-')}" %></li>
 		<% end %>
       </ul>
     </div>
@@ -61,7 +61,7 @@
 </div><!-- middle end -->    
 <div id = "clear"></div>
 
-<% @listings.each do |listing| %>
+<% @housings.each do |listing| %>
 	<div class = "<%= cycle("listing_even","listing_odd") %>">
 		<span class = "listing_header"><%= link_to "#{listing.title} by #{listing.author}" -%></span>
 		<br/>
@@ -80,4 +80,4 @@
 <% end %>
 
 
-<%= link_to 'New listing', new_listing_path %>
+<%= link_to 'New Housing Listing', new_housing_path %>

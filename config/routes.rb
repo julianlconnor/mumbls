@@ -34,14 +34,15 @@ AuthlogicRails3Example::Application.routes.draw do |map|
   match '/listings/category/part-time' => 'listings#list_by_category', :id => 9
   match '/listings/category/full-time' => 'listings#list_by_category', :id => 10
   match '/listings/category/services' => 'listings#list_by_category', :id => 11
-  match '/listings/category/apartments-2-br' => 'listings#list_by_category', :id => 12
-  match '/listings/category/apartments-3-br' => 'listings#list_by_category', :id => 13
-  match '/listings/category/apartments-4-br' => 'listings#list_by_category', :id => 14
-  match '/listings/category/sublet-short-term' => 'listings#list_by_category', :id => 15
+  match '/housings/category/apartments-2-br' => 'listings#list_by_category', :id => 12
+  match '/housings/category/apartments-3-br' => 'listings#list_by_category', :id => 13
+  match '/housings/category/apartments-4-br' => 'listings#list_by_category', :id => 14
+  match '/housings/category/sublet-short-term' => 'listings#list_by_category', :id => 15
   # End Routes for listings
   
   
   match 'listingsearch', :to => 'listings#search'
+  match 'housingsearch', :to => 'housings#search'
   match 'logout', :to => 'user_session#destroy', :as => :logout
   match 'resend_form', :to => 'activations#resend_form', :as => 'resend_form'
   match 'resend_activation', :to => 'activations#resend_activation', :as => 'resend_activation'

@@ -3,7 +3,8 @@ class HousingsController < ApplicationController
   # GET /housings.xml
   def index
     @housings = Housing.all
-
+    @categories = Category.where(:parent => "Rent")
+    @latest_listings = Housing.order("created_at DESC").limit(4)
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @housings }
@@ -18,6 +19,12 @@ class HousingsController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @housing }
+    end
+  end
+
+  def search
+    @search = Housing.search() do
+      keywords(params[:searchbar])
     end
   end
 
