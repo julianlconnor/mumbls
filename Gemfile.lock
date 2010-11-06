@@ -72,7 +72,6 @@ GEM
     net-ssh (2.0.23)
     net-ssh-gateway (1.0.1)
       net-ssh (>= 1.99.1)
-    nokogiri (1.4.3.1)
     paperclip (2.3.4)
       activerecord
       activesupport
@@ -134,7 +133,6 @@ DEPENDENCIES
   haml
   mongrel
   mysql
-  nokogiri
   paperclip
   rails (= 3.0.0.beta4)
   rails3-generators

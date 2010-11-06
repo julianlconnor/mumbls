@@ -7,11 +7,10 @@
   <%= csrf_meta_tag %>
 </head>
 <body> 
-  <div id = "wrapper">
-    <div id = "header">
-      <div id = "header_content">
+  <div id = "header">
+    <div id = "header_content">
         <div id = "leftcolumn">
-          <img src = "/images/mumbls_logo.png"/>
+          <img src = "/images/mumbls_sun_logo.png"/>
         </div>
         <div id = "rightcolumn">
           <div id = "minimenu">
@@ -42,9 +41,9 @@
           </div><!-- minimenu -->
           <div id = "nav">
             <ul>
-              <li><%= link_to 'For Rent', housings_path %></li>
-              <li>Jobs</li>
-              <li><%= link_to 'For Sale', listings_path %></li> 
+              <li><%= link_to 'For Rent', housings_path, :class => 'button' -%></li>
+              <li><%= link_to 'Jobs', housings_path, :class => 'button' -%></li>
+              <li><%= link_to 'For Sale', listings_path, :class => 'button' -%></li> 
             </ul>    
             </div><!-- nav -->
           <div id = "clear"></div>
@@ -52,14 +51,15 @@
         <div id = "clear"></div>
       </div><!--header_content -->
     </div> <!-- header -->
-  <%= yield %>
-  <div id = "footer"> 
-    <ul>
-      <li>Privacy Policy</li>
-      <li>Contact</li>
-      <li>About Us</li> 
-    </ul>
-  </div>
+  <div id = "wrapper">  
+      <%= yield %>
+      <div id = "footer"> 
+      <ul>
+        <li>Privacy Policy</li>
+        <li>Contact</li>
+        <li>About Us</li> 
+      </ul>
+    </div>
   </div> <!-- wrapper end -->
   
   
