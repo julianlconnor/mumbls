@@ -1,43 +1,65 @@
-<% form_for @user, :html => { :multipart => true } do |f| %>
-  <%- if @user.errors.any? %>
-    <div id='errorExplanation'>
-     <h2><%= "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:" %></h2>
-      <ul>
-        <%- @user.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-		<% end %>
-	  </ul>
-	 </div>
-   <% end %>
-
+<div id = "outside">
+    <% form_for @user, :html => { :multipart => true } do |f| %>
+  <div id = "left">
+      <div id = "box">
+        <p class="title">Register </p>
+        <table>
+          <tr>
+            <td><%= f.label :name %></td>
+            <td><%= f.text_field :name %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :alias %></td>
+            <td><%= f.text_field :alias %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :email %></td>
+            <td><%= f.text_field :email %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :password %></td>
+            <td><%= f.password_field :password %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :password_confirmation %></td>
+            <td><%= f.password_field :password_confirmation %></td>
+          </tr>
+<!--<tr><td colspan="2">
+<div class="text">Upload an avatar!  Limited to 500 KB in size, JPG or PNG.</div>
+</td>
+</tr>
+<tr>
 	<div class='field'>
-	    <%= f.label :name %>
-	    <%= f.text_field :name %>
-	</div>
-	<div class='field'>
-	    <%= f.label :alias %>
-	    <%= f.text_field :alias %>
-	</div>
-	<div class='field'>
-	    <%= f.label :email %>
-	    <%= f.text_field :email %>
-	</div>
-	<div class='field'>
-	    <%= f.label :password %>
-	    <%= f.password_field :password %>
-	</div>
-	<div class='field'>
-	    <%= f.label :password_confirmation %>
-	    <%= f.password_field :password_confirmation %>
-	</div>
-	<div class='field'>
-		<% f.label :avatar %>
-		<%= f.file_field :avatar %>
-	</div>
-	<%= f.hidden_field :activation_code, {:value => "#{Digest::MD5.hexdigest(Time.new.to_s)}" }%>
-	<div class='field'>
-		<div class='actions'>
-	    	<%= f.submit 'Save' %>
-		</div>
-	</div>
-<% end %>
+<% f.label :avatar %>
+<td colspan="2"><%= f.file_field :avatar %></td>
+</div>
+</tr>
+-->
+          <%= f.hidden_field :activation_code, {:value => "#{Digest::MD5.hexdigest(Time.new.to_s)}" }%>
+          <tr>
+            <td></td>
+            <td><%= f.submit 'Submit', :class => 'button submission' %></td>
+          </tr>
+      </table>
+    <% end %>
+    </div><!-- box end -->
+    <!-- print errors -->
+    <%- if @user.errors.any? %>
+    <div id = "box">
+        <div class = "bold">Please correct the following error(s) and resubmit</div>
+          <ul>
+            <%- @user.errors.full_messages.each do |msg| %>
+              <li class="error"><%= msg %></li>
+      		  <% end %>
+      	  </ul>
+    </div>
+    <% end %>
+  </div> <!-- left end -->
+    <div id = "left">
+      <div id = "box">
+        <p class="title"> Already a member? </p>
+        <%= link_to 'Sign In', login_path %>
+      </div>
+    </div>    
+  <div id = "clear"></div>
+</div><!-- outside end -->
