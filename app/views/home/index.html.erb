@@ -6,7 +6,9 @@
 	        <tr>
 	        <td>
 				<select name="category_id">
-					<option value="0">All</option>
+					<option value="all"><strong>All</option>
+					<option value="listings">Listings</option>
+					<option value="housings">Housings</option>
 					<% @categories.each do |category| %>
 						<option value="<%= category.id %>"><%= category.name %></option>
 					<% end %>
@@ -53,7 +55,7 @@
         <% @latest_listings.each do |recent| %>
           <div class="item">
 			<% if !recent.listing_images.empty? %>
-				<%= image_tag(recent.listing_images.first.photo.url(:small)) %>
+				<%= image_tag(recent.listing_images.first.photo.url(:small).gsub(' ','%20')) %>
 			<% end %>
 		  </div>
         <% end -%>

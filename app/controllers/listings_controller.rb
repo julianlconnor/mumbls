@@ -1,4 +1,6 @@
 class ListingsController < ApplicationController
+  #before_filter :require_user, :only => [:new, :create, :destroy]
+  
   # GET /listings
   # GET /listings.xml
   def index
@@ -36,11 +38,18 @@ class ListingsController < ApplicationController
   # GET /listings/new
   # GET /listings/new.xml
   def new
-    @listing = Listing.new
-    3.times {@listing.listing_images.build} #initializes 3 images for each user
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @listing }
+    @user = UserSession.find
+    if @user.nil?
+      flash[:notice] = "please log in"
+      redirect_to(:controller => "user_session", :action => "new")
+    else
+      @listing = Listing.new
+      @categories = Category.where(:parent => "Items")
+      3.times {@listing.listing_images.build} #initializes 3 images for each user
+      respond_to do |format|
+        format.html # new.html.erb
+        format.xml  { render :xml => @listing }
+      end
     end
   end
 

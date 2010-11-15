@@ -26,6 +26,13 @@
   		<td><%= f.text_area :description %></td>
 </tr>
 <tr>
+		<td><%= f.label :category_id, "Category:" %></td>
+		<td><%= select ("listing", "category_id", @categories.map {|u| [u.name,u.id]}) %></td>
+<tr>
+<tr>
+		<td><%= f.label :price, "Price:" %></td>
+		<td><%= f.text_field :price %></td>
+</tr>
 <td colspan="2">You are allowed to upload up to three images per listing.  Files are limited to 500KB, JPG and PNG formats.</td>
 </tr>
 

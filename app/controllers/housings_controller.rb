@@ -31,11 +31,17 @@ class HousingsController < ApplicationController
   # GET /housings/new
   # GET /housings/new.xml
   def new
-    @housing = Housing.new
-    3.times {@housing.housing_images.build} #initializes 3 images for each housing listing
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @housing }
+    @user = UserSession.find
+    if @user.nil?
+      flash[:notice] = "Please log in order to post new listings."
+      redirect_to(:controller => "user_session", :action => "new")
+    else
+      @housing = Housing.new
+      3.times {@housing.housing_images.build} #initializes 3 images for each housing listing
+      respond_to do |format|
+        format.html # new.html.erb
+        format.xml  { render :xml => @housing }
+      end
     end
   end
 

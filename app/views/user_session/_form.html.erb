@@ -2,7 +2,7 @@
   <div id = "left">
     <div id="box">
       <p class="title"> Sign In </p>
-      <% form_for :user_session, @user_session, :url => { :action => "create" } do |f| %>
+      <%= form_for :user_session, @user_session, :url => { :action => "create" } do |f| %>
       <table>
         <tr>          
 		      <td><%= f.label :email %></td>
