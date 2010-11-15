@@ -1,0 +1,25 @@
+<div class="results">
+	
+	<% if !@l_results.nil? %>
+		<h1>Listing Results</h1>
+		<% @l_results.each_hit_with_result do |hit, post| %>
+			<div class="result">
+				<%= h post.title %>
+				<%= h hit.score %>
+				<%= h truncate(post.description, 100) %>
+			</div>
+		<% end %>
+	<% end %>
+	
+	<% if !@h_results.nil? %>
+		<h1>Housing Results</h1>
+		<% @h_results.each_hit_with_result do |hit, post| %>
+			<div class="result">
+				<%= h post.title %>
+				<%= h hit.score %>
+				<%= h truncate(post.description, 100) %>
+			</div>
+		<% end %>
+	<% end %>
+	
+</div>

@@ -2,7 +2,7 @@
   <div id = "left">
     <div id="box">
       <p class="title"> Sign In </p>
-      <% form_for :user_session, @user_session, :url => { :action => "create" } do |f| %>
+      <%= form_for :user_session, @user_session, :url => { :action => "create" } do |f| %>
       <table>
         <tr>          
 		      <td><%= f.label :email %></td>
@@ -18,7 +18,7 @@
         </tr>
         <tr>          
           <td></td>
-	        <td<%= f.submit "Login", :class => 'button submission' %></td>
+	        <td><%= f.submit "Login", :class => 'button submission' %></td>
           <td>Forgot Password?<br/>
           <%= link_to 'Need another activation email?', resend_form_path %></td>
         </tr>
