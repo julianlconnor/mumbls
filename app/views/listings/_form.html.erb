@@ -17,22 +17,25 @@
   	<% end %>
 <table>
 <tr>
-
-  		<td><%= f.label :title %></td>
-  		<td><%= f.text_field :title %></td>
+  <td><%= f.label :title %></td>
+  <td><%= f.text_field :title %></td>
 </tr>
 <tr>
-  		<td><%= f.label :description %></td>
-  		<td><%= f.text_area :description %></td>
+  <td><%= f.label :description %></td>
+  <td><%= f.text_area :description %></td>
 </tr>
 <tr>
 		<td><%= f.label :category_id, "Category:" %></td>
-		<td><%= select ("listing", "category_id", @categories.map {|u| [u.name,u.id]}) %></td>
+		<td><%= select ("listing", "category_id", @categories.map {|u| [u.name,u.id]}) %></td>    
+</tr>
 <tr>
-<tr>
-		<td><%= f.label :price, "Price:" %></td>
+		<td><%= f.label :price, "Price ($): " %></td>
 		<td><%= f.text_field :price %></td>
 </tr>
+
+</table>
+<table class="upload_images">
+<tr>
 <td colspan="2">You are allowed to upload up to three images per listing.  Files are limited to 500KB, JPG and PNG formats.</td>
 </tr>
 
@@ -48,7 +51,6 @@
       </tr>
   		<% end %>
   	<% end %>
-  
   <tr>
   <td></td>
   <td><%= f.submit "Post", :class => 'button submission' -%></td>

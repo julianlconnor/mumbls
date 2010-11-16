@@ -6,9 +6,9 @@
 	        <tr>
 	        <td><%= select ("selected_category", "id", @categories.map {|u| [u.name,u.id]}) %></td>
 	        <td><%= text_field_tag "searchbar"%></td>
-			    <td><%= submit_tag("Search") %></td>
+			    <td><%= submit_tag("Search", :class => "search_button") %></td>
       <% end %>
-          <td><%= link_to 'New listing', new_listing_path, :class => 'button new_button' %></td>  
+      <td><%= link_to 'New listing', new_listing_path, :class => 'button new_button' %></td>  
     </tr>       
           
 	    </table>

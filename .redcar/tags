@@ -1,4 +1,4 @@
-1289261218
+1289870650
 ActivationsController	/home/panfia/Documents/mumbls/app/controllers/activations_controller.rb	class ActivationsController 
 ActivationsHelper	/home/panfia/Documents/mumbls/app/helpers/activations_helper.rb	module ActivationsHelper
 AddActivationCodeToUsers	/home/panfia/Documents/mumbls/db/migrate/20101008183745_add_activation_code_to_users.rb	class AddActivationCodeToUsers 
@@ -9,6 +9,7 @@ AddCategories	/home/panfia/Documents/mumbls/db/migrate/20101026022643_add_catego
 AddCategoryToListings	/home/panfia/Documents/mumbls/db/migrate/20101103182531_add_category_to_listings.rb	class AddCategoryToListings 
 AddPhotoDetailsToHousing	/home/panfia/Documents/mumbls/db/migrate/20101105191851_add_photo_details_to_housing.rb	class AddPhotoDetailsToHousing 
 AddPhotoDetailsToListing	/home/panfia/Documents/mumbls/db/migrate/20101012015418_add_photo_details_to_listing.rb	class AddPhotoDetailsToListing 
+AddPriceToListings	/home/panfia/Documents/mumbls/db/migrate/20101109233259_add_price_to_listings.rb	class AddPriceToListings 
 AddUserRoleToUser	/home/panfia/Documents/mumbls/db/migrate/20101014234356_add_user_role_to_user.rb	class AddUserRoleToUser 
 Application	/home/panfia/Documents/mumbls/config/application.rb	  class Application 
 ApplicationController	/home/panfia/Documents/mumbls/app/controllers/application_controller.rb	class ApplicationController 
@@ -68,6 +69,7 @@ down	/home/panfia/Documents/mumbls/db/migrate/20101103182531_add_category_to_lis
 down	/home/panfia/Documents/mumbls/db/migrate/20101105184146_create_housings.rb	  def self.down
 down	/home/panfia/Documents/mumbls/db/migrate/20101105191819_create_housing_images.rb	  def self.down
 down	/home/panfia/Documents/mumbls/db/migrate/20101105191851_add_photo_details_to_housing.rb	  def self.down
+down	/home/panfia/Documents/mumbls/db/migrate/20101109233259_add_price_to_listings.rb	  def self.down
 edit	/home/panfia/Documents/mumbls/app/controllers/housings_controller.rb	  def edit
 edit	/home/panfia/Documents/mumbls/app/controllers/listings_controller.rb	  def edit
 edit	/home/panfia/Documents/mumbls/app/controllers/users_controller.rb	  def edit
@@ -114,6 +116,7 @@ up	/home/panfia/Documents/mumbls/db/migrate/20101103182531_add_category_to_listi
 up	/home/panfia/Documents/mumbls/db/migrate/20101105184146_create_housings.rb	  def self.up
 up	/home/panfia/Documents/mumbls/db/migrate/20101105191819_create_housing_images.rb	  def self.up
 up	/home/panfia/Documents/mumbls/db/migrate/20101105191851_add_photo_details_to_housing.rb	  def self.up
+up	/home/panfia/Documents/mumbls/db/migrate/20101109233259_add_price_to_listings.rb	  def self.up
 update	/home/panfia/Documents/mumbls/app/controllers/housings_controller.rb	  def update
 update	/home/panfia/Documents/mumbls/app/controllers/listings_controller.rb	  def update
 update	/home/panfia/Documents/mumbls/app/controllers/users_controller.rb	  def update

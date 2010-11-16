@@ -2,7 +2,7 @@
     <% form_for @user, :html => { :multipart => true } do |f| %>
   <div id = "left">
       <div id = "box">
-        <p class="title">Register </p>
+        <p class="title">Edit Account Information </p>
         <table>
           <tr>
             <td><%= f.label :name %></td>
@@ -23,7 +23,17 @@
           <tr>
             <td><%= f.label :password_confirmation %></td>
             <td><%= f.password_field :password_confirmation %></td>
-          </tr>          
+          </tr>
+          <tr><td colspan="2">
+<div class="text">Upload an avatar!  Limited to 500 KB in size, JPG or PNG.</div>
+</td>
+</tr>
+<tr>
+	<div class='field'>
+<% f.label :avatar %>
+<td colspan="2"><%= f.file_field :avatar %></td>
+</div>
+</tr>
           <%= f.hidden_field :activation_code, {:value => "#{Digest::MD5.hexdigest(Time.new.to_s)}" }%>
           <tr>
             <td></td>
@@ -44,11 +54,5 @@
     </div>
     <% end %>
   </div> <!-- left end -->
-    <div id = "left">
-      <div id = "box">
-        <p class="title"> Already a member? </p>
-        <%= link_to 'Sign In', login_path %>
-      </div>
-    </div>    
   <div id = "clear"></div>
 </div><!-- outside end -->
