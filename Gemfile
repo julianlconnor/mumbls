@@ -24,6 +24,8 @@ gem 'mongrel'
 gem 'bundler'
 
 
+
+
 # Indexing powered by Solr
 gem 'sunspot_rails', '1.2.rc4'
 

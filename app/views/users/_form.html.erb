@@ -23,7 +23,26 @@
           <tr>
             <td><%= f.label :password_confirmation %></td>
             <td><%= f.password_field :password_confirmation %></td>
+<<<<<<< HEAD
           </tr>          
+=======
+          </tr>
+		  <tr>
+			<td><%= f.label :email_is_public, "Share my email" %></td>
+			<td><%= f.check_box :email_is_public, :checked => true %></td>
+		  </tr>
+<!--<tr><td colspan="2">
+<div class="text">Upload an avatar!  Limited to 500 KB in size, JPG or PNG.</div>
+</td>
+</tr>
+<tr>
+	<div class='field'>
+<% f.label :avatar %>
+<td colspan="2"><%= f.file_field :avatar %></td>
+</div>
+</tr>
+-->
+>>>>>>> 6233cd6a9b2143240cfeb4646629db8af0924c7d
           <%= f.hidden_field :activation_code, {:value => "#{Digest::MD5.hexdigest(Time.new.to_s)}" }%>
           <tr>
             <td></td>
