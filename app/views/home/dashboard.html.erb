@@ -1,0 +1,25 @@
+
+<span>Name: <%= current_user.name %></span>
+<span>Alias:<%= current_user.alias %></span>
+<%= image_tag current_user.avatar.url(:small) %>
+
+
+<% @listings.each do |recent| %>
+	<% if recent.listing_images.length > 0 %>
+		<div class="item">
+			<%= image_tag(recent.listing_images.first.photo.url(:small)) %>
+			<%= link_to(recent.title, recent ) %>
+			<%= "$" + recent.price.to_s %>
+		</div>
+	<% end %>
+<% end -%>
+
+<% @housings.each do |recent| %>
+	<div class="item">
+	<% if recent.housing_images.length > 0 %>
+		<%= image_tag(recent.housing_images.first.photo.url(:small)) %>
+	<% end %>
+	<%= link_to(recent.title, recent ) %>
+	<%= "$" + recent.price.to_s %>
+	</div>
+<% end -%>

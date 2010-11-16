@@ -1,5 +1,10 @@
 <h1>Showing listing <%= @housing.title %></h1>
 <h2><%= flash[:notice] %></h2>
+<script type="text/javascript">
+	$(function() {
+	    $("#map").gMap();
+	});
+</script>
 <table>
 	<tr>
 		<th>Title</th>
@@ -21,5 +26,6 @@
 </table>
 
 <br />
+
 
 <%= link_to 'New listing', new_housing_path %>

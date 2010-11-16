@@ -29,7 +29,7 @@
               <li><%= link_to 'Logout', logout_path, :method => :delete %></li>
               <li><%= link_to 'Network: RPI' -%></li>
               <li><%= link_to 'Conversations (0)' -%></li>
-              <li><%= link_to 'Watch List (0)' -%></li>
+              <li><%= link_to 'Dashboard', '/home/dashboard' -%></li>
               <li><%= link_to 'My Account ('+truncate(current_user.alias, 15, "...")+')', '/profile/'+current_user.alias -%></li>   
             </ul>
             <% else %>
