@@ -4,7 +4,14 @@
 	<%= form_tag(listingsearch_path, :method => 'get') do %>
 	  <table>
 	        <tr>
-	        <td><%= select ("selected_category", "id", @categories.map {|u| [u.name,u.id]}) %></td>
+			<td>
+				<select name="category_id">
+					<option value="all">All</option>
+					<% @categories.each do |category| %>
+						<option value="<%= category.id %>"><%= category.name %></option>
+					<% end %>
+				</select>
+			</td>
 	        <td><%= text_field_tag "searchbar"%></td>
 			    <td><%= submit_tag("Search") %></td>
       <% end %>
@@ -38,9 +45,15 @@
       </div>
       <p class="title">Recently Added Items</p>
       <div id = "recent_items">
-        <% @latest_listings.each do |recent| %>
-          <div class="item"><%= image_tag(recent.listing_images.first.photo.url(:small)) %></div>
-        <% end -%>
+       <% @latest_listings.each do |recent| %>
+			<% if recent.listing_images.length > 0 %>
+	          <div class="item">
+			  	<%= image_tag(recent.listing_images.first.photo.url(:small)) %>
+				<%= link_to(recent.title, recent )+ " by " + recent.author %>
+				<%= "$" + recent.price.to_s %>
+			  </div>
+			<% end %>
+	    <% end -%>
         <div class="lastitem"></div>
         <div class="bigarrow"></div>
         <div id = "clear"></div>

@@ -24,6 +24,10 @@
             <td><%= f.label :password_confirmation %></td>
             <td><%= f.password_field :password_confirmation %></td>
           </tr>
+		  <tr>
+			<td><%= f.label :email_is_public, "Share my email" %></td>
+			<td><%= f.check_box :email_is_public, :checked => true %></td>
+		  </tr>
 <!--<tr><td colspan="2">
 <div class="text">Upload an avatar!  Limited to 500 KB in size, JPG or PNG.</div>
 </td>

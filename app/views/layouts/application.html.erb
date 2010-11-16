@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Mumbls ~</title>
-  <%= stylesheet_link_tag "mainstyle.css" %>
-  <%= javascript_include_tag :defaults %>
-  <%= csrf_meta_tag %>
+	<title>Mumbls ~</title>
+	<%= javascript_include_tag "http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAoHnqt2XVAb7ehuW5CBUkihQDNUKtWYO0YNsBQklWEm0Tg_LWZBQnGqoPh5Cn4uiYV-LPfiDfYMfksA" %>
+	<%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" %>
+	<%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js" %>
+	<%= javascript_include_tag "jquery-rails.js" %>
+	<%= stylesheet_link_tag "mainstyle.css" %>
+	<%= csrf_meta_tag %>
 </head>
 <body> 
   <div id = "header">
@@ -26,7 +29,7 @@
               <li><%= link_to 'Network: RPI' -%></li>
               <li><%= link_to 'Conversations (0)' -%></li>
               <li><%= link_to 'Watch List (0)' -%></li>
-              <li><%= link_to 'My Account ('+current_user.alias+')', '/profile/'+current_user.alias -%></li>   
+              <li><%= link_to 'My Account ('+truncate(current_user.alias, 15, "...")+')', '/profile/'+current_user.alias -%></li>   
             </ul>
             <% else %>
             <ul>
@@ -51,8 +54,14 @@
         <div id = "clear"></div>
       </div><!--header_content -->
     </div> <!-- header -->
-  <div id = "wrapper">  
-      <%= yield %>
+  <div id = "wrapper">
+	<% flash.each do |key, msg| %>
+		<%= content_tag :div, msg, :class => [key, " message"], :id => "notice_ #{key}" %>
+		<%= content_tag :script, :type => "text/javascript" do -%>
+			setTimeout("new Effect.Fade('notice_<%= key %>');", 15000);
+		<% end %>
+	<% end %>
+	<%= yield %>
       <div id = "footer"> 
       <ul>
         <li>Privacy Policy</li>

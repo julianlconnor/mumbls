@@ -1,13 +1,14 @@
 class User < ActiveRecord::Base
   validates_uniqueness_of :alias,  :presence => true
-  validates :email, :presence => true, :uniqueness => true, :email_format => true
+  validates_length_of :alias, :minimum => 3, :message => "Alias must be at least 3 characters."
+  validates_uniqueness_of :email, :presence => true, :email_format => true, :message => "Sorry, but a user with the emails %s, already exists."
+  validates_attachment_size :avatar, :less_than => 1.megabytes, :message => "File size can not be larger than 2mb.", :content_type => 'image/jpeg' 
   
   # Paperclip
   has_attached_file :avatar,
                     :styles => { :thumb=> "100x100#",
                                  :small  => "150x150>" }
-  validates_attachment_size :avatar, :less_than => 1.megabytes, :message => "File size can not be larger than 2mb.", :content_type => 'image/jpeg'                              
-                                 
+                                                     
   def active?
     active
   end

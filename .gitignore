@@ -3,4 +3,5 @@ db/*.sqlite3
 log/*.log
 tmp/**/*
 config/database.yml
-solr/data
+solr/data/*
+public/system/*
