@@ -19,7 +19,14 @@ AuthlogicRails3Example::Application.routes.draw do |map|
   
   match '/register/:activation_code' => 'activations#new'
   match '/activate/:activation_code' => 'activations#create'
+  
+  # Route for showing users
   match '/profile/:alias' => 'users#show_profile'
+  
+  # Route for user dashboards
+  match '/home/dashboard', :to => 'home#dashboard'
+  
+  # Route for easily viewing listings
   match '/:listings/:id' => 'listings#show'
   
   # Start routes for listings
