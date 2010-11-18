@@ -24,12 +24,18 @@
             <td><%= f.label :password_confirmation %></td>
             <td><%= f.password_field :password_confirmation %></td>
           </tr>
+			<tr>
+				<td>Current Avatar</td>
+				<td><%= image_tag(@user.avatar.url(:small)) %></td>
+			</tr>
           <tr><td colspan="2">
 <div class="text">Upload an avatar!  Limited to 500 KB in size, JPG or PNG.</div>
 </td>
 </tr>
+
 <tr>
 	<div class='field'>
+	
 <% f.label :avatar %>
 <td colspan="2"><%= f.file_field :avatar %></td>
 </div>

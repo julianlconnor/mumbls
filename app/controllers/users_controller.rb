@@ -45,7 +45,16 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    @user = User.find(params[:id])
+    @user = UserSession.find
+    if @user.nil?
+      flash[:notice] = "Please log in to edit your profile. ;)"
+      redirect_to(:controller => "user_session", :action => "new")
+    elsif @user.user.id != params[:id].to_i
+      flash[:notice] = "Silly goose.. You can't edit other users' profiles."
+      redirect_to(:controller => "home", :action => "index")
+    elsif @user.user.id == params[:id].to_i
+      @user = User.find(params[:id])
+    end
   end
 
   # POST /users
