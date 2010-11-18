@@ -46,13 +46,12 @@
        <% @latest_listings.each do |recent| %>
 			<% if recent.listing_images.length > 0 %>
 	          <div class="item">
-			  	<%= image_tag(recent.listing_images.first.photo.url(:small)) %>
-				<%= link_to(recent.title, recent )+ " by " + recent.author %>
-				<%= "$" + recent.price.to_s %>
-			  </div>
+              <%= image_tag(recent.listing_images.first.photo.url(:small)) %>
+              <%= link_to(recent.title, recent )+ " by " + recent.author %>
+              <%= "$" + recent.price.to_s %>
+			      </div>
 			<% end %>
 	    <% end -%>
-        <div class="lastitem"></div>
         <div class="bigarrow"></div>
         <div id = "clear"></div>
       </div>      
