@@ -40,7 +40,7 @@ class ListingsController < ApplicationController
   def new
     @user = UserSession.find
     if @user.nil?
-      flash[:notice] = "please log in"
+      flash[:notice] = "Please sign in to create a new listing."
       redirect_to(:controller => "user_session", :action => "new")
     else
       @listing = Listing.new
@@ -66,7 +66,7 @@ class ListingsController < ApplicationController
 
     respond_to do |format|
       if @listing.save
-        format.html { redirect_to(@listing, :notice => 'Listing was successfully created.') }
+        format.html { redirect_to(@listing, :notice => 'Your listing was successfully created.') }
         format.xml  { render :xml => @listing, :status => :created, :location => @listing }
       else
         format.html { render :action => "new" }

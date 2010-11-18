@@ -46,7 +46,7 @@
        <% @latest_listings.each do |recent| %>
 			<% if recent.listing_images.length > 0 %>
 	          <div class="item">
-			  	<%= image_tag(recent.listing_images.first.photo.url(:small)) %>
+			  	<%= image_tag(recent.listing_images.first.photo.url(:small).sub(' ','%20')) %>
 				<%= link_to(recent.title, recent )+ " by " + recent.author %>
 				<%= "$" + recent.price.to_s %>
 			  </div>

@@ -42,15 +42,14 @@
     <div id = "content">
       <p class="title">Premium Items</p>
       <div id = "recent_items">
-        <% for i in (1..3) %>
+        <% for i in (1..4) %>
           <div class="item"></div>
         <% end -%>
-        <div class="lastitem"></div>
         <div class="bigarrow"></div>
         <div id = "clear"></div>
       </div>
 
-      <p class="title">Recently Added Classifieds</p>
+      <p class="title">Recently Added Items</p>
       <div id = "recent_items">
         <% @latest_listings.each do |recent| %>
           <div class="item">
@@ -59,12 +58,11 @@
 			<% end %>
 		  </div>
         <% end -%>
-        <div class="lastitem"></div>
         <div class="bigarrow"></div>
         <div id = "clear"></div>
       </div>
 
-	 <p class="title">Recently Added Housing Classifieds</p>
+	 <p class="title">For Rent</p>
       <div id = "recent_housings">
         <% @latest_housings.each do |recent| %>
           <div class="item">
@@ -73,18 +71,13 @@
 			<% end %>
 		  </div>
         <% end -%>
-        <div class="lastitem"></div>
         <div class="bigarrow"></div>
         <div id = "clear"></div>
       </div>
 
-      <div id = "job_rent">
-         <div id = "recent_jobs">
-           <p class="title">Recently Added Housing Classifieds</p>
-           <div id = "listings"></div>
-         </div>
+      <div id = "job_rent">        
          <div id = "recent_rent">
-           <p class="title">New Rent Listings</p>
+           <p class="title">New Job Listings</p>
            <div id = "listings"></div>
            </div>-
          <div id = "clear"></div>
@@ -97,6 +90,3 @@
 
 </div><!-- middle end -->    
 <div id = "clear"></div>
-
-
-<%= link_to 'New Housing Listing', new_housing_path %>

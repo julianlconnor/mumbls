@@ -1,0 +1,7 @@
+Things we have left to do ~
+	Main page needs to be restyled for readability and and ease of use,
+	New listing page needs to be wider and more intuative
+	Searching page needs to be redone, also with ajax
+	Housings need google maps
+	we need to figure out seller accounts
+	paypal?
