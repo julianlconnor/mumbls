@@ -63,7 +63,7 @@ class ListingsController < ApplicationController
   # POST /listings.xml
   def create
     @listing = Listing.new(params[:listing])
-
+    @categories = Category.where(:parent => "Items")
     respond_to do |format|
       if @listing.save
         format.html { redirect_to(@listing, :notice => 'Your listing was successfully created.') }
