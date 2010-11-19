@@ -1,20 +1,19 @@
 <div id = "outside">
-    <% form_for @user, :html => { :multipart => true } do |f| %>
-  <div id = "left">
-      <div id = "box">
+    <% form_for @user, :html => { :multipart => true } do |f| %>    
+      <div id = "box" class = "new">
         <p class="title">Edit Account Information </p>
         <table>
           <tr>
             <td><%= f.label :name %></td>
-            <td><%= f.text_field :name %></td>
+            <td><div class = "table_text"><%= @user.name %></div></td>
           </tr>
           <tr>
             <td><%= f.label :alias %></td>
-            <td><%= f.text_field :alias %></td>
+            <td><div class = "table_text"><%= @user.alias %></div></td>
           </tr>
           <tr>
             <td><%= f.label :email %></td>
-            <td><%= f.text_field :email %></td>
+            <td><div class = "table_text"><%= @user.email %></div></td>
           </tr>
           <tr>
             <td><%= f.label :password %></td>
@@ -24,12 +23,22 @@
             <td><%= f.label :password_confirmation %></td>
             <td><%= f.password_field :password_confirmation %></td>
           </tr>
+			<tr>
+				<td>Current Avatar</td>
+        <% if !@user.avatar.url(:small).nil? %>
+				  <td><%= image_tag(@user.avatar.url(:small), :class => "avatar") %></td>
+        <% else %>
+          <td><div class="table_text">No avatar has been uploaded.</div></td>
+        <% end %>
+			</tr>
           <tr><td colspan="2">
 <div class="text">Upload an avatar!  Limited to 500 KB in size, JPG or PNG.</div>
 </td>
 </tr>
+
 <tr>
 	<div class='field'>
+	
 <% f.label :avatar %>
 <td colspan="2"><%= f.file_field :avatar %></td>
 </div>
@@ -52,7 +61,6 @@
       		  <% end %>
       	  </ul>
     </div>
-    <% end %>
-  </div> <!-- left end -->
+    <% end %>    
   <div id = "clear"></div>
 </div><!-- outside end -->

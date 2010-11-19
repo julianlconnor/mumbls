@@ -37,6 +37,7 @@
         <% for i in (1..3) %>
           <div class="item"></div>
         <% end -%>
+        <div class="lastitem"></div>
         <div class="bigarrow"></div>
         <div id = "clear"></div>
       </div>
@@ -44,16 +45,20 @@
       <div id = "recent_items">
        <% @latest_listings.each do |recent| %>
 			<% if recent.listing_images.length > 0 %>
-         <div class="item">
-          <div class ="item_image"<%= link_to(image_tag(recent.listing_images.first.photo.url(:small)), recent) %></div>
-          <div class = "item_text">
-            <div class = "item_title"><%= link_to(recent.title, recent ) %></div>
-            <div class = "item_author"<%= link_to(recent.author, recent ) %></div>
-            <div class = "item_price"><%= "$" + recent.price.to_s %></div>
-          </div>
-        </div>          
+	          <div class="item">
+<<<<<<< HEAD
+              <%= image_tag(recent.listing_images.first.photo.url(:small)) %>
+              <%= link_to(recent.title, recent )+ " by " + recent.author %>
+              <%= "$" + recent.price.to_s %>
+			      </div>
+=======
+			  	<%= image_tag(recent.listing_images.first.photo.url(:small).sub(' ','%20')) %>
+				<%= link_to(recent.title, recent )+ " by " + recent.author %>
+				<%= "$" + recent.price.to_s %>
+			  </div>
+>>>>>>> 1e580c31864f1a9e0f4c8f4fdbd889017eb3f537
 			<% end %>
-	    <% end -%>      
+	    <% end -%>
         <div class="bigarrow"></div>
         <div id = "clear"></div>
       </div>      
@@ -65,9 +70,8 @@
 </div><!-- middle end -->    
 <div id = "clear"></div>
 
-<!--
 <% @listings.each do |listing| %>
-  <div class = "<%= cycle("listing_even","listing_odd") %>">
+	<div class = "<%= cycle("listing_even","listing_odd") %>">
 		<span class = "listing_header"><%= link_to "#{listing.title} by #{listing.author}" -%></span>
 		<br/>
 		<span class = "listing_description"><%= truncate(listing.description, :length => 200) -%></span>
@@ -82,6 +86,6 @@
 			<%= link_to 'Destroy', listing, :confirm => 'Are you sure?', :method => :delete %>
 		<% end %>
 	</div>
-<% end %> !-->
+<% end %>
 
 

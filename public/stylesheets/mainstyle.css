@@ -24,6 +24,10 @@ div.bold {
   font-weight: bold;
 }
 
+img {
+  border: none;
+}
+
 #clear {
   clear: both;
 }
@@ -33,14 +37,11 @@ div.bold {
   font-weight: bold;
   margin-top: 12px;
   padding: 0px;
-  
 }
-
 
 #wrapper, #middle, #footer {
   width: 1100px;
 }
-
 
 #header_content {
   width: 1120px;
@@ -266,12 +267,50 @@ padding-left: 10px;
 }
 
 div.item {
+-moz-border-radius: 8px;
+border-radius: 8px;
 margin-right: 30px;
 width: 158px;
-height: 170px;
-border: solid 1px #999999;
-padding: 10px;
+border: solid 1px #999;
 float: left;
+background:-moz-linear-gradient(center bottom , #ededed, #fffdfd) repeat scroll 0 0 transparent;
+background:-webkit-gradient(linear, left top, left bottom, from(#fffdfd), to(#ededed));
+padding-bottom: 10px;
+}
+
+div.item:hover {
+  background:-moz-linear-gradient(center bottom , #ededed, #fffdfd) repeat scroll 0 0 transparent;
+  background:-webkit-gradient(linear, left top, left bottom, from(#fffdfd), to(#ededed));
+}
+
+div.item_image {
+  height: 140px;
+  margin: 0 auto;
+  width: 140px;  
+  padding: 10px 3px 10px 3px;  
+}
+
+
+div.item_title {    
+  padding-left: 10px;  
+}
+
+div.item_price {
+  text-align: right;
+  padding-right: 10px;
+  font-weight: bold;
+}
+div.item_author {
+  padding-left: 10px;
+  float: left;  
+}
+
+div.item_author a {
+  font-size: 95%;
+  color: #909090;
+}
+
+div.item_text {    
 }
 
 div.lastitem {
@@ -353,6 +392,10 @@ margin-left: 15px;
 width: 100px;
 }
 
+.avatar {
+  float: right;
+  border: solid 1px #ccc;
+}
 .submission {
 border: solid 1px #999;
 background: #fff;
@@ -375,13 +418,20 @@ td {
 vertical-align: top;
 }
 
+img.avatar {
+  margin-left: 15px;
+}
+  
+div.table_text {
+  margin-left: 15px;
+}
+
 .text {
 margin-top: 25px;
 }
 
 .new {
-width: 825px !important;
-background: #fff !important;
+  width: 825px !important;
 }
 
 .submission:hover {

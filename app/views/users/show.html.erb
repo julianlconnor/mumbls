@@ -1,7 +1,18 @@
-
-	<span>Name: <%= @user.name %></span>
-  	<span>Alias:<%= @user.alias %></span>
-	<%= image_tag @user.avatar.url(:small) %>
-
+<div id = "outside">
+<div id = "box" class="new">
+  <p class="title">User Account: <%= @user.name %> </p>
+  <div class = "avatar"><%= image_tag @user.avatar.url(:small) %></div>
+  <table>
+    <tr>
+	    <td>Name:</td><td><div class = "table_text"><%= @user.name %></div></td>
+    </tr>
+    <tr>
+      <td>Alias:</td><td><div class = "table_text"><%= @user.alias %></div></td>
+    </tr>
+    <tr>
+    <td>Email:</td><td><div class = "table_text"><%= @user.email %></div></td>
+    </tr>
+  </table>
 <span><%= link_to 'Edit', edit_user_path(@user) %></span>
-<span><%= link_to 'Back', users_path %></span>
+</div>
+</div>

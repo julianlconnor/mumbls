@@ -33,7 +33,7 @@ class HousingsController < ApplicationController
   def new
     @user = UserSession.find
     if @user.nil?
-      flash[:notice] = "Please log in order to post new listings."
+      flash[:notice] = "Please sign in order to post new listings."
       redirect_to(:controller => "user_session", :action => "new")
     else
       @housing = Housing.new
@@ -57,7 +57,7 @@ class HousingsController < ApplicationController
     @housing = Housing.new(params[:housing])
     respond_to do |format|
       if @housing.save
-        format.html { redirect_to(@housing, :notice => 'Housing was successfully created.') }
+        format.html { redirect_to(@housing, :notice => 'Your housing classified was successfully created!') }
         format.xml  { render :xml => @housing, :status => :created, :location => @housing }
       else
         format.html { render :action => "new" }
