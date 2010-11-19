@@ -1,9 +1,7 @@
 <h1>Showing listing <%= @housing.title %></h1>
 <h2><%= flash[:notice] %></h2>
 <script type="text/javascript">
-	$(function() {
-	    $("#map").gMap();
-	});
+	<%= show_map(@housing.address) %>
 </script>
 <table>
 	<tr>
@@ -24,7 +22,8 @@
 	</tr>
 
 </table>
-
+<div id="map" style="width: 547px; height: 320px; border: 1px solid #777; overflow: hidden;">
+</div>
 <br />
 
 

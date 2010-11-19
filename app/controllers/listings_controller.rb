@@ -9,6 +9,7 @@ class ListingsController < ApplicationController
     @latest_listings = Listing.order("created_at DESC").limit(4)
     respond_to do |format|
       format.html # index.html.erb
+      format.js
       format.xml  { render :xml => @listings }
     end
   end
