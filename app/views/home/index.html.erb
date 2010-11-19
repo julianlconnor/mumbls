@@ -95,3 +95,11 @@
 
 </div><!-- middle end -->    
 <div id = "clear"></div>
+
+<% if flash[:notice] %>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#flash_notice').fadeIn(200).delay(2000).fadeOut('slow');
+	})
+</script>
+<% end %>

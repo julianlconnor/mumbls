@@ -4,8 +4,10 @@
 	<title>Mumbls ~</title>
 	<%= javascript_include_tag "http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAoHnqt2XVAb7ehuW5CBUkihQDNUKtWYO0YNsBQklWEm0Tg_LWZBQnGqoPh5Cn4uiYV-LPfiDfYMfksA" %>
 	<%= javascript_include_tag :defaults %>
-	<%= javascript_include_tag "jquery-rails.js" %>
+	<%= javascript_include_tag 'jquery', 'application' %>
+	<%= javascript_include_tag 'jquerygmap' %>
 	<%= stylesheet_link_tag "mainstyle.css" %>
+	<%= stylesheet_link_tag "imagerotator.css" %>
 	<%= csrf_meta_tag %>
 </head>
 <body> 
@@ -16,12 +18,6 @@
         </div>
         <div id = "rightcolumn">
           <div id = "minimenu">
-            <!--<% flash.each do |key, msg| %>
-              <%= content_tag :div, msg, :class => [key, " message"], :id => "notice_ #{key}" %>
-              <%= content_tag :script, :type => "text/javascript" do -%>
-              setTimeout("new Effect.Fade('notice_<%= key %>');", 15000);
-              <% end %>
-              <% end %> !-->
             <% if current_user %>
             <ul>
               <li><%= link_to 'Logout', logout_path, :method => :delete %></li>
@@ -54,11 +50,10 @@
       </div><!--header_content -->
     </div> <!-- header -->
   <div id = "wrapper">
-	<% flash.each do |key, msg| %>
-		<%= content_tag :div, msg, :class => [key, " message"], :id => "notice_ #{key}" %>
-		<%= content_tag :script, :type => "text/javascript" do -%>
-			setTimeout("new Effect.Fade('notice_<%= key %>');", 15000);
-		<% end %>
+	<% if flash[:notice] %>
+		<div id="flash_notice">
+			<%= flash[:notice] %>
+		</div>
 	<% end %>
 	<%= yield %>
       <div id = "footer"> 
