@@ -26,7 +26,7 @@
       <ul>
         <li class="subtitle">Items</li>
 		<% @categories.each do |category| %>
-        <li><%= link_to category.name, "listings/category/#{category.name.downcase.sub('(','').sub(')','').sub(' ','-')}" %></li>
+        <li><%= link_to category.name + " (" + category.listing.count.to_s + ")", "listings/category/#{category.name.downcase.sub('(','').sub(')','').sub(' ','-')}" %></li>
 		<% end %>
       </ul>
     </div>

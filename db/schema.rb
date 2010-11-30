@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101116035026) do
+ActiveRecord::Schema.define(:version => 20101130005156) do
 
   create_table "categories", :force => true do |t|
     t.string "name"
@@ -87,6 +87,7 @@ ActiveRecord::Schema.define(:version => 20101116035026) do
     t.integer  "avatar_file_size"
     t.string   "user_role",           :default => "user"
     t.boolean  "email_is_public",     :default => true
+    t.boolean  "is_student",          :default => false
   end
 
 end

@@ -64,6 +64,12 @@ class UsersController < ApplicationController
     # Saving without session maintenance to skip
     # auto-login which can't happen here because
     # the User has not yet been activated
+    # Check to see if the user's email ended in .edu
+    # If not, they're just a regular user who needs to pay
+    # ;)
+    if ( params[:user][:email][-4,4] == ".edu" )
+      @user.is_student = true
+    end
     respond_to do |format|
       if @user.save
         UserMailer.activation_email(@user).deliver

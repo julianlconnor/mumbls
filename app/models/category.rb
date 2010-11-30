@@ -1,3 +1,4 @@
 class Category < ActiveRecord::Base
-  belongs_to :listing
+  has_many :listing
+  has_many :housing
 end
