@@ -33,40 +33,42 @@
     </div>
     <div id = "content">
 	
-	<!-- Trying Stuff for jQuery Gallery -->
-	<p class="title">Premium Items</p>
-	<div class="main_image">
-	    <%= image_tag(@latest_listings.first.listing_images.first.photo.url(:large))%>
-	    <div class="desc">
-	        <a href="#" class="collapse">Close Me!</a>
-	        <div class="block">
-	            <h2><%= @latest_listings.first.title %></h2>
-	            <small><%= @latest_listings.first.created_at %></small>
-	            <p><%= @latest_listings.first.description %></p>
-	        </div>
-	    </div>
-	</div>
-	<div class="image_thumb">
-		<ul>
-			<% @latest_listings.each do |recent| %>
-			<% if @latest_listings.first.title == recent.title %>
-				<li class="active">
-			<% else %>
-				<li>
-			<% end %>
-				<% if recent.listing_images.length > 0 %>
-					<%= link_to(image_tag(recent.listing_images.first.photo.url(:thumb)),recent.listing_images.first.photo.url(:large)) %>
+	<!-- jQuery Featured Seller Gallery -->
+	<% if !@latest_listings.first.listing_images.nil?%>
+		<p class="title">Premium Items</p>
+		<div class="main_image">
+		    <%= image_tag(@latest_listings.first.listing_images.first.photo.url(:large))%>	
+		    <div class="desc">
+		        <a href="#" class="collapse">Close Me!</a>
+		        <div class="block">
+		            <h2><%= @latest_listings.first.title %></h2>
+		            <small><%= @latest_listings.first.created_at %></small>
+		            <p><%= @latest_listings.first.description %></p>
+		        </div>
+		    </div>
+		</div>
+		<div class="image_thumb">
+			<ul>
+				<% @latest_listings.each do |recent| %>
+				<% if @latest_listings.first.title == recent.title %>
+					<li class="active">
+				<% else %>
+					<li>
 				<% end %>
-				<div class="block">
-					<small><%= h recent.title%></small><br/>
-					<small><%= h recent.created_at %></small>
-					<p><%= h recent.description %></p>
-				</div>
-			</li>
+					<% if recent.listing_images.length > 0 %>
+						<%= link_to(image_tag(recent.listing_images.first.photo.url(:thumb)),recent.listing_images.first.photo.url(:large)) %>
+					<% end %>
+					<div class="block">
+						<small><%= h recent.title%></small><br/>
+						<small><%= h recent.created_at %></small>
+						<p><%= h recent.description %></p>
+					</div>
+				</li>
 
-			<% end %>
-		</ul>
-	</div>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
 	
 	<!-- jQuery for gallery -->
 	<script type="text/javascript">
