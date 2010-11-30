@@ -28,6 +28,10 @@ img {
   border: none;
 }
 
+img.table_img {
+  margin-left: 15px;
+}
+
 .banner {
   margin-top: 54px;
 }
@@ -145,9 +149,12 @@ margin-top: 35px;
 float: left;
 }
 
-a.new_button {
-width: 130px;
-margin-left: 58px;
+a.new_button {  
+  margin-left: 58px;
+}
+
+a.new_button:hover {
+  text-decoration: none;
 }
 
 .button:hover {
@@ -183,6 +190,10 @@ text-align:center;
 text-decoration:none;
 vertical-align:baseline;
 }
+
+
+  
+
 
 #nav ul li{
 float: right;
@@ -435,7 +446,7 @@ margin-top: 25px;
 }
 
 .new {
-  width: 825px !important;
+  width: 700px !important;
 }
 
 .submission:hover {

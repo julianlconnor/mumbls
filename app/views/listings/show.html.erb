@@ -1,26 +1,32 @@
-<h1>Showing listing <%= @show_listing.title %></h1>
+<div id = "outside">
+  <div id = "box" class="new">
+  <p class="title">Listing: <%= @show_listing.title %></p>  
 <h2><%= flash[:notice] %></h2>
 <table>
 	<tr>
-		<th>Author</th>
-		<th>Title</th>
-		<th>Description</th>
-		<th>Pics</th>
-		<th></th>
-	</tr>
-	<tr>
-		<td><%= @show_listing.author %></td>
-		<td><%= @show_listing.title %></td>
-		<td><%= @show_listing.description %></td>
+		<td>Author:</td><td><div class="table_text"><%= @show_listing.author %></div></td>
+  </tr>
+  <tr>
+		<td>Title:</td><td><div class="table_text"><%= @show_listing.title %></div></td>
+  </tr>
+  <tr>
+		<td>Price:</td><td><div class="table_text">$<%= @show_listing.price %></div></td>
+  </tr>
+  <tr>
+		<td>Description:</td><td><div class="table_text"><%= @show_listing.description %></div></td>
+  </tr>
+  <tr>
+    <td>Image(s):</td>
 		<td>
 			<% @show_listing.listing_images.each do |image| %>
-				<%= image_tag image.photo.url(:small) %>
+				<%= image_tag image.photo.url(:small), :class => "table_img" %>
 			<% end %>
 		</td>
 		<td></td>
 	</tr>
-
 </table>
-<br />
 
-<%= link_to 'New listing', new_listing_path %>
+<%= link_to 'Post Another Listing', new_listing_path, :class => 'button new_button' %>
+<%= link_to 'Edit Listing', edit_listing_path(@show_listing) %>
+</div>
+</div>

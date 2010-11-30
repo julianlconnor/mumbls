@@ -1,4 +1,4 @@
-1291081729
+1291143820
 ActivationsController	/home/panfia/Documents/mumbls/app/controllers/activations_controller.rb	class ActivationsController 
 ActivationsHelper	/home/panfia/Documents/mumbls/app/helpers/activations_helper.rb	module ActivationsHelper
 AddActivationCodeToUsers	/home/panfia/Documents/mumbls/db/migrate/20101008183745_add_activation_code_to_users.rb	class AddActivationCodeToUsers 
@@ -9,6 +9,7 @@ AddAuthorIdToHousings	/home/panfia/Documents/mumbls/db/migrate/20101116035026_ad
 AddAuthorIdToListings	/home/panfia/Documents/mumbls/db/migrate/20101116032855_add_author_id_to_listings.rb	class AddAuthorIdToListings 
 AddCategories	/home/panfia/Documents/mumbls/db/migrate/20101026022643_add_categories.rb	class AddCategories 
 AddCategoryToListings	/home/panfia/Documents/mumbls/db/migrate/20101103182531_add_category_to_listings.rb	class AddCategoryToListings 
+AddIsStudentToUser	/home/panfia/Documents/mumbls/db/migrate/20101130005156_add_is_student_to_user.rb	class AddIsStudentToUser 
 AddPhotoDetailsToHousing	/home/panfia/Documents/mumbls/db/migrate/20101105191851_add_photo_details_to_housing.rb	class AddPhotoDetailsToHousing 
 AddPhotoDetailsToListing	/home/panfia/Documents/mumbls/db/migrate/20101012015418_add_photo_details_to_listing.rb	class AddPhotoDetailsToListing 
 AddPriceToListings	/home/panfia/Documents/mumbls/db/migrate/20101109233259_add_price_to_listings.rb	class AddPriceToListings 
@@ -77,6 +78,7 @@ down	/home/panfia/Documents/mumbls/db/migrate/20101109233259_add_price_to_listin
 down	/home/panfia/Documents/mumbls/db/migrate/20101115033608_add_public_email_to_user.rb	  def self.down
 down	/home/panfia/Documents/mumbls/db/migrate/20101116032855_add_author_id_to_listings.rb	  def self.down
 down	/home/panfia/Documents/mumbls/db/migrate/20101116035026_add_author_id_to_housings.rb	  def self.down
+down	/home/panfia/Documents/mumbls/db/migrate/20101130005156_add_is_student_to_user.rb	  def self.down
 edit	/home/panfia/Documents/mumbls/app/controllers/housings_controller.rb	  def edit
 edit	/home/panfia/Documents/mumbls/app/controllers/listings_controller.rb	  def edit
 edit	/home/panfia/Documents/mumbls/app/controllers/users_controller.rb	  def edit
@@ -128,6 +130,7 @@ up	/home/panfia/Documents/mumbls/db/migrate/20101109233259_add_price_to_listings
 up	/home/panfia/Documents/mumbls/db/migrate/20101115033608_add_public_email_to_user.rb	  def self.up
 up	/home/panfia/Documents/mumbls/db/migrate/20101116032855_add_author_id_to_listings.rb	  def self.up
 up	/home/panfia/Documents/mumbls/db/migrate/20101116035026_add_author_id_to_housings.rb	  def self.up
+up	/home/panfia/Documents/mumbls/db/migrate/20101130005156_add_is_student_to_user.rb	  def self.up
 update	/home/panfia/Documents/mumbls/app/controllers/housings_controller.rb	  def update
 update	/home/panfia/Documents/mumbls/app/controllers/listings_controller.rb	  def update
 update	/home/panfia/Documents/mumbls/app/controllers/users_controller.rb	  def update

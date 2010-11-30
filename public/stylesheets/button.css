@@ -1,0 +1,40 @@
+.color_button, .color_button:visited {
+	background: #222 url(overlay.png) repeat-x;
+	display: inline-block;
+	padding: 5px 10px 6px;
+	color: #fff;
+	text-decoration: none;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.6);
+	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.6);
+	text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
+	border-bottom: 1px solid rgba(0,0,0,0.25);
+	position: relative;
+	cursor: pointer
+}
+  
+.new_listing {
+  margin-left: 50px;  
+}
+
+.small.color_button, .small.color_button:visited { font-size: 11px}
+.color_button, .color_button:visited, .medium.color_button, .medium.color_button:visited { 
+  font-size: 13px;
+	font-weight: bold;
+  line-height: 1;
+	text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
+}
+.large.color_button, .large.color_button:visited { 
+  font-size: 18px;
+  padding: 8px 14px 9px; 
+}
+.super.color_button, .super.color_button:visited {		
+  font-size: 30px;
+	padding: 8px 14px 9px; 
+}
+
+.green.color_button, .green.color_button:visited	{ background-color: #91bd09; }
+.green.color_button:hover				        { background-color: #749a02; }  
+.orange.color_button, .orange.color_button:visited	{ background-color: #ff5c00; }
+.orange.color_button:hover				{ background-color: #d45500; }
