@@ -1,11 +1,16 @@
-.main_image {
-    width: 540px;
-    height: 300px;
-    float: left;
+.premium_items {
+  width: 806px;
+}
+
+.main_image {  
+    height: 275px;    
     background: #333;
     position: relative;
     overflow: hidden; /*--Overflow hidden allows the description to toggle/tuck away as it slides down--*/
     color: #fff;
+    width: 580px;
+    float: left;
+    margin-right: 20px;
 }
 .main_image h2 {
     font-size: 2em;
@@ -36,6 +41,7 @@
     width: 100%;
     background: #111;
     border-top: 1px solid #000;
+    height: 50px;
 }
 .main_image a.collapse { /*--This is our hide/show tab--*/
     background: url(btn_collapse.gif) no-repeat left top;
@@ -48,36 +54,49 @@
 }
 .main_image a.show {background-position: left bottom;}
 
-.image_thumb {
-    float: left;
-    width: 299px;
-    background: #f0f0f0;
-    border-right: 1px solid #fff;
-    border-top: 1px solid #ccc;
+.image_thumb { 
+  float: left;
 }
+
+.image_thumb li.active img {
+  border: 1px solid blue;
+}
+
 .image_thumb img {
     border: 1px solid #ccc;
     padding: 5px;
     background: #fff;
     float: left;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
 }
+
+.image_thumb img:hover {
+    border: 1px solid #999;
+}
+
 .image_thumb ul {
     margin: 0;
     padding: 0;
     list-style: none;
 }
 .image_thumb ul li{
-    margin: 0;
-    padding: 12px 10px;
-    background: #f0f0f0 url(nav_a.gif) repeat-x;
-    width: 279px;
+    margin: 0;    
     float: left;
+    margin-right: 10px;
+  /*  background: #f0f0f0 url(nav_a.gif) repeat-x;
+    width: 279px;
     border-bottom: 1px solid #ccc;
     border-top: 1px solid #fff;
-    border-right: 1px solid #ccc;
+    border-right: 1px solid #ccc;*/
 }
+
+.premium_title {
+  font-size: 18px;
+  padding: 10px 0px 0px 10px;
+}
+
 .image_thumb ul li.hover { /*--Hover State--*/
-    background: #ddd;
     cursor: pointer;
 }
 .image_thumb ul li.active { /*--Active State--*/
@@ -94,5 +113,6 @@ html .image_thumb ul li h2 {
     margin-left: 10px;
     padding: 0;
     width: 170px;
+    display: none;
 }
 .image_thumb ul li p{display: none;}/*--Hide the description on the list items--*/

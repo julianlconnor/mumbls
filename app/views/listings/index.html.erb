@@ -32,42 +32,45 @@
     </div>
     </div>
     <div id = "content">
-	
-	<!-- Trying Stuff for jQuery Gallery -->
-	<p class="title">Premium Items</p>
-  <div class = "prem_items">
-    <div class="main_image">
-      <%= image_tag(@latest_listings.first.listing_images.first.photo.url(:large))%>
-  	    <div class="desc">
-          <a href="#" class="collapse">Close Me!</a>
-  	        <div class="block">
-              <h2><%= @latest_listings.first.title %></h2>
-              <p><%= @latest_listings.first.description %></p>
+
+	<!-- jQuery Featured Seller Gallery -->
+	<% if !@latest_listings.first.nil? %>
+		<p class="title">Premium Items</p>
+    <div class = "premium_items">
+		<div class="main_image">
+		    <%= image_tag(@latest_listings.first.listing_images.first.photo.url(:large))%>	
+		    <div class="desc">
+		        <a href="#" class="collapse">Close Me!</a>
+		        <div class="block">
+                <div class = "premium_title"><%= @latest_listings.first.title %></div>
+                <small><%= @latest_listings.first.description %></small>
+		        </div>
+		    </div>
+		</div>
+		<div class="image_thumb">
+			<ul>
+				<% @latest_listings.each do |recent| %>
+				<% if @latest_listings.first.title == recent.title %>
+					<li class="active">
+				<% else %>
+					<li>
+				<% end %>
+					<% if recent.listing_images.length > 0 %>
+						<%= link_to(image_tag(recent.listing_images.first.photo.url(:thumb)),recent.listing_images.first.photo.url(:large)) %>
+					<% end %>
+          <div class="block">
+            <div class = "premium_title"><%= h recent.title%></div>
+            <small><%= h recent.description %></small>
             </div>
-          </div>
-        </div>
-  	<div class="image_thumb">
-  		<ul>
-        <% @latest_listings.each do |recent| %>
-        <% if @latest_listings.first.title == recent.title %>
-  				<li class="active">
-            <% else %>
-  				<li>
-            <% end %>
-            <% if recent.listing_images.length > 0 %>
-            <%= link_to(image_tag(recent.listing_images.first.photo.url(:thumb)),recent.listing_images.first.photo.url(:large)) %>
-            <% end %>
-  				<div class="block">
-            <h2><%= h recent.title%></h2>
-            <p><%= h recent.description %></p>
-          </div>
-        </li>
-        
-        <% end %>
+				</li>
+
+				<% end %>
       </ul>
-    </div>
-    <div id = "clear"></div>
-  </div>
+      <div id = "clear"></div>
+		</div>
+	<% end %>
+  <div id = "clear"></div>
+</div>
 	
 	<!-- jQuery for gallery -->
 	<script type="text/javascript">
@@ -75,7 +78,7 @@
 		$(".main_image .block").animate({ opacity: 0.85 }, 1 ); //Set Opacity
 		
 		$(".image_thumb ul li:first").addClass('active'); //Add the active class (highlights the very first list item by default)
-		$(".image_thumb ul li").click(function(){
+    $(".image_thumb ul li").click(function(){      
 		    //Set Variables
 		    var imgAlt = $(this).find('img').attr("alt"); //Get Alt Tag of Image
 		    var imgTitle = $(this).find('a').attr("href"); //Get Main Image URL
@@ -102,7 +105,7 @@
 		    $(this).removeClass('hover'); //Remove class "hover" on hover out
 		});
 		
-		$("a.collapse").click(function(){
+    $("a.collapse").click(function(){      
 		    $(".main_banner .block").slideToggle(); //Toggle the description (slide up and down)
 		    $("a.collapse").toggleClass("show"); //Toggle the class name of "show" (the hide/show tab)
 		});
