@@ -1,7 +1,7 @@
-<div id = "outside">
-<div id = "box" class="new">
-  <p class="title">User Account: <%= @user.name %> </p>
-  <div class = "avatar"><%= image_tag @user.avatar.url(:small) %></div>
+<div id = "small_outside">
+<div id = "box" class="small_box">
+  <p class="title">User Account: <%= @user.name %> <%= link_to 'Edit', edit_user_path(@user), :class => "right edit" %></p>
+  <div class = 'right'><%= image_tag @user.avatar.url(:small) %></div>
   <table>
     <tr>
 	    <td>Name:</td><td><div class = "table_text"><%= @user.name %></div></td>
@@ -13,6 +13,5 @@
     <td>Email:</td><td><div class = "table_text"><%= @user.email %></div></td>
     </tr>
   </table>
-<span><%= link_to 'Edit', edit_user_path(@user) %></span>
 </div>
 </div>

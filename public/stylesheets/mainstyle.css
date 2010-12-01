@@ -7,6 +7,21 @@ html, body {
   padding: 0;   
 }
 
+.right {
+  float: right;
+  text-align: right;
+}
+
+.edit {
+  font-size: 14px;
+  font-weight: normal;
+  letter-spacing: 0px;
+}
+
+.left {
+  float: left;
+}
+
 a {
   color: #000;
   text-decoration: none;
@@ -42,9 +57,10 @@ img.table_img {
 
 #categories li.subtitle {
   border-bottom: solid 1px #999999;
-  font-weight: bold;
   margin-top: 12px;
   padding: 0px;
+  font-size: 1.2em;
+  font-weight: bold;
 }
 
 #wrapper, #middle, #footer {
@@ -149,50 +165,6 @@ margin-top: 35px;
 float: left;
 }
 
-a.new_button {  
-  margin-left: 58px;
-}
-
-a.new_button:hover {
-  text-decoration: none;
-}
-
-.button:hover {
-text-decoration: none;
-background:-moz-linear-gradient(center bottom , #bbb, #fff) repeat scroll 0 0 transparent;
-background:-webkit-gradient(linear, left top, left bottom, from(#fff), to(#bbb));
-}
-
-.search_button {
--moz-border-radius: 15px;
-border-radius: 15px;
-padding: 4px 6px;
-height: 31px;
-}
-
-.button {
-background: #eee;
-background:-moz-linear-gradient(center bottom , #ddd, #fff) repeat scroll 0 0 transparent;
-background:-webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd));
-border: 1px solid #ccc;
-color: #2d2d2d;
-width: 60px;
-margin-right: 20px;
--moz-border-radius: 8px;
-border-radius: 8px;
--moz-box-shadow:0 1px 2px rgba(0, 0, 0, 0.2);
-cursor:pointer;
-display:inline-block;
-font:14px/100% Arial,Helvetica,sans-serif;
-outline:medium none;
-padding: 0.5em 1.25em 0.55em;
-text-align:center;
-text-decoration:none;
-vertical-align:baseline;
-}
-
-
-  
 
 
 #nav ul li{
@@ -231,7 +203,8 @@ width: 507px;
 border-radius: 8px;
 border: solid 1px #999999;
 background-color: #fff;
-height: 27px;
+height: 32px;
+font-size: 18px;
 }
 
 input#button {
@@ -368,6 +341,9 @@ float: right;
 padding-right: 20px;
 }
 
+.center {
+text-align: center;
+}
 #box {
 margin-bottom: 25px;
 margin-right: 25px;
@@ -387,6 +363,15 @@ float: left;
 #outside {
 margin: 0 auto;
 width: 825px;
+}
+
+#small_outside {
+margin: 0 auto;
+width: 600px;
+}
+
+.small_box {
+width: 600px !important;
 }
 
 #box input, textarea {
@@ -445,9 +430,6 @@ div.table_text {
 margin-top: 25px;
 }
 
-.new {
-  width: 700px !important;
-}
 
 .submission:hover {
 background:-moz-linear-gradient(center bottom , #ddd, #fff) repeat scroll 0 0 transparent;
