@@ -14,7 +14,7 @@
 				</select>
 			</td>
 	        <td><%= text_field_tag "searchbar"%></td>
-			    <td><%= submit_tag("Search", :class => "search_button") %></td>
+			    <td><%= submit_tag("Search", :class => "button") %></td>
       <% end %>
       <td><%= link_to 'New Listing', new_listing_path, :class => 'large color_button green new_listing' %></td>  
     </tr>       
@@ -33,11 +33,23 @@
     </div>
     <div id = "content">
         <div class="bigarrow"></div>
-      	<ul>
-		<% @listings.each do |classified| %>
-			<li><%= classified.title %></li>
-		<% end %>
-		</ul>
+      	<p class="title">Listing</p>
+	      <div id = "recent_items">
+	       <% @listings.each do |recent| %>
+				<% if recent.listing_images.length > 0 %>
+	         <div class="item">
+	          <div class ="item_image"><%= link_to(image_tag(recent.listing_images.first.photo.url(:small)), recent) %></div>
+	          <div class = "item_text">
+	            <div class = "item_title"><%= link_to(recent.title, recent ) %></div>
+	            <div class = "item_author"><%= link_to(recent.author, recent ) %></div>
+	            <div class = "item_price"><%= "$" + recent.price.to_s %></div>
+	          </div>
+	        </div>          
+				<% end %>
+		    <% end -%>      
+	        <div class="bigarrow"></div>
+	        <div id = "clear"></div>
+	      </div>
         <div id = "clear"></div>
       </div>      
     </div> <!-- content -->

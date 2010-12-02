@@ -1,11 +1,25 @@
 <div id = "small_outside">
   <div id = "box" class="small_box">
-  <p class="title">Listing: <%= @show_listing.title %><%= link_to 'Edit', edit_listing_path(@show_listing), :class => "edit right" %></p>  
+  
+  	<p class="title"><%= @show_listing.title %>
+		<% if !current_user.nil? and current_user.id == @show_listing.author_id %>
+			<%= link_to 'Edit', edit_listing_path(@show_listing), :class => "edit right" -%>
+		<% end %>
+	</p>
 <h2><%= flash[:notice] %></h2>
 <table>
 	<tr>
 		<td>Author:</td><td><div class="table_text"><%= @show_listing.author %></div></td>
   </tr>
+  <% if @show_listing_author.first.email_is_public %>
+  <tr>
+		<td>Email:</td><td><div class="table_text"><%= @show_listing_author.first.email %></div></td>
+  </tr>
+  <% else %>
+  <tr>
+		<td>Email:</td><td><div class="table_text"><%= @show_listing_author.first.email %></div></td>
+  </tr>
+  <% end %>
   <tr>
 		<td>Title:</td><td><div class="table_text"><%= @show_listing.title %></div></td>
   </tr>

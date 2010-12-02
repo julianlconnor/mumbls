@@ -73,7 +73,8 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         UserMailer.activation_email(@user).deliver
-        format.html { redirect_to(:controller => :home, :notice => "Your account has been created. Please check your e-mail for your account activation instructions!") }
+        flash[:notice] = "Your account has been created. Please check your e-mail for your account activation instructions!"
+        format.html { redirect_to(:controller => :home) }
         format.xml  { render :xml => @user, :status => :created, :location => @user }
       else
         format.html { render :action => "new" }
