@@ -1,5 +1,62 @@
-<ul>
-<% @listings.each do |classified| %>
-	<li><%= classified.title %></li>
+
+<div id = "middle">
+  <div id = "middle_content">   
+    <!-- rendering partial for search_bar -->
+	<%= form_tag(listingsearch_path, :method => 'get') do %>
+	  <table>
+	        <tr>
+			<td>
+				<select name="category_id">
+					<option value="all">All</option>
+					<% @categories.each do |category| %>
+						<option value="<%= category.id %>"><%= category.name %></option>
+					<% end %>
+				</select>
+			</td>
+	        <td><%= text_field_tag "searchbar"%></td>
+			    <td><%= submit_tag("Search", :class => "search_button") %></td>
+      <% end %>
+      <td><%= link_to 'New Listing', new_listing_path, :class => 'large color_button green new_listing' %></td>  
+    </tr>       
+          
+	    </table>
+    <div id = "container">
+    <p class="title">Categories</p>
+    <div id = "categories">
+      <ul>
+        <li class="subtitle">Items</li>
+		<% @categories.each do |category| %>
+        <li><%= link_to category.name + " (" + category.listing.count.to_s + ")", "#{category.name.downcase.sub('(','').sub(')','').sub(' ','-')}" %></li>
+		<% end %>
+      </ul>
+    </div>
+    </div>
+    <div id = "content">
+        <div class="bigarrow"></div>
+      	<ul>
+		<% @listings.each do |classified| %>
+			<li><%= classified.title %></li>
+		<% end %>
+		</ul>
+        <div id = "clear"></div>
+      </div>      
+    </div> <!-- content -->
+    <div id = "clear"></div>
+  </div><!-- middle content -->
+  <div id = "clear"></div>
+
+</div><!-- middle end -->    
+<div id = "clear"></div>
+
+
+<% if flash[:notice] %>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#flash_notice').fadeIn(300).delay(2000).fadeOut('slow');
+	})
+</script>
 <% end %>
-</ul>
+
+
+
+

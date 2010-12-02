@@ -26,7 +26,7 @@
       <ul>
 		<li class="subtitle">Items</li>
 		<% @items.each do |item| %>
-        	<li><%= link_to item.name, "listings/category/#{item.name.downcase.sub('(','').sub(')','').sub(' ','-')}" %></li>
+        	<li><%= link_to item.name + " (" + item.listing.count.to_s + ")" , "listings/category/#{item.name.downcase.sub('(','').sub(')','').sub(' ','-')}" %></li>
 		<% end %>
 		<li class="subtitle">Jobs</li>
 		<% @jobs.each do |job| %>
@@ -34,7 +34,7 @@
 		<% end %>
 		<li class="subtitle">Rent</li>
 		<% @rent.each do |r| %>
-        	<li><%= link_to r.name, "rent/category/#{r.name.downcase.sub('(','').sub(')','').sub(' ','-')}" %></li>
+        	<li><%= link_to r.name + " (" + r.housing.count.to_s + ")" , "rent/category/#{r.name.downcase.sub('(','').sub(')','').sub(' ','-')}" %></li>
 		<% end %>
       </ul>
     </div>
@@ -55,10 +55,10 @@
        <% @latest_listings.each do |recent| %>
 			<% if recent.listing_images.length > 0 %>
          <div class="item">
-          <div class ="item_image"<%= link_to(image_tag(recent.listing_images.first.photo.url(:small)), recent) %></div>
+          <div class ="item_image"><%= link_to(image_tag(recent.listing_images.first.photo.url(:small)), recent) %></div>
           <div class = "item_text">
             <div class = "item_title"><%= link_to(recent.title, recent ) %></div>
-            <div class = "item_author"<%= link_to(recent.author, recent ) %></div>
+            <div class = "item_author"><%= link_to(recent.author, recent ) %></div>
             <div class = "item_price"><%= "$" + recent.price.to_s %></div>
           </div>
         </div>          
