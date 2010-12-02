@@ -1,6 +1,6 @@
-<div id = "outside">
-  <div id = "box" class="new">
-  <p class="title">Listing: <%= @show_listing.title %></p>  
+<div id = "small_outside">
+  <div id = "box" class="small_box">
+  <p class="title">Listing: <%= @show_listing.title %><%= link_to 'Edit', edit_listing_path(@show_listing), :class => "edit right" %></p>  
 <h2><%= flash[:notice] %></h2>
 <table>
 	<tr>
@@ -26,7 +26,7 @@
 	</tr>
 </table>
 
-<%= link_to 'Post Another Listing', new_listing_path, :class => 'button new_button' %>
-<%= link_to 'Edit Listing', edit_listing_path(@show_listing) %>
+<%= link_to 'Post Another Listing', new_listing_path, :class => 'green right color_button medium' %>
+<div id = "clear"></div>
 </div>
 </div>

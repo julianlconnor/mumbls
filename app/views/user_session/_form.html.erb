@@ -20,7 +20,7 @@
           <td></td>
 	        <td><%= f.submit "Login", :class => 'button submission' %></td>
           <td>Forgot Password?<br/>
-          <%= link_to 'Need another activation email?', resend_form_path %></td>
+          <%= link_to 'Need an activation email?', resend_form_path %></td>
         </tr>
       </table>
       <% end %>
@@ -38,8 +38,8 @@
   </div><!-- left end -->
 <div id = "left">
   <div id = "box">
-    <p class="title"> Not yet a member? </p>
-    <%= link_to 'Create an Account', new_user_path %>
+    <p class="title"> Not yet a member? </p>    
+    <div class = "center"<%= link_to 'Create an Account', new_user_path, :class => "color_button blue large"%></div>      
   </div>
 </div>
 <div id = "clear"></div>
