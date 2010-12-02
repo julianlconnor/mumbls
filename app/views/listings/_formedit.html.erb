@@ -42,14 +42,14 @@
 
   	<%= f.fields_for :listing_images do |builder| %>
   		<% if builder.object.new_record? %>
-      <tr>
-  				<td><%= builder.label :photo, "Image File" %></td>
-  				<td><%= builder.file_field :photo %></td>
-      </tr>
-      <tr>
-  				<td><%= builder.label :caption, "Image caption" %></td>
-  				<td><%= builder.text_field :caption %></td>
-      </tr>
+      	<tr>
+	  				<td><%= builder.label :photo, "Image File" %></td>
+	  				<td><%= builder.file_field :photo %></td>
+	      </tr>
+	      <tr>
+	  				<td><%= builder.label :caption, "Image caption" %></td>
+	  				<td><%= builder.text_field :caption %></td>
+	      </tr>
   		<% end %>
   	<% end %>
   <tr>

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101201001113) do
+ActiveRecord::Schema.define(:version => 20101202033324) do
 
   create_table "categories", :force => true do |t|
     t.string "name"
@@ -63,6 +63,13 @@ ActiveRecord::Schema.define(:version => 20101201001113) do
     t.datetime "updated_at"
   end
 
+  create_table "payments", :force => true do |t|
+    t.float    "amount"
+    t.string   "transaction_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -89,6 +96,7 @@ ActiveRecord::Schema.define(:version => 20101201001113) do
     t.string   "user_role",           :default => "user"
     t.boolean  "email_is_public",     :default => true
     t.boolean  "is_student",          :default => false
+    t.boolean  "can_post",            :default => false
   end
 
 end

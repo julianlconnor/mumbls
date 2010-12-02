@@ -1,4 +1,7 @@
 AuthlogicRails3Example::Application.routes.draw do |map|
+  resources :payments
+  match 'confirm_payment/:user_id' => 'payments#confirm'
+
   resources :housings
 
   get "activations/new"

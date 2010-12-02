@@ -46,7 +46,11 @@ class ListingsController < ApplicationController
     if @user.nil?
       flash[:notice] = "Please sign in to create a new listing."
       redirect_to(:controller => "user_session", :action => "new")
+    elsif @user.user.is_student == false and @user.user.can_post == false
+      flash[:notice] = "Since you are not a student and you have not already payed, there is a small fee for posting classifieds."
+      redirect_to(:controller => "payments", :action => "index")
     else
+      # user is either a student or has already payed
       @listing = Listing.new
       @categories = Category.where(:parent => "Items")
       3.times {@listing.listing_images.build} #initializes 3 images for each user
@@ -67,6 +71,20 @@ class ListingsController < ApplicationController
   # POST /listings
   # POST /listings.xml
   def create
+    @user = UserSession.find
+    
+    if @user.nil?
+      flash[:notice] = "Please sign in to create a new listing."
+      redirect_to(:controller => "user_session", :action => "new")
+    end
+    
+    # Remove credit from user if they purchased the ability to list an item
+    if @user.user.can_post == true
+      @remove_credit = User.where(:alias => @user.user.alias)
+      @remove_credit.can_post = false
+      @remove_credit.save
+    end
+    
     @listing = Listing.new(params[:listing])
     @categories = Category.where(:parent => "Items")
     respond_to do |format|
