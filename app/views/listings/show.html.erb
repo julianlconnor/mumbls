@@ -3,7 +3,7 @@
   
   	<p class="title"><%= @show_listing.title %>
 		<% if !current_user.nil? and current_user.id == @show_listing.author_id %>
-			<%= link_to 'Edit', edit_listing_path(@show_listing), :class => "edit right" -%>
+			<%= link_to 'Edit', edit_listing_path(@show_listing), :class => "color_button blue medium right edit" -%>
 		<% end %>
 	</p>
 <h2><%= flash[:notice] %></h2>
@@ -33,7 +33,7 @@
     <td>Image(s):</td>
 		<td>
 			<% @show_listing.listing_images.each do |image| %>
-				<%= image_tag image.photo.url(:small), :class => "table_img" %>
+				<%= image_tag image.photo.url(:large), :class => "table_img" %>
 			<% end %>
 		</td>
 		<td></td>

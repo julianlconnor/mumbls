@@ -1,11 +1,9 @@
-<div id = "outside">
-    <% form_for @user, :html => { :multipart => true } do |f| %>    
-      <div id = "box" class = "new">
+    <% form_for @user, :html => { :multipart => true } do |f| %>        
         <p class="title">Edit Account Information </p>
         <table>
           <tr>
             <td><%= f.label :name %></td>
-            <td><div class = "table_text"><%= @user.name %></div></td>
+            <td><%= f.text_field :name %></td>
           </tr>
           <tr>
             <td><%= f.label :alias %></td>
@@ -26,7 +24,7 @@
 			<tr>
 				<td>Current Avatar</td>
         <% if !@user.avatar.url(:small).nil? %>
-				  <td><%= image_tag(@user.avatar.url(:small), :class => "avatar") %></td>
+				  <td><%= image_tag(@user.avatar.url(:small), :class => 'margin_left') %></td>
         <% else %>
           <td><div class="table_text">No avatar has been uploaded.</div></td>
         <% end %>
@@ -49,8 +47,7 @@
             <td><%= f.submit 'Submit', :class => 'button submission' %></td>
           </tr>
       </table>
-    <% end %>
-    </div><!-- box end -->
+    <% end %>    
     <!-- print errors -->
     <%- if @user.errors.any? %>
     <div id = "box">
@@ -62,5 +59,3 @@
       	  </ul>
     </div>
     <% end %>    
-  <div id = "clear"></div>
-</div><!-- outside end -->

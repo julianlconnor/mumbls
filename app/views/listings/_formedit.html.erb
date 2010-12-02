@@ -54,7 +54,7 @@
   	<% end %>
   <tr>
   <td></td>
-  <td><%= f.submit "Post", :class => 'button submission' -%></td>
+  <td><%= f.submit "Post", :class => 'button submission' -%><%= link_to "Back", listing_path, :class => 'button submission' -%></td>
   </tr>
   </table>
   <% end %>

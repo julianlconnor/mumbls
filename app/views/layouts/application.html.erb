@@ -40,22 +40,25 @@
           </div><!-- minimenu -->
           <div id = "nav">
             <ul>
+                  <% if flash[:notice] %>
+                  <li id = "flash_notice" class = "notice nav">              
+                    <div class = "left notice_message"><%= flash[:notice] %></div><div class = "left"><img src = "/images/CloseIcon.png"/> </div>          
+                  </li>
+              <% end %>
               <li><%= link_to 'Housing', housings_path, :class => 'button nav' -%></li>
               <li><%= link_to 'Jobs', housings_path, :class => 'button nav' -%></li>
               <li><%= link_to 'For Sale', listings_path, :class => 'button nav' -%></li> 
-            </ul>    
+
+
+            </ul>  
             </div><!-- nav -->
+
           <div id = "clear"></div>
         </div><!-- rightcolumn -->
         <div id = "clear"></div>
       </div><!--header_content -->
     </div> <!-- header -->
-  <div id = "wrapper">
-	<% if flash[:notice] %>
-		<div id="flash_notice">
-			<%= flash[:notice] %>
-		</div>
-	<% end %>
+    <div id = "wrapper">
 	<%= yield %>
       <div id = "footer"> 
       <ul>
@@ -66,6 +69,14 @@
     </div>
   </div> <!-- wrapper end -->
   
+<% if flash[:notice] %>
+<script type="text/javascript">
+	$(document).ready(function() {
+		//$('#flash_notice').fadeIn(200).delay(10000).fadeOut('slow');
+		$('li #flash_notice .notice .nav').fadeIn(200).delay(10000).fadeOut('slow');
+	})
+</script>
+<% end %>
   
 
 </body>

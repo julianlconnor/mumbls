@@ -7,6 +7,9 @@ html, body {
   padding: 0;   
 }
 
+.margin_left {
+  margin-left: 15px;
+}
 .right {
   float: right;
   text-align: right;
@@ -16,6 +19,24 @@ html, body {
   font-size: 14px;
   font-weight: normal;
   letter-spacing: 0px;
+  position: relative;
+  bottom: 5px;
+}
+
+.notice {  
+  border-radius: 8px;
+  -moz-border-radius: 8px;
+  font-size: 12px;  
+  text-align: center;  
+  margin: 0px !important;
+  width: 200px !important;
+  border: solid 1px #999;
+}
+
+.notice_message {
+  width: 160px;
+  margin-left: 8px;
+  margin-right: 8px;
 }
 
 .left {
