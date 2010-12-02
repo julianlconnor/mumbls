@@ -27,8 +27,7 @@ a.button:hover, a.color_button:hover {
   font-size: 16px;
 	font-weight: bold;
   line-height: 1;
-	text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
-    padding: 8px 14px 9px; 
+  text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
 }
 .large.color_button, .large.color_button:visited { 
   font-size: 18px;
@@ -72,12 +71,14 @@ a.button:hover, a.color_button:hover {
 
 .button:hover {
   background: #ddd;
-  background:-moz-linear-gradient(center bottom , #ccc, #fff) repeat scroll 0 0 transparent;
-  background:-webkit-gradient(linear, left top, left bottom, from(#fff), to(#ccc));
+  background:-moz-linear-gradient(center bottom , #ddd, #fff) repeat scroll 0 0 transparent;
+  background:-webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd));
   text-decoration: none;
 }
 
 .nav {
+  background:-moz-linear-gradient(center bottom , #ccc, #fff) repeat scroll 0 0 transparent;
+  background:-webkit-gradient(linear, left top, left bottom, from(#fff), to(#ccc));
   border: none;
   height: 100%;
   padding-top: 10px;

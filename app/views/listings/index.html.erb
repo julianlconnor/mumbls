@@ -185,7 +185,8 @@
 <% if flash[:notice] %>
 <script type="text/javascript">
 	$(document).ready(function() {
-		$('#flash_notice').fadeIn(300).delay(2000).fadeOut('slow');
+		//$('#flash_notice').fadeIn(200).delay(10000).fadeOut('slow');
+		$('li #flash_notice .notice .nav').fadeIn(200).delay(10000).fadeOut('slow');
 	})
 </script>
 <% end %>

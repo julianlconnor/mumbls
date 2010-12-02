@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   has_many :housings
   # Paperclip
   has_attached_file :avatar,
-                    :styles => { :thumb=> "100x100#",
+                    :styles => { :thumb=> "75x75#",
                                  :small  => "150x150>" }
                                                      
   def active?
