@@ -1,17 +1,22 @@
+
 <div id = "small_outside">
-<div id = "box" class="small_box">
-  <p class="title">User Account: <%= @user.name %> <%= link_to 'Edit', edit_user_path(@user), :class => "right edit" %></p>
-  <div class = 'right'><%= image_tag @user.avatar.url(:small) %></div>
-  <table>
-    <tr>
-	    <td>Name:</td><td><div class = "table_text"><%= @user.name %></div></td>
-    </tr>
-    <tr>
-      <td>Alias:</td><td><div class = "table_text"><%= @user.alias %></div></td>
-    </tr>
-    <tr>
-    <td>Email:</td><td><div class = "table_text"><%= @user.email %></div></td>
-    </tr>
-  </table>
-</div>
+  <div id = "box" class="small_box">
+    <p class="title">User Account: <%= @user.name %> 
+      <%= link_to 'Edit', edit_user_path(@user), :class => "right edit" %></p>
+    <div class = 'right'><%= image_tag @user.avatar.url(:small) %></div>
+    <table>
+      <tr>
+        <td>Name:</td><td><div class = "table_text"><%= @user.name %></div></td>
+      </tr>
+      <tr>
+        <td>Alias:</td><td><div class = "table_text"><%= @user.alias %></div></td>
+      </tr>
+      <tr>
+        <td>Email:</td><td><div class = "table_text"><%= @user.email %></div></td>
+      </tr>
+    </table>  
+  </div>
+  <div id = "box" class = "small_box">
+    <div class = "edit_box"></div>
+  </div>
 </div>
