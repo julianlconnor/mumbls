@@ -1,0 +1,64 @@
+<div id = "small_outside">
+  <div id = "box" class="small_box">
+  <p class="title">Editing your listing</p>
+  <%= form_for @listing, :html => { :multipart => true } do |f| %>
+  	<% if @listing.errors.any? %>
+  			<h2><%= pluralize(@listing.errors.count, "error") %> prohibited this post from being saved:</h2>
+        <ul>
+  				<% @listing.errors.full_messages.each do |msg| %>
+  					<li><%= msg %></li>
+  				<% end %>
+        </ul>
+  	<% end %>
+  	<% if current_user %>
+    <div class="field">
+  			<%= f.hidden_field :author, :value => current_user.name %><br />
+			<%= f.hidden_field :author_id, :value => current_user.id %>
+      </div>
+  	<% end %>
+<table>
+<tr>
+  <td><%= f.label :title %></td>
+  <td><%= f.text_field :title %></td>
+</tr>
+<tr>
+  <td><%= f.label :description %></td>
+  <td><%= f.text_area :description %></td>
+</tr>
+<tr>
+		<td><%= f.label :category_id, "Category:" %></td>
+		<td><%= select ("listing", "category_id", @categories.map {|u| [u.name,u.id]}) %></td>    
+</tr>
+<tr>
+		<td><%= f.label :price, "Price ($): " %></td>
+		<td><%= f.text_field :price %></td>
+</tr>
+
+</table>
+<table class="upload_images">
+<tr>
+<td colspan="2">You are allowed to upload up to three images per listing.  Files are limited to 500KB, JPG and PNG formats.</td>
+</tr>
+
+  	<%= f.fields_for :listing_images do |builder| %>
+  		<% if builder.object.new_record? %>
+      <tr>
+  				<td><%= builder.label :photo, "Image File" %></td>
+  				<td><%= builder.file_field :photo %></td>
+      </tr>
+      <tr>
+  				<td><%= builder.label :caption, "Image caption" %></td>
+  				<td><%= builder.text_field :caption %></td>
+      </tr>
+  		<% end %>
+  	<% end %>
+  <tr>
+  <td></td>
+  <td><%= f.submit "Post", :class => 'button submission' -%></td>
+  </tr>
+  </table>
+  <% end %>
+</div>
+<div class = "clear"></div>
+</div>
+

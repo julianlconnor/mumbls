@@ -19,6 +19,8 @@ class ListingsController < ApplicationController
   def show
     @show_listing = Listing.find(params[:id])
     flash[:error] = "Listing not found" and return unless @show_listing
+    @show_listing_author = User.where(:id => @show_listing.author_id)
+
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @listing }
@@ -33,6 +35,7 @@ class ListingsController < ApplicationController
     
   def list_by_category
     @listings = Listing.where(:category_id => params[:id])
+    @categories = Category.where(:parent => "Items")
   end
 
 
@@ -57,6 +60,7 @@ class ListingsController < ApplicationController
   # GET /listings/1/edit
   def edit
     @listing = Listing.find(params[:id])
+    @categories = Category.where(:parent => "Items")
     3.times {@listing.listing_images.build} #initializes 3 images for each user
   end
 

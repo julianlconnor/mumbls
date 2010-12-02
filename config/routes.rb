@@ -30,7 +30,7 @@ AuthlogicRails3Example::Application.routes.draw do |map|
   match '/:listings/:id' => 'listings#show'
   
   # Start routes for listings
-  match '/listings/category/:nam' => 'listings#list_by_category', :id => 1
+  match '/listings/category/appliances' => 'listings#list_by_category', :id => 1
   match '/listings/category/furniture' => 'listings#list_by_category', :id => 2
   match '/listings/category/electronics' => 'listings#list_by_category', :id => 3
   match '/listings/category/textbooks' => 'listings#list_by_category', :id => 4
