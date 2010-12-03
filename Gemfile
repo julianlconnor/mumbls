@@ -16,7 +16,7 @@ gem 'authlogic', :git => 'git://github.com/odorcicd/authlogic.git', :branch => '
 gem 'paperclip'
 
 # Add capistrano
-gem 'capistrano'
+# gem 'capistrano'
 
 # Add mongrel
 gem 'mongrel'
