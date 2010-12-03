@@ -53,7 +53,7 @@ class ListingsController < ApplicationController
       # user is either a student or has already payed
       @listing = Listing.new
       @categories = Category.where(:parent => "Items")
-      3.times {@listing.listing_images.build} #initializes 3 images for each user
+      2.times {@listing.listing_images.build} #initializes 3 images for each user
       respond_to do |format|
         format.html # new.html.erb
         format.xml  { render :xml => @listing }
@@ -65,7 +65,7 @@ class ListingsController < ApplicationController
   def edit
     @listing = Listing.find(params[:id])
     @categories = Category.where(:parent => "Items")
-    3.times {@listing.listing_images.build} #initializes 3 images for each user
+    2.times {@listing.listing_images.build} #initializes 3 images for each user
   end
 
   # POST /listings

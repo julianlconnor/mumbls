@@ -1,7 +1,7 @@
 <h1>Showing listing <%= @housing.title %></h1>
 <h2><%= flash[:notice] %></h2>
 <script type="text/javascript">
-	<%= show_map(@housing.address) %>
+	<%= show_housing_listing(@housing.address) %>
 </script>
 <table>
 	<tr>
