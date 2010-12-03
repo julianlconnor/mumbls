@@ -16,7 +16,7 @@ gem 'authlogic'
 gem 'paperclip'
 
 # Add capistrano
-gem 'capistrano'
+# gem 'capistrano'
 
 # Add mongrel
 gem 'mongrel'
