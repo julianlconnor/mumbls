@@ -1,5 +1,12 @@
 class User < ActiveRecord::Base
-  acts_as_authentic
+  # Include default devise modules. Others available are:
+  # :token_authenticatable, :confirmable, :lockable and :timeoutable
+  devise :database_authenticatable, :confirmable, :lockable, :recoverable,
+           :rememberable, :registerable, :trackable, :timeoutable, :validatable,
+           :token_authenticatable
+
+  # Setup accessible (or protected) attributes for your model
+  attr_accessible :email, :password, :password_confirmation, :remember_me
   validates_uniqueness_of :alias,  :presence => true
   validates_length_of :alias, :minimum => 3, :message => "Alias must be at least 3 characters."
   validates_uniqueness_of :email, :presence => true, :email_format => true, :message => "Sorry, but a user with the emails %s, already exists."
@@ -21,9 +28,5 @@ class User < ActiveRecord::Base
   def active!
     self.active = true
     save
-  end
-  acts_as_authentic do |c|
-    c.login_field = :email          # email is the login field
-    c. validate_login_field = false # There is no login field, so don't validate it
   end
 end

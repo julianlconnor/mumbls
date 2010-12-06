@@ -1,4 +1,10 @@
 AuthlogicRails3Example::Application.routes.draw do |map|
+  
+  
+  devise_for :users
+
+  resources :users
+  
   resources :payments
   match 'confirm_payment/:user_id' => 'payments#confirm'
 
@@ -11,12 +17,6 @@ AuthlogicRails3Example::Application.routes.draw do |map|
   resources :listings
 
   get "home/index"
-
-  resources :users
-  
-  get    'login(.:format)'  => 'user_session#new',     :as => :login
-  post   'login(.:format)'  => 'user_session#create',  :as => :login
-  delete 'logout(.:format)' => 'user_session#destroy', :as => :logout
 
   root :to => 'home#index' # login page
   
@@ -63,7 +63,6 @@ AuthlogicRails3Example::Application.routes.draw do |map|
   # End routes for searches
   
   
-  match 'logout', :to => 'user_session#destroy', :as => :logout
   match 'resend_form', :to => 'activations#resend_form', :as => 'resend_form'
   match 'resend_activation', :to => 'activations#resend_activation', :as => 'resend_activation'
   

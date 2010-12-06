@@ -19,7 +19,7 @@
         </div>
         <div id = "rightcolumn">
           <div id = "minimenu">
-            <% if current_user %>
+            <% if !current_user.nil? %>
             <ul>
               <li><%= link_to 'Logout', logout_path, :method => :delete %></li>
               <li><%= link_to 'Network: RPI' -%></li>
@@ -29,10 +29,10 @@
             </ul>
             <% else %>
             <ul>
-              <li><%= link_to 'Help', login_path -%></li>
+              <li><%= link_to 'Help' -%></li>
               <li><%= link_to 'Watch List (0)' -%></li>
               <li><%= link_to 'Register', new_user_path -%></li>
-              <li><%= link_to 'Sign In', login_path -%></li>
+              <li><%= link_to 'Sign in as User', new_session_new_path %></li>
               
             </ul>
             <% end %> 
