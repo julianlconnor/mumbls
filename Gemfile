@@ -1,16 +1,15 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.0.beta4'
+#gem 'rails', '3.0.0.beta4'
 gem 'mysql'
 # Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
+gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 # Add support for haml as well as erb
 gem 'haml'
 
 # Add support for Authlogic authentication
 gem 'authlogic', :git => 'git://github.com/odorcicd/authlogic.git', :branch => 'rails3' # TODO: test this with official version of authlogic
-#gem 'authlogic', '2.1.5'
 
 # Add support for paperclip (used for uploading content and profile pics)
 gem 'paperclip'
