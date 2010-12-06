@@ -1,4 +1,3 @@
-
 <div id = "middle">
   <div id = "middle_content">   
     <!-- rendering partial for search_bar -->
@@ -32,8 +31,7 @@
     </div>
     </div>
     <div id = "content">
-        <div class="bigarrow"></div>
-      	<p class="title">Listing</p>
+      	<p class="title">Items</p>
 	      <div id = "recent_items">
 	       <% @listings.each do |recent| %>
 				<% if recent.listing_images.length > 0 %>
@@ -47,27 +45,15 @@
 	        </div>          
 				<% end %>
 		    <% end -%>      
-	        <div class="bigarrow"></div>
 	        <div id = "clear"></div>
 	      </div>
         <div id = "clear"></div>
       </div>      
     </div> <!-- content -->
     <div id = "clear"></div>
-  </div><!-- middle content -->
+  </div><!-- middle end -->
   <div id = "clear"></div>
-
-</div><!-- middle end -->    
 <div id = "clear"></div>
-
-
-<% if flash[:notice] %>
-<script type="text/javascript">
-	$(document).ready(function() {
-		$('#flash_notice').fadeIn(300).delay(2000).fadeOut('slow');
-	})
-</script>
-<% end %>
 
 
 

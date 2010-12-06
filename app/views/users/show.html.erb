@@ -1,7 +1,7 @@
 <div id = "small_outside">
   <div id = "box" class="small_box">
     <p class="title">User Account: <%= @user.name %> 
-    <span id="edit_button" class="color_button blue medium right edit">Edit</span>
+      <span id="edit_button" class="color_button blue medium right edit">Edit</span>
     </p> 
     <div class = 'right'><%= image_tag @user.avatar.url(:thumb) %></div>
     <table>
@@ -13,23 +13,23 @@
       </tr>
       <tr>
         <td>Email:</td><td><div class = "table_text"><%= @user.email %></div></td>
-      </tr>
-      
-
-      
+      </tr>  
+      <tr>
+        <td>Bio:</td><td><div class = "table_text"><%= @user.email %></div></td>
+      </tr>  
     </table>  
   <div id = "clear"></div>
   </div>
   <div id = "box" class = "edit_box small_box" style="display:none;">    
 		<%= render :partial => "formedit" %>    
   </div>
-
 </div>
 
 <script type="text/javascript">
-
-
-$("#edit_button").click(function(){
-	$(".edit_box").toggle();
-		});
+$(document).ready(function() {
+  $('#edit_button').click(function(){
+	  $('.edit_box').toggle();
+  });
+});
 </script>
+

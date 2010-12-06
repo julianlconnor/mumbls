@@ -1,40 +1,52 @@
 <div id = "middle">
   <div id = "middle_content">   
     <!-- rendering partial for search_bar -->
-	<%= form_tag(listingsearch_path, :method => 'get') do %>
+	<%= form_tag(homesearch_path, :method => 'get') do %>
 	  <table>
 	        <tr>
-			<td>
+	        <td>
 				<select name="category_id">
 					<option value="all">All</option>
+					<option value="listings">Listings</option>
+					<option value="housings">Housings</option>
 					<% @categories.each do |category| %>
-						<option value="<%= category.id %>"><%= category.name %></option>
+						<% if category.id > 15 %>
+							<option value="<%= category.id %>"><%= category.name + ' - ' + category.parent %></option>
+						<% else %>
+							<option value="<%= category.id %>"><%= category.name  %></option>
+						<% end %>
 					<% end %>
 				</select>
 			</td>
 	        <td><%= text_field_tag "searchbar", "Search"%></td>
-			    <td><%= submit_tag("Search", :class => "button") %></td>
-      <% end %>
-      <td><%= link_to 'New Listing', new_listing_path, :class => 'large color_button green new_listing' %></td>  
-    </tr>       
-          
+			<td><%= submit_tag("Search", :class => "button") %></td>
+	      </tr>
 	    </table>
+	<% end %>
+    
     <div id = "container">
     <p class="title">Categories</p>
     <div id = "categories">
       <ul>
-        <li class="subtitle">Items</li>
-		<% @categories.each do |category| %>
-        <li><%= link_to category.name + " (" + category.listing.count.to_s + ")", "listings/category/#{category.name.downcase.sub('(','').sub(')','').sub(' ','-')}" %></li>
+		<li class="subtitle">Items</li>
+		<% @items.each do |item| %>
+        	<li><%= link_to item.name + " (" + item.listing.count.to_s + ")" , "listings/category/#{item.name.downcase.sub('(','').sub(')','').sub(' ','-')}" %></li>
+		<% end %>
+		<li class="subtitle">Jobs</li>
+		<% @jobs.each do |job| %>
+        	<li><%= link_to job.name, "jobs/category/#{job.name.downcase.sub('(','').sub(')','').sub(' ','-')}" %></li>
+		<% end %>
+		<li class="subtitle">Rent</li>
+		<% @rent.each do |r| %>
+        	<li><%= link_to r.name + " (" + r.housing.count.to_s + ")" , "rent/category/#{r.name.downcase.sub('(','').sub(')','').sub(' ','-')}" %></li>
 		<% end %>
       </ul>
     </div>
     </div>
     <div id = "content">
-
-	<!-- jQuery Featured Seller Gallery -->
+ 	<!-- jQuery Featured Seller Gallery -->
 	<% if !@latest_listings.first.nil? %>
-		<p class="title">Featured Items</p>
+		<p class="title">Premium Items</p>
     <div class = "premium_items">
 		  <div class="main_image">
 		    <%= image_tag(@latest_listings.first.listing_images.first.photo.url(:large))%>	
@@ -68,7 +80,22 @@
       </div><!-- image_thumb end -->
 	<% end %>
   <div id = "clear"></div>
-</div>
+  </div><!-- premium items gallery end -->
+      <img src = "/images/mums_banner.png" class="banner" border="0"/>
+<<<<<<< HEAD
+=======
+	 <% if !@premium_items.nil? and @premium_items.count > 0%>
+      <p class="title">Premium Items</p>
+      <div id = "recent_items">
+        <% for i in (1..4) %>
+          <div class="item"></div>
+        <% end -%>
+        <div class="bigarrow"></div>
+        <div id = "clear"></div>
+      </div>
+	<% end %>
+
+>>>>>>> 935b725b0a7909cec698238a4df128cfe2d6c686
       <p class="title">Recently Added Items</p>
       <div id = "recent_items">
        <% @latest_listings.each do |recent| %>
@@ -85,7 +112,23 @@
 	    <% end -%>      
         <div class="bigarrow"></div>
         <div id = "clear"></div>
-      </div>      
+      </div>  
+
+	 <p class="title">Latest Housings</p>
+      <div id = "recent_housings">
+       	<%= render :partial => "googleMap" %>
+        <div class="bigarrow"></div>
+        <div id = "clear"></div>
+      </div>
+
+      <div id = "job_rent">        
+         <div id = "recent_rent">
+           <p class="title">New Job Listings</p>
+           <div id = "listings"></div>
+           </div>-
+         <div id = "clear"></div>
+      </div>
+
     </div> <!-- content -->
     <div id = "clear"></div>
   </div><!-- middle content -->
@@ -93,23 +136,17 @@
 
 </div><!-- middle end -->    
 <div id = "clear"></div>
-
-<!--
-<% @listings.each do |listing| %>
-  <div class = "<%= cycle("listing_even","listing_odd") %>">
-		<span class = "listing_header"><%= link_to "#{listing.title} by #{listing.author}" -%></span>
-		<br/>
-		<span class = "listing_description"><%= truncate(listing.description, :length => 200) -%></span>
-
-		<% listing.listing_images do |image| %>
-			<%= image_tag image.photo.url(:small) %>
-		<% end %>
-
-		<% if current_user && (listing.author == current_user.name || current_user.user_role == "admin") %>
-			<%= link_to 'Show', listing %>
-			<%= link_to 'Edit', edit_listing_path(listing) %>
-			<%= link_to 'Destroy', listing, :confirm => 'Are you sure?', :method => :delete %>
-		<% end %>
-	</div>
-<% end %> !-->
-
+<<<<<<< HEAD
+=======
+<script type="text/javascript">
+	<%= show_all(@latest_housings) %>
+</script>
+<% if flash[:notice] %>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#flash_notice').fadeIn(200).delay(10000).fadeOut('slow');
+		//$('#flash_notice').fadeIn(200);
+	})
+</script>
+<% end %>
+>>>>>>> 935b725b0a7909cec698238a4df128cfe2d6c686
