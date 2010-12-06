@@ -31,7 +31,7 @@ gem "meta_where" # :git => "git://github.com/ernie/meta_where.git" # Track git r
 #gem "searchlogic"
 
 # Add S3 support for attaching files with paperclip
-# gem 'aws-s3', :require => 'aws/s3'
+gem 'aws-s3', :require => 'aws/s3'
 # gem 'right_aws'
 
 # Add support for sqlite3 for dev and test DBs

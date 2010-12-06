@@ -12,8 +12,8 @@
 					<% end %>
 				</select>
 			</td>
-	        <td><%= text_field_tag "searchbar", "Search"%></td>
-			    <td><%= submit_tag("Search", :class => "button") %></td>
+	    <td><%= text_field_tag "searchbar", "Search"%></td>
+			<td><%= submit_tag("Search", :class => "button") %></td>
       <% end %>
       <td><%= link_to 'New Listing', new_listing_path, :class => 'large color_button green new_listing' %></td>  
     </tr>       
@@ -25,7 +25,7 @@
       <ul>
         <li class="subtitle">Items</li>
 		<% @categories.each do |category| %>
-        <li><%= link_to category.name + " (" + category.listing.count.to_s + ")", "listings/category/#{category.name.downcase.sub('(','').sub(')','').sub(' ','-')}" %></li>
+        <li><%= link_to category.name + " (" + category.listing.count.to_s + ")", listings_path + "/category/#{category.name.downcase.sub('(','').sub(')','').sub(' ','-')}" %></li>
 		<% end %>
       </ul>
     </div>

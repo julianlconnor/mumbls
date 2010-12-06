@@ -46,6 +46,10 @@ GEM
     activesupport (3.0.0.beta4)
     arel (0.4.0)
       activesupport (>= 3.0.0.beta)
+    aws-s3 (0.6.2)
+      builder
+      mime-types
+      xml-simple
     builder (2.1.2)
     cgi_multipart_eof_fix (2.5.0)
     columnize (0.3.2)
@@ -103,12 +107,14 @@ GEM
     treetop (1.4.9)
       polyglot (>= 0.3.1)
     tzinfo (0.3.23)
+    xml-simple (1.0.12)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   authlogic!
+  aws-s3
   bundler
   haml
   meta_where

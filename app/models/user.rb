@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
   has_many :housings
   # Paperclip
   has_attached_file :avatar,
+                    :storage => :s3,
+                    :s3_credentials =>"#{RAILS_ROOT}/config/s3.yml",
                     :styles => { :thumb=> "75x75#",
                                  :small  => "150x150>" }
                                                      
