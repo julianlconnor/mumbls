@@ -32,14 +32,14 @@ class ActivationsController < ApplicationController
       @user.active = true
       if @user.save
         flash[:notice] = "Thank you for activating your account #{@user.name}."
-        redirect_to :controller => :home
+        redirect_to root_path
       else
         flash[:notice] = "Unable to active your account."
-        redirect_to :controller => :home
+        redirect_to root_path
       end   
     else
       flash[:notice] = "Unable to locate an account with the activation code : #{params[:activation_code]}"
-      redirect_to :controller => :home
+      redirect_to login_path
     end
   end
 

@@ -6,7 +6,7 @@ class UserMailer < ActionMailer::Base
     @url  = "http://mumbls.heroku.com/activate/#{@user.activation_code}"
     email_with_name = "#{@user.name} <#{@user.email}>"
     mail(:to => user.email, :subject => "Welcome to Mumbls.com")
-    debugger
+    #debugger
   end
   
   

@@ -22,9 +22,8 @@ module HousingsHelper
           $('#map').gMap({#{marker_str}, zoom: 15 }); });"
     else
       "$(function() { 
-          $('#map').gMap({ markers: [{ address: '#{address}',
-                                        html: '#{address}' }],
-                            address: '#{address}',
+          $('#map').gMap({ 
+                            address: '15th St & RPI Walk over Bridge',
                             zoom: 15 }); 
       });"
     end
