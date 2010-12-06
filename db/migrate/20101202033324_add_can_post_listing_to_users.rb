@@ -1,6 +1,6 @@
 class AddCanPostListingToUsers < ActiveRecord::Migration
   def self.up
-    add_column :users, :can_post, :boolean, :default => 0
+    add_column :users, :can_post, :boolean, :default => false
   end
 
   def self.down
