@@ -23,11 +23,16 @@ class UsersController < ApplicationController
     end
   end
   def show
-    @user = User.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.haml
-      format.xml  { render :xml => @user }
+    @visitor = UserSession.find
+    if !@visitor.nil?
+      flash[:notice] = "You must sign-in to view user profiles. ;)"
+      redirect_to login_path
+    else
+      @user = User.find(params[:id])
+      respond_to do |format|
+        format.html # show.html.haml
+        format.xml  { render :xml => @user }
+      end
     end
   end
     
@@ -47,7 +52,7 @@ class UsersController < ApplicationController
   def edit
     @user = UserSession.find
     if @user.nil?
-      flash[:notice] = "Please log in to edit your profile. ;)"
+      flash[:notice] = "Please sign-in to edit your profile. ;)"
       redirect_to(:controller => "user_session", :action => "new")
     elsif @user.user.id != params[:id].to_i
       flash[:notice] = "Silly goose.. You can't edit other users' profiles."
