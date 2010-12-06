@@ -38,7 +38,7 @@
 		<% end %>
 		<li class="subtitle">Rent</li>
 		<% @rent.each do |r| %>
-        	<li><%= link_to r.name + " (" + r.housing.count.to_s + ")" , "rent/category/#{r.name.downcase.sub('(','').sub(')','').sub(' ','-')}" %></li>
+        	<li><%= link_to r.name + " (" + r.housing.count.to_s + ")" , housings_path + "/category/#{r.name.downcase.sub('(','').sub(')','').gsub(' ','-').sub('/','-')}" %></li>
 		<% end %>
       </ul>
     </div>
