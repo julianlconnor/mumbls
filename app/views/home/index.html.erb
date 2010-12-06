@@ -82,8 +82,6 @@
   <div id = "clear"></div>
   </div><!-- premium items gallery end -->
       <img src = "/images/mums_banner.png" class="banner" border="0"/>
-<<<<<<< HEAD
-=======
 	 <% if !@premium_items.nil? and @premium_items.count > 0%>
       <p class="title">Premium Items</p>
       <div id = "recent_items">
@@ -95,7 +93,6 @@
       </div>
 	<% end %>
 
->>>>>>> 935b725b0a7909cec698238a4df128cfe2d6c686
       <p class="title">Recently Added Items</p>
       <div id = "recent_items">
        <% @latest_listings.each do |recent| %>
@@ -136,17 +133,3 @@
 
 </div><!-- middle end -->    
 <div id = "clear"></div>
-<<<<<<< HEAD
-=======
-<script type="text/javascript">
-	<%= show_all(@latest_housings) %>
-</script>
-<% if flash[:notice] %>
-<script type="text/javascript">
-	$(document).ready(function() {
-		$('#flash_notice').fadeIn(200).delay(10000).fadeOut('slow');
-		//$('#flash_notice').fadeIn(200);
-	})
-</script>
-<% end %>
->>>>>>> 935b725b0a7909cec698238a4df128cfe2d6c686
