@@ -12,7 +12,7 @@ gem 'haml'
 gem 'authlogic', :git => 'git://github.com/odorcicd/authlogic.git', :branch => 'rails3' # TODO: test this with official version of authlogic
 
 # Add support for paperclip (used for uploading content and profile pics)
-gem 'paperclip'
+gem 'paperclip', :git => 'git://github.com/patshaughnessy/paperclip.git'
 
 # Add capistrano
 # gem 'capistrano'
@@ -31,7 +31,7 @@ gem "meta_where" # :git => "git://github.com/ernie/meta_where.git" # Track git r
 #gem "searchlogic"
 
 # Add S3 support for attaching files with paperclip
-# gem 'aws-s3', :require => 'aws/s3'
+gem 'aws-s3', :require => 'aws/s3'
 # gem 'right_aws'
 
 # Add support for sqlite3 for dev and test DBs
@@ -50,10 +50,10 @@ group :development do
 end
 
 # Add support for RSpec in the test environment
-group :test do
-  gem 'rspec-rails', '>= 2.0.0.beta.13'
-  gem 'factory_girl_rails'
-end
+# group :test do
+#   gem 'rspec-rails', '>= 2.0.0.beta.13'
+#   gem 'factory_girl_rails'
+# end
 
 # Use unicorn as the web server
 # gem 'unicorn'

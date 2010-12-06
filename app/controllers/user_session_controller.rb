@@ -20,7 +20,7 @@ class UserSessionController < ApplicationController
     if @user_session.save
       flash[:notice] = "Successfully logged in."
       respond_to do |format|
-          format.html { redirect_to (:controller => "home", :action => "index") }
+          format.html { redirect_to (root_path) }
           format.js
       end
     else
