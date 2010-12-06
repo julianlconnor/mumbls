@@ -35,7 +35,7 @@
 
 	<!-- jQuery Featured Seller Gallery -->
 	<% if !@latest_listings.first.nil? %>
-		<p class="title">Premium Items</p>
+		<p class="title">Featured Items</p>
     <div class = "premium_items">
 		<div class="main_image">
 		    <%= image_tag(@latest_listings.first.listing_images.first.photo.url(:large))%>	

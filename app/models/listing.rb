@@ -6,7 +6,7 @@ class Listing < ActiveRecord::Base
   # end
   
   has_many :listing_images, :dependent => :destroy
-  has_one :category
+  belongs_to :category
   has_one :user
   accepts_nested_attributes_for :listing_images, :reject_if => proc { |attrs| attrs.all? { |k, v| v.blank? } }
   

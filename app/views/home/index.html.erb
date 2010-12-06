@@ -10,7 +10,11 @@
 					<option value="listings">Listings</option>
 					<option value="housings">Housings</option>
 					<% @categories.each do |category| %>
-						<option value="<%= category.id %>"><%= category.name %></option>
+						<% if category.id > 15 %>
+							<option value="<%= category.id %>"><%= category.name + ' - ' + category.parent %></option>
+						<% else %>
+							<option value="<%= category.id %>"><%= category.name  %></option>
+						<% end %>
 					<% end %>
 				</select>
 			</td>
@@ -41,6 +45,7 @@
     </div>
     <div id = "content">
       <img src = "/images/mums_banner.png" class="banner" border="0"/>
+	 <% if !@premium_items.nil? and @premium_items.count > 0%>
       <p class="title">Premium Items</p>
       <div id = "recent_items">
         <% for i in (1..4) %>
@@ -49,6 +54,7 @@
         <div class="bigarrow"></div>
         <div id = "clear"></div>
       </div>
+	<% end %>
 
       <p class="title">Recently Added Items</p>
       <div id = "recent_items">
@@ -68,15 +74,9 @@
         <div id = "clear"></div>
       </div>  
 
-	 <p class="title">For Rent</p>
+	 <p class="title">Latest Housings</p>
       <div id = "recent_housings">
-        <% @latest_housings.each do |recent| %>
-          <div class="item">
-			<% if !recent.housing_images.empty? %>
-				<%= image_tag(recent.housing_images.first.photo.url(:small)) %>
-			<% end %>
-		  </div>
-        <% end -%>
+       	<%= render :partial => "googleMap" %>
         <div class="bigarrow"></div>
         <div id = "clear"></div>
       </div>
@@ -96,7 +96,9 @@
 
 </div><!-- middle end -->    
 <div id = "clear"></div>
-
+<script type="text/javascript">
+	<%= show_all(@latest_housings) %>
+</script>
 <% if flash[:notice] %>
 <script type="text/javascript">
 	$(document).ready(function() {
