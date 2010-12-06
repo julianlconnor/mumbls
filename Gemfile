@@ -12,7 +12,7 @@ gem 'haml'
 gem 'authlogic', :git => 'git://github.com/odorcicd/authlogic.git', :branch => 'rails3' # TODO: test this with official version of authlogic
 
 # Add support for paperclip (used for uploading content and profile pics)
-gem 'paperclip'
+gem 'paperclip', :git => 'git://github.com/patshaughnessy/paperclip.git'
 
 # Add capistrano
 # gem 'capistrano'
