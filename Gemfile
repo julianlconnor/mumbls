@@ -1,9 +1,9 @@
 source 'http://rubygems.org'
 
-#gem 'rails', '3.0.0.beta4'
+gem 'rails', '3.0.0.beta4'
 gem 'mysql'
 # Bundle edge Rails instead:
-gem 'rails', :git => 'git://github.com/rails/rails.git'
+#gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 # Add support for haml as well as erb
 gem 'haml'
