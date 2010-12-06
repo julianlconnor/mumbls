@@ -1,6 +1,0 @@
-.results
-  - @search.each_hit_with_result do |hit, post|
-    .result
-      %h2= h post.title
-      %h6== (#{h hit.score})
-      %p= h truncate(post.description, 100)
