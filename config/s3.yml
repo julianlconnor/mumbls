@@ -9,6 +9,6 @@ test:
   secret_access_key: sYqaBfkeEP+4rrqEq+J2y6X1BM+v8qZQdypQEBbr
 
 production:
-  bucket: mumbls
+  bucket: mumbls_dev
   access_key_id: AKIAIWIRQWQ7M3ES3DZQ
   secret_access_key: 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
