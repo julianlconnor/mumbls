@@ -32,6 +32,12 @@ class ListingsController < ApplicationController
     @search_title = Listing.where(:title.matches => @query)
     @search_description = Listing.where(:description.matches => @query)
     @search = @search_title | @search_description
+    # Fetch categories for drop down
+    @categories = Category.all
+    # Fetch all categories with parent = Items, Jobs, and Rent
+    @items = Category.where(:parent => "Items")
+    @jobs = Category.where(:parent => "Jobs")
+    @rent = Category.where(:parent => "Rent")
   end
     
   def list_by_category

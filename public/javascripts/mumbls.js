@@ -1,6 +1,6 @@
 
 $(document).ready(function(){
-  $('input').emptyonclick(); 
+  $('input#searchbar').emptyonclick(); 
 });
 
 $(document).ready(function() {  
