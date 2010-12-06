@@ -11,6 +11,10 @@
     width: 580px;
     float: left;
     margin-right: 20px;
+    text-align: center;
+}
+.main_image img {
+	height: 100%;
 }
 .main_image h2 {
     font-size: 2em;
