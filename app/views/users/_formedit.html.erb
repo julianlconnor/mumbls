@@ -1,61 +1,65 @@
-    <% form_for @user, :html => { :multipart => true } do |f| %>        
-        <p class="title">Edit Account Information </p>
-        <table>
-          <tr>
-            <td><%= f.label :name %></td>
-            <td><%= f.text_field :name %></td>
-          </tr>
-          <tr>
-            <td><%= f.label :alias %></td>
-            <td><div class = "table_text"><%= @user.alias %></div></td>
-          </tr>
-          <tr>
-            <td><%= f.label :email %></td>
-            <td><div class = "table_text"><%= @user.email %></div></td>
-          </tr>
-          <tr>
-            <td><%= f.label :password %></td>
-            <td><%= f.password_field :password %></td>
-          </tr>
-          <tr>
-            <td><%= f.label :password_confirmation %></td>
-            <td><%= f.password_field :password_confirmation %></td>
-          </tr>
-			<tr>
-				<td>Current Avatar</td>
-        <% if !@user.avatar.url(:small).nil? %>
-				  <td><%= image_tag(@user.avatar.url(:small), :class => 'margin_left') %></td>
-        <% else %>
-          <td><div class="table_text">No avatar has been uploaded.</div></td>
-        <% end %>
-			</tr>
-          <tr><td colspan="2">
-<div class="text">Upload an avatar!  Limited to 500 KB in size, JPG or PNG.</div>
-</td>
-</tr>
+<% form_for @user, :html => { :multipart => true } do |f| %>        
+  <p class="title">Edit Account Information </p>
+  <table>
+    <tr>
+      <td><%= f.label :name %></td>
+      <td><%= f.text_field :name %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :alias %></td>
+      <td><div class = "table_text"><%= @user.alias %></div></td>
+    </tr>
+    <tr>
+      <td><%= f.label :email %></td>
+     <td><div class = "table_text"><%= @user.email %></div></td>
+    </tr>
+    <tr>
+			<td><%= f.label :email_is_public, "Share my email" %></td>
+			<td><%= f.check_box :email_is_public, :checked => @user.email_is_public %></td>
+		</tr>
+    <tr>
+      <td><%= f.label :password %></td>
+      <td><%= f.password_field :password %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :password_confirmation %></td>
+      <td><%= f.password_field :password_confirmation %></td>
+    </tr>
+		<tr>
+			<td>Current Avatar</td>
+      <% if !@user.avatar.url(:small).nil? %>
+			<td><%= image_tag(@user.avatar.url(:small), :class => 'margin_left') %></td>
+      <% else %>
+      <td><div class="table_text">No avatar has been uploaded.</div></td>
+      <% end %>
+		</tr>
+    <tr>
+      <td colspan="2">
+      <div class="text">Upload an avatar!  Limited to 500 KB in size, JPG or PNG.</div>
+      </td>
+    </tr>
+    <tr>
+	    <div class='field'>
+      <% f.label :avatar %>
+      <td colspan="2"><%= f.file_field :avatar %></td>
+      </div>
+    </tr>
+    <%= f.hidden_field :activation_code, {:value => "#{Digest::MD5.hexdigest(Time.new.to_s)}" }%>
+    <tr>
+      <td></td>
+      <td><%= f.submit 'Submit', :class => 'button submission' %></td>
+    </tr>
+  </table>
+<% end %>    
 
-<tr>
-	<div class='field'>
-	
-<% f.label :avatar %>
-<td colspan="2"><%= f.file_field :avatar %></td>
-</div>
-</tr>
-          <%= f.hidden_field :activation_code, {:value => "#{Digest::MD5.hexdigest(Time.new.to_s)}" }%>
-          <tr>
-            <td></td>
-            <td><%= f.submit 'Submit', :class => 'button submission' %></td>
-          </tr>
-      </table>
-    <% end %>    
-    <!-- print errors -->
-    <%- if @user.errors.any? %>
-    <div id = "box">
-        <div class = "bold">Please correct the following error(s) and resubmit</div>
-          <ul>
-            <%- @user.errors.full_messages.each do |msg| %>
-              <li class="error"><%= msg %></li>
-      		  <% end %>
-      	  </ul>
-    </div>
-    <% end %>    
+<!-- print errors -->
+  <%- if @user.errors.any? %>
+  <div id = "box">
+    <div class = "bold">Please correct the following error(s) and resubmit</div>
+    <ul>
+        <%- @user.errors.full_messages.each do |msg| %>
+        <li class="error"><%= msg %></li>
+    		<% end %>
+    </ul>
+  </div>
+  <% end %>      

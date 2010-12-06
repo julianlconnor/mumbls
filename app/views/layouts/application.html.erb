@@ -9,13 +9,14 @@
 	<%= stylesheet_link_tag "mainstyle.css" %>
 	<%= stylesheet_link_tag "imagerotator.css" %>
   <%= stylesheet_link_tag "button.css" %>
-	<%= csrf_meta_tag %>
+  <%= javascript_include_tag :all %>
+	<%= csrf_meta_tag %>  
 </head>
 <body> 
   <div id = "header">
     <div id = "header_content">
       <div id = "leftcolumn">
-          <a href = "http://localhost:3000"><img src = "/images/mumbls_penguin.png" border="0"/></a>
+          <a href = "/"><img src = "/images/mumbls_penguin.png" border="0"/></a>
         </div>
         <div id = "rightcolumn">
           <div id = "minimenu">
@@ -41,8 +42,8 @@
           <div id = "nav">
             <ul>
                   <% if flash[:notice] %>
-                  <li id = "flash_notice" class = "notice nav">              
-                    <div class = "left notice_message"><%= flash[:notice] %></div><div class = "left"><img src = "/images/CloseIcon.png"/> </div>          
+                  <li id = "flash_notice" class = "notice nav" style="display: none">              
+                    <div class = "notice_message"><%= flash[:notice] %></div>          
                   </li>
               <% end %>
               <li><%= link_to 'Housing', housings_path, :class => 'button nav' -%></li>
@@ -68,15 +69,7 @@
       </ul>
     </div>
   </div> <!-- wrapper end -->
-  
-<% if flash[:notice] %>
-<script type="text/javascript">
-	$(document).ready(function() {
-		//$('#flash_notice').fadeIn(200).delay(10000).fadeOut('slow');
-		$('li #flash_notice .notice .nav').fadeIn(200).delay(10000).fadeOut('slow');
-	})
-</script>
-<% end %>
+    
   
 
 </body>

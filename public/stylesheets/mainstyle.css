@@ -15,6 +15,10 @@ html, body {
   text-align: right;
 }
 
+.notification {
+  font-size: 10px;
+  color: #999;
+}
 .edit {
   font-size: 14px;
   font-weight: normal;
@@ -33,8 +37,7 @@ html, body {
   border: solid 1px #999;
 }
 
-.notice_message {
-  width: 160px;
+.notice_message {  
   margin-left: 8px;
   margin-right: 8px;
 }
@@ -69,7 +72,7 @@ img.table_img {
 }
 
 .banner {
-  margin-top: 54px;
+  margin-top: 35px;
 }
 
 #clear {
@@ -215,7 +218,7 @@ border-radius: 8px;
 background-color: #fff;
 width: 210px;
 margin-right: 20px;
-height: 32px;
+height: 36px;
 }
 
 input#searchbar {
@@ -224,8 +227,10 @@ width: 507px;
 border-radius: 8px;
 border: solid 1px #999999;
 background-color: #fff;
-height: 32px;
-font-size: 18px;
+height: 28px;
+font-size: 16px;
+text-align: right;
+padding: 3px 20px 3px 0px;
 }
 
 input#button {
@@ -417,15 +422,13 @@ width: 100px;
   float: right;
   border: solid 1px #ccc;
 }
-.submission {
-border: solid 1px #999;
-background: #fff;
-height: 35px !important;
+
+
+input.submission {  
+  height: 35px !important;
+  margin-top: 30px;
 }
 
-#listing_submit {
-margin-top:30px;
-}
 #listing_description {
 width: 400px;
 height: 100px;
@@ -442,7 +445,11 @@ vertical-align: top;
 img.avatar {
   margin-left: 15px;
 }
-  
+
+.label {
+  width: 102px;
+
+}
 div.table_text {
   margin-left: 15px;
 }

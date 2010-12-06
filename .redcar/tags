@@ -1,4 +1,4 @@
-1291327874
+1291608605
 ActivationsController	/home/panfia/Documents/mumbls/app/controllers/activations_controller.rb	class ActivationsController 
 ActivationsHelper	/home/panfia/Documents/mumbls/app/helpers/activations_helper.rb	module ActivationsHelper
 AddActivationCodeToUsers	/home/panfia/Documents/mumbls/db/migrate/20101008183745_add_activation_code_to_users.rb	class AddActivationCodeToUsers 
@@ -7,6 +7,7 @@ AddAliasToUsers	/home/panfia/Documents/mumbls/db/migrate/20101004192352_add_alia
 AddAuthenticationToUser	/home/panfia/Documents/mumbls/db/migrate/20100701044600_add_authentication_to_user.rb	class AddAuthenticationToUser 
 AddAuthorIdToHousings	/home/panfia/Documents/mumbls/db/migrate/20101116035026_add_author_id_to_housings.rb	class AddAuthorIdToHousings 
 AddAuthorIdToListings	/home/panfia/Documents/mumbls/db/migrate/20101116032855_add_author_id_to_listings.rb	class AddAuthorIdToListings 
+AddCanPostListingToUsers	/home/panfia/Documents/mumbls/db/migrate/20101202033324_add_can_post_listing_to_users.rb	class AddCanPostListingToUsers 
 AddCategories	/home/panfia/Documents/mumbls/db/migrate/20101026022643_add_categories.rb	class AddCategories 
 AddCategoryIdToHousings	/home/panfia/Documents/mumbls/db/migrate/20101201001113_add_category_id_to_housings.rb	class AddCategoryIdToHousings 
 AddCategoryToListings	/home/panfia/Documents/mumbls/db/migrate/20101103182531_add_category_to_listings.rb	class AddCategoryToListings 
@@ -26,6 +27,7 @@ CreateHousings	/home/panfia/Documents/mumbls/db/migrate/20101105184146_create_ho
 CreateListingImages	/home/panfia/Documents/mumbls/db/migrate/20101012005934_create_listing_images.rb	class CreateListingImages 
 CreateListings	/home/panfia/Documents/mumbls/db/migrate/20101001034548_create_listings.rb	class CreateListings 
 CreateNotifiers	/home/panfia/Documents/mumbls/db/migrate/20101004172341_create_notifiers.rb	class CreateNotifiers 
+CreatePayments	/home/panfia/Documents/mumbls/db/migrate/20101202024007_create_payments.rb	class CreatePayments 
 CreateUsers	/home/panfia/Documents/mumbls/db/migrate/20100701043032_create_users.rb	class CreateUsers 
 EmailFormatValidator	/home/panfia/Documents/mumbls/lib/email_format_validator.rb	class EmailFormatValidator 
 HomeController	/home/panfia/Documents/mumbls/app/controllers/home_controller.rb	class HomeController 
@@ -38,6 +40,9 @@ Listing	/home/panfia/Documents/mumbls/app/models/listing.rb	class Listing
 ListingImage	/home/panfia/Documents/mumbls/app/models/listing_image.rb	class ListingImage 
 ListingsController	/home/panfia/Documents/mumbls/app/controllers/listings_controller.rb	class ListingsController 
 ListingsHelper	/home/panfia/Documents/mumbls/app/helpers/listings_helper.rb	module ListingsHelper
+Payment	/home/panfia/Documents/mumbls/app/models/payment.rb	class Payment 
+PaymentsController	/home/panfia/Documents/mumbls/app/controllers/payments_controller.rb	class PaymentsController 
+PaymentsHelper	/home/panfia/Documents/mumbls/app/helpers/payments_helper.rb	module PaymentsHelper
 User	/home/panfia/Documents/mumbls/app/models/user.rb	class User 
 UserMailer	/home/panfia/Documents/mumbls/app/mailers/user_mailer.rb	class UserMailer 
 UserSession	/home/panfia/Documents/mumbls/app/models/user_session.rb	class UserSession 
@@ -48,9 +53,11 @@ UsersHelper	/home/panfia/Documents/mumbls/app/helpers/users_helper.rb	module Use
 activation_email	/home/panfia/Documents/mumbls/app/mailers/user_mailer.rb	  def activation_email
 active!	/home/panfia/Documents/mumbls/app/models/user.rb	  def active!
 active?	/home/panfia/Documents/mumbls/app/models/user.rb	  def active?
+confirm	/home/panfia/Documents/mumbls/app/controllers/payments_controller.rb	  def confirm
 create	/home/panfia/Documents/mumbls/app/controllers/activations_controller.rb	  def create
 create	/home/panfia/Documents/mumbls/app/controllers/housings_controller.rb	  def create
 create	/home/panfia/Documents/mumbls/app/controllers/listings_controller.rb	  def create
+create	/home/panfia/Documents/mumbls/app/controllers/payments_controller.rb	  def create
 create	/home/panfia/Documents/mumbls/app/controllers/user_session_controller.rb	  def create
 create	/home/panfia/Documents/mumbls/app/controllers/users_controller.rb	  def create
 current_user	/home/panfia/Documents/mumbls/app/controllers/application_controller.rb	    def current_user
@@ -58,6 +65,7 @@ current_user_session	/home/panfia/Documents/mumbls/app/controllers/application_c
 dashboard	/home/panfia/Documents/mumbls/app/controllers/home_controller.rb	  def dashboard
 destroy	/home/panfia/Documents/mumbls/app/controllers/housings_controller.rb	  def destroy
 destroy	/home/panfia/Documents/mumbls/app/controllers/listings_controller.rb	  def destroy
+destroy	/home/panfia/Documents/mumbls/app/controllers/payments_controller.rb	  def destroy
 destroy	/home/panfia/Documents/mumbls/app/controllers/user_session_controller.rb	  def destroy
 destroy	/home/panfia/Documents/mumbls/app/controllers/users_controller.rb	  def destroy
 down	/home/panfia/Documents/mumbls/db/migrate/20100701043032_create_users.rb	  def self.down
@@ -81,23 +89,30 @@ down	/home/panfia/Documents/mumbls/db/migrate/20101116032855_add_author_id_to_li
 down	/home/panfia/Documents/mumbls/db/migrate/20101116035026_add_author_id_to_housings.rb	  def self.down
 down	/home/panfia/Documents/mumbls/db/migrate/20101130005156_add_is_student_to_user.rb	  def self.down
 down	/home/panfia/Documents/mumbls/db/migrate/20101201001113_add_category_id_to_housings.rb	  def self.down
+down	/home/panfia/Documents/mumbls/db/migrate/20101202024007_create_payments.rb	  def self.down
+down	/home/panfia/Documents/mumbls/db/migrate/20101202033324_add_can_post_listing_to_users.rb	  def self.down
 edit	/home/panfia/Documents/mumbls/app/controllers/housings_controller.rb	  def edit
 edit	/home/panfia/Documents/mumbls/app/controllers/listings_controller.rb	  def edit
+edit	/home/panfia/Documents/mumbls/app/controllers/payments_controller.rb	  def edit
 edit	/home/panfia/Documents/mumbls/app/controllers/users_controller.rb	  def edit
 index	/home/panfia/Documents/mumbls/app/controllers/home_controller.rb	  def index
 index	/home/panfia/Documents/mumbls/app/controllers/housings_controller.rb	  def index
 index	/home/panfia/Documents/mumbls/app/controllers/listings_controller.rb	  def index
+index	/home/panfia/Documents/mumbls/app/controllers/payments_controller.rb	  def index
 index	/home/panfia/Documents/mumbls/app/controllers/users_controller.rb	  def index
 list_by_category	/home/panfia/Documents/mumbls/app/controllers/listings_controller.rb	  def list_by_category
 mock_housing	/home/panfia/Documents/mumbls/spec/controllers/housings_controller_spec.rb	  def mock_housing
 mock_listing	/home/panfia/Documents/mumbls/spec/controllers/listings_controller_spec.rb	  def mock_listing
+mock_payment	/home/panfia/Documents/mumbls/spec/controllers/payments_controller_spec.rb	  def mock_payment
 mock_user	/home/panfia/Documents/mumbls/spec/controllers/users_controller_spec.rb	  def mock_user
 mock_user_session	/home/panfia/Documents/mumbls/spec/controllers/user_session_controller_spec.rb	  def mock_user_session
 new	/home/panfia/Documents/mumbls/app/controllers/activations_controller.rb	  def new
 new	/home/panfia/Documents/mumbls/app/controllers/housings_controller.rb	  def new
 new	/home/panfia/Documents/mumbls/app/controllers/listings_controller.rb	  def new
+new	/home/panfia/Documents/mumbls/app/controllers/payments_controller.rb	  def new
 new	/home/panfia/Documents/mumbls/app/controllers/user_session_controller.rb	  def new
 new	/home/panfia/Documents/mumbls/app/controllers/users_controller.rb	  def new
+parse	/home/panfia/Documents/mumbls/app/models/payment.rb	  def parse
 redirect_back_or_default	/home/panfia/Documents/mumbls/app/controllers/application_controller.rb	    def redirect_back_or_default
 require_no_user	/home/panfia/Documents/mumbls/app/controllers/application_controller.rb	    def require_no_user
 require_user	/home/panfia/Documents/mumbls/app/controllers/application_controller.rb	    def require_user
@@ -108,11 +123,13 @@ search	/home/panfia/Documents/mumbls/app/controllers/housings_controller.rb	  de
 search	/home/panfia/Documents/mumbls/app/controllers/listings_controller.rb	  def search
 show	/home/panfia/Documents/mumbls/app/controllers/housings_controller.rb	  def show
 show	/home/panfia/Documents/mumbls/app/controllers/listings_controller.rb	  def show
+show	/home/panfia/Documents/mumbls/app/controllers/payments_controller.rb	  def show
 show	/home/panfia/Documents/mumbls/app/controllers/users_controller.rb	  def show
 show_map	/home/panfia/Documents/mumbls/app/helpers/housings_helper.rb	  def show_map
 show_profile	/home/panfia/Documents/mumbls/app/controllers/users_controller.rb	  def show_profile
 store_location	/home/panfia/Documents/mumbls/app/controllers/application_controller.rb	    def store_location
 to_key	/home/panfia/Documents/mumbls/app/models/user_session.rb	  def to_key
+transaction_amount	/home/panfia/Documents/mumbls/app/models/payment.rb	  def transaction_amount
 up	/home/panfia/Documents/mumbls/db/migrate/20100701043032_create_users.rb	  def self.up
 up	/home/panfia/Documents/mumbls/db/migrate/20100701044600_add_authentication_to_user.rb	  def self.up
 up	/home/panfia/Documents/mumbls/db/migrate/20101001034548_create_listings.rb	  def self.up
@@ -134,7 +151,10 @@ up	/home/panfia/Documents/mumbls/db/migrate/20101116032855_add_author_id_to_list
 up	/home/panfia/Documents/mumbls/db/migrate/20101116035026_add_author_id_to_housings.rb	  def self.up
 up	/home/panfia/Documents/mumbls/db/migrate/20101130005156_add_is_student_to_user.rb	  def self.up
 up	/home/panfia/Documents/mumbls/db/migrate/20101201001113_add_category_id_to_housings.rb	  def self.up
+up	/home/panfia/Documents/mumbls/db/migrate/20101202024007_create_payments.rb	  def self.up
+up	/home/panfia/Documents/mumbls/db/migrate/20101202033324_add_can_post_listing_to_users.rb	  def self.up
 update	/home/panfia/Documents/mumbls/app/controllers/housings_controller.rb	  def update
 update	/home/panfia/Documents/mumbls/app/controllers/listings_controller.rb	  def update
+update	/home/panfia/Documents/mumbls/app/controllers/payments_controller.rb	  def update
 update	/home/panfia/Documents/mumbls/app/controllers/users_controller.rb	  def update
 validate_each	/home/panfia/Documents/mumbls/lib/email_format_validator.rb	  def validate_each
