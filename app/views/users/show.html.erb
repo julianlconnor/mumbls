@@ -2,7 +2,7 @@
   <div id = "box" class="small_box">
     <p class="title">User Account: <%= @user.name %> 
 		<% if !current_user.nil? and current_user.id == @user.id %>
-			<%= link_to 'Edit', edit_user_path(@user), :class => "color_button blue medium right edit" -%>
+			<span id="edit_button" class="color_button blue medium right edit">Edit</span>
 		<% end %>
     </p> 
     <div class = 'right'><%= image_tag @user.avatar.url(:thumb) %></div>
@@ -19,11 +19,11 @@
     </table>  
   <div id = "clear"></div>
   </div>
-	<% if !current_user.nil? and current_user.id == @user.id %>
-  	<div id = "box" class = "edit_box small_box" style="display:none;">    
-			<%= render :partial => "formedit" %>    
-	  </div>
-	<% end %>
+<% if !current_user.nil? and current_user.id == @user.id %>
+  <div id = "box" class = "edit_box small_box" style="display:none;">    
+		<%= render :partial => "formedit" %>    
+  </div>
+<% end %>
 </div>
 
 <script type="text/javascript">
