@@ -26,7 +26,10 @@ gem 'bundler'
 
 
 # Indexing powered by Solr
-gem 'sunspot_rails', '1.2.rc4'
+#gem 'sunspot_rails', '1.2.rc4'
+#gem "meta_where"  # Last officially released gem
+gem "meta_where" # :git => "git://github.com/ernie/meta_where.git" # Track git repo
+#gem "searchlogic"
 
 # Add S3 support for attaching files with paperclip
 # gem 'aws-s3', :require => 'aws/s3'

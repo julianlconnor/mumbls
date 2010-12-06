@@ -13,6 +13,7 @@ VALUES('Appliances', 'Items'),
 ('Apartments \(2 BR\)', 'Rent'),
 ('Apartments \(3 BR\)', 'Rent'),
 ('Apartments \(4 BR\)', 'Rent'),
-('Sublet\/Short Term', 'Rent');
-
-
+('Sublet\/Short Term', 'Rent'),
+('Other', 'Items'),
+('Other', 'Jobs'),
+('Other', 'Rent');

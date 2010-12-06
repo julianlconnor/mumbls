@@ -28,9 +28,10 @@ class ListingsController < ApplicationController
   end
   
   def search
-    @search = Listing.search() do
-      keywords(params[:searchbar])
-    end
+    @query = '%' + params[:searchbar].to_s + '%'
+    @search_title = Listing.where(:title.matches => @query)
+    @search_description = Listing.where(:description.matches => @query)
+    @search = @search_title | @search_description
   end
     
   def list_by_category

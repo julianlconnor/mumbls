@@ -1,9 +1,9 @@
 class Housing < ActiveRecord::Base
   
-  searchable do
-    text :title
-    text :description
-  end
+  # searchable do
+  #   text :title
+  #   text :description
+  # end
   
   has_many :housing_images, :dependent => :destroy
   # user = 'author'
