@@ -2,6 +2,7 @@ class HousingsController < ApplicationController
   # GET /housings
   # GET /housings.xml
   def index
+    @housing_count = Housing.count
     @housings = Housing.all
     @categories = Category.where(:parent => "Rent")
     @latest_listings = Housing.order("created_at DESC").limit(4)
@@ -23,9 +24,9 @@ class HousingsController < ApplicationController
   end
 
   def search
-    @search = Housing.search() do
-      keywords(params[:searchbar])
-    end
+     @search_housing_title = Housing.where(:title.matches => @query)
+     @search_housing_description = Housing.where(:description.matches => @query)
+     @search = @search_housing_description | @search_housing_title
   end
 
   # GET /housings/new
@@ -33,11 +34,12 @@ class HousingsController < ApplicationController
   def new
     @user = UserSession.find
     if @user.nil?
-      flash[:notice] = "Please sign in order to post new listings."
+      flash[:notice] = "Please sign in order to post new housing listings."
       redirect_to(:controller => "user_session", :action => "new")
     else
       @housing = Housing.new
-      3.times {@housing.housing_images.build} #initializes 3 images for each housing listing
+      @categories = Category.where(:parent => "Rent")
+      2.times {@housing.housing_images.build} #initializes 3 images for each housing listing
       respond_to do |format|
         format.html # new.html.erb
         format.xml  { render :xml => @housing }
@@ -48,13 +50,26 @@ class HousingsController < ApplicationController
   # GET /housings/1/edit
   def edit
     @housing = Housing.find(params[:id])
-    3.times {@housing.housing_images.build} #initializes 3 images for each housing listing
+    2.times {@housing.housing_images.build} #initializes 3 images for each housing listing
   end
 
+
+  def list_by_category
+    @housing_count = Housing.count
+    if params[:id] < 19
+      @housings = Housing.where(:category_id => params[:id])
+    elsif params[:id] == 411
+      @housings = Housing.all
+    end
+    @categories = Category.where(:parent => "Rent")
+    render :index
+  end
   # POST /housings
   # POST /housings.xml
   def create
     @housing = Housing.new(params[:housing])
+    @categories = Category.where(:parent => "Rent")
+    
     respond_to do |format|
       if @housing.save
         format.html { redirect_to(@housing, :notice => 'Your housing classified was successfully created!') }

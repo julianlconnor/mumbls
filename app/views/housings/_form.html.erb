@@ -11,13 +11,37 @@
 	<% end %>
 	<% if current_user %>
 		<div class="field">
-			<%= f.hidden_field :author, :value => current_user.name %><br />
+			<%= f.hidden_field :author_id, :value => current_user.name %><br />
 		</div>
 	<% end %>
 	<div class="field">
 		<%= f.label :title %><br />
 		<%= f.text_field :title %>
 	</div>
+	<div class="field">
+		<%= f.label :address %><br />
+		<%= f.text_field :address %>
+	</div>
+	<div class="field">
+		<%= f.label :optional_address %><br />
+		<%= f.text_field :optional_address %>
+	</div>
+	<div class="field">
+		<%= f.label :city %><br />
+		<%= f.text_field :city %>
+	</div>
+	<div class="field">
+		<%= f.label :state %><br />
+		<%= f.text_field :state %>
+	</div>
+	<div class="field">
+		<%= f.label :zip_code %><br />
+		<%= f.text_field :zip_code %>
+	</div>
+	<tr>
+			<td><%= f.label :category_id, "Category:" %></td>
+			<td><%= select ("housing", "category_id", @categories.map {|u| [u.name,u.id]}) %></td>    
+	</tr>
 	<div class="field">
 		<%= f.label :description %><br />
 		<%= f.text_area :description %>

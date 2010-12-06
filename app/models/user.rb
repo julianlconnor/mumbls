@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  
+  acts_as_authentic
   validates_uniqueness_of :alias,  :presence => true
   validates_length_of :alias, :minimum => 3, :message => "Alias must be at least 3 characters."
   validates_uniqueness_of :email, :presence => true, :email_format => true, :message => "Sorry, but a user with the emails %s, already exists."

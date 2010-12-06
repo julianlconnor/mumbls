@@ -9,14 +9,14 @@ gem 'mysql'
 gem 'haml'
 
 # Add support for Authlogic authentication
-#gem 'authlogic', :git => 'git://github.com/odorcicd/authlogic.git', :branch => 'rails3' # TODO: test this with official version of authlogic
-gem 'authlogic'
+gem 'authlogic', :git => 'git://github.com/odorcicd/authlogic.git', :branch => 'rails3' # TODO: test this with official version of authlogic
+#gem 'authlogic', '2.1.5'
 
 # Add support for paperclip (used for uploading content and profile pics)
 gem 'paperclip'
 
 # Add capistrano
-gem 'capistrano'
+# gem 'capistrano'
 
 # Add mongrel
 gem 'mongrel'
@@ -26,7 +26,10 @@ gem 'bundler'
 
 
 # Indexing powered by Solr
-gem 'sunspot_rails', '1.2.rc4'
+#gem 'sunspot_rails', '1.2.rc4'
+#gem "meta_where"  # Last officially released gem
+gem "meta_where" # :git => "git://github.com/ernie/meta_where.git" # Track git repo
+#gem "searchlogic"
 
 # Add S3 support for attaching files with paperclip
 # gem 'aws-s3', :require => 'aws/s3'

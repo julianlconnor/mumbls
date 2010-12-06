@@ -4,6 +4,7 @@ class ActivationsController < ApplicationController
   def new
    
   end
+  
   def resend_form
   end
   def resend_activation

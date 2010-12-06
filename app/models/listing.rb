@@ -1,9 +1,9 @@
 class Listing < ActiveRecord::Base
   
-  searchable do
-    text :title
-    text :description
-  end
+  # searchable do
+  #   text :title
+  #   text :description
+  # end
   
   has_many :listing_images, :dependent => :destroy
   has_one :category

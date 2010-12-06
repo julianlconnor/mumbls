@@ -16,54 +16,23 @@
     <div id = "categories">
       <ul>
         <li class="subtitle">Items</li>
+		<li><%= link_to "All (" + @housing_count.to_s + ")", housings_path + "/category/all" %>
 		<% @categories.each do |category| %>
-        <li><%= link_to category.name + " (" + category.housing.count.to_s + ")", "housings/category/#{category.name.downcase.sub('(','').sub(')','').sub(' ','-')}" %></li>
+        <li><%= link_to category.name + " (" + category.housing.count.to_s + ")", housings_path + "/category/#{category.name.downcase.sub('(','').sub(')','').gsub(' ','-').sub('/','-')}" %></li>
 		<% end %>
       </ul>
     </div>
     </div>
     <div id = "content">
-      <!-- <img src = "/images/rpi_strip.png" width="675px"> -->
-      <p class="title">Premium Items</p>
-      <div id = "recent_items">
-        <% for i in (1..3) %>
-          <div class="item"></div>
-        <% end -%>
-        <div class="lastitem"></div>
-        <div class="bigarrow"></div>
-        <div id = "clear"></div>
-      </div>
-      <p class="title">Recently Added Items</p>
-      <div id = "recent_items">
-        <% @latest_listings.each do |recent| %>
-          <div class="item">
-			<% if !recent.housing_images.empty? %>
-				<%= image_tag(recent.housing_images.first.photo.url(:small)) %>
-			<% end %>
-		  </div>
-        <% end -%>
-        <div class="lastitem"></div>
-        <div class="bigarrow"></div>
-        <div id = "clear"></div>
-      </div>
-      <!--><div id = "job_rent">
-        <div id = "recent_jobs">
-          <p class="title">New Job Listings</p>
-          <div id = "listings"></div>
-        </div>
-        <div id = "recent_rent">
-          <p class="title">New Rent Listings</p>
-          <div id = "listings"></div>
-          </div>-
-        <div id = "clear"></div>
-      </div>-->
+      	<%= render :partial => "googleMap" %>
     </div> <!-- content -->
     <div id = "clear"></div>
   </div><!-- middle content -->
   <div id = "clear"></div>
-
 </div><!-- middle end -->    
 <div id = "clear"></div>
-
+<script type="text/javascript">
+	<%= show_all(@housings	) %>
+</script>
 
 <%= link_to 'New Housing Listing', new_housing_path %>

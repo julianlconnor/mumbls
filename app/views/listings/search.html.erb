@@ -1,0 +1,8 @@
+<div class="results">
+  <% @search.each do |hit| %>
+    <div class="result">
+      <h2><%= h hit.title %></h2>
+      <h2><%= h truncate(hit.description, 100) %></h2>
+	</div>
+  <% end %>
+</div>
