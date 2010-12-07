@@ -5,8 +5,9 @@
 	  <table>
 	        <tr>
 	        <td><%= select ("selected_category", "id", @categories.map {|u| [u.name,u.id]}) %></td>
-	        <td><%= text_field_tag "searchbar"%></td>
-			<td><%= submit_tag("Search") %></td>
+		    <td><%= text_field_tag "searchbar", "Search"%></td>
+			<td><%= submit_tag("Search", :class => "button") %></td>
+			<td><%= link_to 'New Housing Listing', new_housing_path, :class => 'large color_button green new_listing' %></td>  
 	      </tr>
 	    </table>
 	<% end %>
@@ -34,5 +35,3 @@
 <script type="text/javascript">
 	<%= show_all(@housings) %>
 </script>
-
-<%= link_to 'New Housing Listing', new_housing_path %>

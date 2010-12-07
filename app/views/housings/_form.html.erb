@@ -1,3 +1,6 @@
+<div id = "small_outside">
+  <div id = "box" class="small_box">
+  <p class="title">Post a New Housing</p>
 <%= form_for @housing, :html => { :multipart => true } do |f| %>
 	<% if @housing.errors.any? %>
 		<div id="errorExplanation">
@@ -14,57 +17,65 @@
 			<%= f.hidden_field :author_id, :value => current_user.name %><br />
 		</div>
 	<% end %>
-	<div class="field">
-		<%= f.label :title %><br />
-		<%= f.text_field :title %>
-	</div>
-	<div class="field">
-		<%= f.label :address %><br />
-		<%= f.text_field :address %>
-	</div>
-	<div class="field">
-		<%= f.label :optional_address %><br />
-		<%= f.text_field :optional_address %>
-	</div>
-	<div class="field">
-		<%= f.label :city %><br />
-		<%= f.text_field :city %>
-	</div>
-	<div class="field">
-		<%= f.label :state %><br />
-		<%= f.text_field :state %>
-	</div>
-	<div class="field">
-		<%= f.label :zip_code %><br />
-		<%= f.text_field :zip_code %>
-	</div>
+	<table>
 	<tr>
-			<td><%= f.label :category_id, "Category:" %></td>
-			<td><%= select ("housing", "category_id", @categories.map {|u| [u.name,u.id]}) %></td>    
+		<td><%= f.label :title %></td>
+		<td><%= f.text_field :title %></td>
 	</tr>
-	<div class="field">
-		<%= f.label :description %><br />
-		<%= f.text_area :description %>
-	</div>
-	<div class="field">
-		<%= f.label :price %>
-		<%= f.text_field :price %>
-	</div>
+	<tr>
+		<td><%= f.label :address %></td>
+		<td><%= f.text_field :address %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :optional_address %></td>
+		<td><%= f.text_field :optional_address %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :city %></td>
+		<td><%= f.text_field :city %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :state %></td>
+		<td><%= f.text_field :state %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :zip_code %></td>
+		<td><%= f.text_field :zip_code %></td>
+	</td>
+	<tr>
+		<td><%= f.label :category_id, "Category:" %></td>
+		<td><%= select ("housing", "category_id", @categories.map {|u| [u.name,u.id]}) %></td>    
+	</tr>
+	<tr>
+		<td><%= f.label :description %></td>
+		<td><%= f.text_area :description %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :price %></td>
+		<td><%= f.text_field :price %></td>
+	</tr>
+	</table>
+	<table class="upload_images">
+	<tr>
+	<td colspan="2">You are allowed to upload up to three images per listing.  Files are limited to 500KB, JPG and PNG formats.</td>
+	</tr>
 	<%= f.fields_for :housing_images do |builder| %>
 		<% if builder.object.new_record? %>
-			<div class="actions">
-				<%= builder.label :photo, "Image File" %>
-				<%= builder.file_field :photo %>
-			</div>
-			<div class="actions">
-				<%= builder.label :caption, "Image caption" %>
-				<%= builder.text_field :caption %>
-			</div>
+			<tr>
+				<td><%= builder.label :photo, "Image File" %></td>
+				<td><%= builder.file_field :photo %></td>
+			</tr>
+			<tr>
+				<td><%= builder.label :caption, "Image caption" %></td>
+				<td><%= builder.text_field :caption %></td>
+			</tr>
 		<% end %>
 	<% end %>
-
-	<div class="actions">
-		<%= f.submit %>
-	</div>
+		<tr>
+			<td><%= f.submit "Post", :class => 'button submission' -%></td>
+		</tr>
+		</table>	
 <% end %>
+</div>
+</div>
 

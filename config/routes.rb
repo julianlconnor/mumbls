@@ -44,6 +44,7 @@ AuthlogicRails3Example::Application.routes.draw do |map|
   match '/listings/category/part-time' => 'listings#list_by_category', :id => 9
   match '/listings/category/full-time' => 'listings#list_by_category', :id => 10
   match '/listings/category/services' => 'listings#list_by_category', :id => 11
+  match '/listings/category/other' => 'listings#list_by_category', :id => 16
   # End Routes for listings
   
   # Start routes for housings
