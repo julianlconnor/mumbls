@@ -1,7 +1,7 @@
 <div id = "middle">
   <div id = "middle_content">   
     <!-- rendering partial for search_bar -->
-	<%= form_tag(homesearch_path, :method => 'get') do %>
+	<%= form_tag(listingsearch_path, :method => 'get') do %>
 	  <table>
 	        <tr>
 	        <td>
@@ -50,7 +50,6 @@
         <div class = "item_title"><%= h hit.title %></div>
         <div class = "item_author"><%= link_to(hit.author, hit ) %></div>
         <div class = "item_price">$<%= h hit.price %></div>
-        <!--><div class = "item_title"><%= h truncate(hit.description, 100) %></div>-->
       </div><!-- item_text end -->
     </div><!-- item end -->
   <% end %>
