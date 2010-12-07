@@ -59,7 +59,7 @@ class UsersController < ApplicationController
       redirect_to(:controller => "home", :action => "index")
     elsif @user.user.id == params[:id].to_i
       @user = User.find(params[:id])
-      redirect_to show_user_path(@user)
+      redirect_to root_path
     end
   end
 
