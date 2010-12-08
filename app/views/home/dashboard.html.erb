@@ -1,30 +1,37 @@
+<div id = "small_outside">
+  <div id = "box" class="small_box">
+    <p class="title"><%= current_user.alias %>'s Dashboard </p>
+    <div><%= image_tag current_user.avatar.url(:thumb) %></div>
 
-<span>Name: <%= current_user.name %></span>
-<span>Alias:<%= current_user.alias %></span>
-<%= image_tag current_user.avatar.url(:small) %>
+    Your Listings
+    <div id = "recent_items">
+    <table>
+      <tr>
+        <td><div class = "b">Image</div></td>
+        <td><div class = "table_text b">Title</div></td>
+        <td><div class = "table_text b">Price</div></td>
+        <td><div class = "table_text b">Description</div></td>
+      
+      </tr>
+    <% @listings.each do |recent| %>
+        <% if recent.listing_images.length > 0 %>
 
-
-<p class="title">Your Listings</p>
-      <div id = "recent_items">
-      <% @listings.each_with_index do |recent, count| %>
-          <% if recent.listing_images.length > 0 %>
-      <% if count%4 == 0 and count != 0 %>
-      <div id = "clear"></div> 
-      </div>
-      <div id = "recent_items">
-      <% end %>
-     <div class="item">
-      <div class ="item_image"><%= link_to(image_tag(recent.listing_images.first.photo.url(:small)), recent) %></div>
-      <div class = "item_text">
-        <div class = "item_title"><%= link_to(recent.title, recent ) %></div>
-        <div class = "item_author"><%= link_to(recent.user.name, recent ) %></div>
-        <div class = "item_price"><%= "$" + recent.price.to_s %></div>
-      </div>
-    </div>          
-		<% end %>
+        <tr>
+         <td><%= link_to(image_tag(recent.listing_images.first.photo.url(:thumb)), recent) %></td>
+         <td><div class="table_text"><%= link_to(recent.title, recent ) %></div></td>
+         <td><div class="table_text"><%= "$" + recent.price.to_s %></div></td> 
+         <td><div class="table_text"><%= recent.description%></div></td> 
+         <td><%= link_to "x", listing_path(recent.id), :method=>:delete, :class=>"color_button red mini right edit", :confirm=>"Are you sure?"  %></td>
+        </tr> 
+		      <% end %>
     <% end -%>
-		        <div id = "clear"></div>    
-	</div>
+</table>
+		    <div id = "clear"></div>    
+	  </div>
+
+
+
+
 
 	<p class="title">Your Housings</p>
 	      <div id = "recent_items">
@@ -89,3 +96,5 @@
 	        <div id = "clear"></div>    
 </div>
 <% end %>
+</div>
+</div>

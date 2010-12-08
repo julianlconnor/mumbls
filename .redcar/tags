@@ -1,4 +1,4 @@
-1291837294
+1291846383
 ActivationsController	/home/panfia/Documents/mumbls-heroku/app/controllers/activations_controller.rb	class ActivationsController 
 ActivationsHelper	/home/panfia/Documents/mumbls-heroku/app/helpers/activations_helper.rb	module ActivationsHelper
 AddActivationCodeToUsers	/home/panfia/Documents/mumbls-heroku/db/migrate/20101008183745_add_activation_code_to_users.rb	class AddActivationCodeToUsers 
@@ -30,6 +30,7 @@ Attribute	/home/panfia/Documents/mumbls-heroku/vendor/plugins/meta_where/lib/met
 AuthlogicRails3Example	/home/panfia/Documents/mumbls-heroku/config/application.rb	module AuthlogicRails3Example
 BaseMismatchError	/home/panfia/Documents/mumbls-heroku/vendor/plugins/meta_where/lib/meta_where/join_dependency.rb	    class BaseMismatchError 
 Category	/home/panfia/Documents/mumbls-heroku/app/models/category.rb	class Category 
+ChangeUserAuthorIdToUserId	/home/panfia/Documents/mumbls-heroku/db/migrate/20101208051807_change_user_author_id_to_user_id.rb	class ChangeUserAuthorIdToUserId 
 Column	/home/panfia/Documents/mumbls-heroku/vendor/plugins/meta_where/lib/meta_where/column.rb	  class Column
 Company	/home/panfia/Documents/mumbls-heroku/vendor/plugins/meta_where/test/fixtures/company.rb	class Company 
 Compound	/home/panfia/Documents/mumbls-heroku/vendor/plugins/meta_where/lib/meta_where/compound.rb	  class Compound
@@ -110,6 +111,7 @@ Visitors	/home/panfia/Documents/mumbls-heroku/vendor/plugins/meta_where/lib/meta
 Visitors	/home/panfia/Documents/mumbls-heroku/vendor/plugins/meta_where/lib/meta_where/visitors/attribute.rb	  module Visitors
 Visitors	/home/panfia/Documents/mumbls-heroku/vendor/plugins/meta_where/lib/meta_where/visitors/predicate.rb	  module Visitors
 Visitors	/home/panfia/Documents/mumbls-heroku/vendor/plugins/meta_where/lib/meta_where/visitors/visitor.rb	  module Visitors
+about	/home/panfia/Documents/mumbls-heroku/app/controllers/home_controller.rb	  def about
 accept	/home/panfia/Documents/mumbls-heroku/vendor/plugins/meta_where/lib/meta_where/visitors/visitor.rb	      def accept
 activation_email	/home/panfia/Documents/mumbls-heroku/app/mailers/user_mailer.rb	  def activation_email
 active!	/home/panfia/Documents/mumbls-heroku/app/models/user.rb	  def active!
@@ -184,6 +186,7 @@ down	/home/panfia/Documents/mumbls-heroku/db/migrate/20101202024007_create_payme
 down	/home/panfia/Documents/mumbls-heroku/db/migrate/20101202033324_add_can_post_listing_to_users.rb	  def self.down
 down	/home/panfia/Documents/mumbls-heroku/db/migrate/20101202230729_add_more_address_functionality_to_housing.rb	  def self.down
 down	/home/panfia/Documents/mumbls-heroku/db/migrate/20101208034744_rename_author_id_to_user_id.rb	  def self.down
+down	/home/panfia/Documents/mumbls-heroku/db/migrate/20101208051807_change_user_author_id_to_user_id.rb	  def self.down
 edit	/home/panfia/Documents/mumbls-heroku/app/controllers/housings_controller.rb	  def edit
 edit	/home/panfia/Documents/mumbls-heroku/app/controllers/listings_controller.rb	  def edit
 edit	/home/panfia/Documents/mumbls-heroku/app/controllers/payments_controller.rb	  def edit
@@ -300,6 +303,7 @@ up	/home/panfia/Documents/mumbls-heroku/db/migrate/20101202024007_create_payment
 up	/home/panfia/Documents/mumbls-heroku/db/migrate/20101202033324_add_can_post_listing_to_users.rb	  def self.up
 up	/home/panfia/Documents/mumbls-heroku/db/migrate/20101202230729_add_more_address_functionality_to_housing.rb	  def self.up
 up	/home/panfia/Documents/mumbls-heroku/db/migrate/20101208034744_rename_author_id_to_user_id.rb	  def self.up
+up	/home/panfia/Documents/mumbls-heroku/db/migrate/20101208051807_change_user_author_id_to_user_id.rb	  def self.up
 update	/home/panfia/Documents/mumbls-heroku/app/controllers/housings_controller.rb	  def update
 update	/home/panfia/Documents/mumbls-heroku/app/controllers/listings_controller.rb	  def update
 update	/home/panfia/Documents/mumbls-heroku/app/controllers/payments_controller.rb	  def update

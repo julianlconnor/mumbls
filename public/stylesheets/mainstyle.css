@@ -189,7 +189,9 @@ margin-top: 35px;
 float: left;
 }
 
-
+.b {
+  font-weight: bold;
+}
 
 #nav ul li{
 float: right;
@@ -208,6 +210,10 @@ height: 50px;
 color: #999;
 margin-top: 30px;
 padding-top: 5px;
+}
+
+#footer a {
+  color: #999;
 }
 
 select {

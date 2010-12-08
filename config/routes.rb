@@ -1,4 +1,6 @@
 AuthlogicRails3Example::Application.routes.draw do |map|
+  
+
   resources :payments
   match 'confirm_payment/:user_id' => 'payments#confirm'
 
@@ -28,6 +30,7 @@ AuthlogicRails3Example::Application.routes.draw do |map|
   
   # Route for user dashboards
   match '/home/dashboard', :to => 'home#dashboard'
+  match '/pages/about', :to => 'home#about'
   
   # Route for easily viewing listings
   match '/:listings/:id' => 'listings#show'
@@ -69,7 +72,8 @@ AuthlogicRails3Example::Application.routes.draw do |map|
   match 'resend_activation', :to => 'activations#resend_activation', :as => 'resend_activation'
   
   map.activate 'activate', :controller => 'activations'
-
+    
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

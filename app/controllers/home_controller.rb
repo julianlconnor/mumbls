@@ -30,6 +30,11 @@ class HomeController < ApplicationController
         end
       end
   end
+  def about    
+    respond_to do |format|
+      format.html # about.html.erb
+    end        
+  end
   
   def search
     # Build hash of results

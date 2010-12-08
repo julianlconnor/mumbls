@@ -22,6 +22,11 @@ a.button:hover, a.color_button:hover {
   text-decoration: none;
 }
 
+.mini.color_button, .mini.color_button:visited { 
+  font-size: 10px;
+  padding: 4px 8px;
+}
+
 .small.color_button, .small.color_button:visited { font-size: 11px}
 .color_button, .color_button:visited, .medium.color_button, .medium.color_button:visited { 
   font-size: 16px;
