@@ -1,4 +1,4 @@
-1291681264
+1291683070
 ActivationsController	/home/panfia/Documents/mumbls-heroku/app/controllers/activations_controller.rb	class ActivationsController 
 ActivationsHelper	/home/panfia/Documents/mumbls-heroku/app/helpers/activations_helper.rb	module ActivationsHelper
 AddActivationCodeToUsers	/home/panfia/Documents/mumbls-heroku/db/migrate/20101008183745_add_activation_code_to_users.rb	class AddActivationCodeToUsers 
@@ -256,6 +256,7 @@ show	/home/panfia/Documents/mumbls-heroku/app/controllers/housings_controller.rb
 show	/home/panfia/Documents/mumbls-heroku/app/controllers/listings_controller.rb	  def show
 show	/home/panfia/Documents/mumbls-heroku/app/controllers/payments_controller.rb	  def show
 show	/home/panfia/Documents/mumbls-heroku/app/controllers/users_controller.rb	  def show
+show_all	/home/panfia/Documents/mumbls-heroku/app/helpers/home_helper.rb	  def show_all
 show_all	/home/panfia/Documents/mumbls-heroku/app/helpers/housings_helper.rb	  def show_all
 show_housing_listing	/home/panfia/Documents/mumbls-heroku/app/helpers/housings_helper.rb	  def show_housing_listing
 show_profile	/home/panfia/Documents/mumbls-heroku/app/controllers/users_controller.rb	  def show_profile
