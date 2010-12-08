@@ -16,7 +16,7 @@ class HousingsController < ApplicationController
   # GET /housings/1.xml
   def show
     @housing = Housing.find(params[:id])
-
+    @address = @housing.address.to_s + ', '  + @housing.city.to_s + ', ' + @housing.state.to_s
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @housing }
