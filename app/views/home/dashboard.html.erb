@@ -4,22 +4,88 @@
 <%= image_tag current_user.avatar.url(:small) %>
 
 
-<% @listings.each do |recent| %>
-	<% if recent.listing_images.length > 0 %>
-		<div class="item">
-			<%= image_tag(recent.listing_images.first.photo.url(:small)) %>
-			<%= link_to(recent.title, recent ) %>
-			<%= "$" + recent.price.to_s %>
-		</div>
-	<% end %>
-<% end -%>
-
-<% @housings.each do |recent| %>
-	<div class="item">
-	<% if recent.housing_images.length > 0 %>
-		<%= image_tag(recent.housing_images.first.photo.url(:small)) %>
-	<% end %>
-	<%= link_to(recent.title, recent ) %>
-	<%= "$" + recent.price.to_s %>
+<p class="title">Your Listings</p>
+      <div id = "recent_items">
+      <% @listings.each_with_index do |recent, count| %>
+          <% if recent.listing_images.length > 0 %>
+      <% if count%4 == 0 and count != 0 %>
+      <div id = "clear"></div> 
+      </div>
+      <div id = "recent_items">
+      <% end %>
+     <div class="item">
+      <div class ="item_image"><%= link_to(image_tag(recent.listing_images.first.photo.url(:small)), recent) %></div>
+      <div class = "item_text">
+        <div class = "item_title"><%= link_to(recent.title, recent ) %></div>
+        <div class = "item_author"><%= link_to(recent.user.name, recent ) %></div>
+        <div class = "item_price"><%= "$" + recent.price.to_s %></div>
+      </div>
+    </div>          
+		<% end %>
+    <% end -%>
+		        <div id = "clear"></div>    
 	</div>
-<% end -%>
+
+	<p class="title">Your Housings</p>
+	      <div id = "recent_items">
+	      <% @housings.each_with_index do |recent, count| %>
+	      <% if count%4 == 0 and count != 0 %>
+	      <div id = "clear"></div> 
+	      </div>
+	      <div id = "recent_items">
+	      <% end %>
+	        <div class="item">
+          <div class = "item_text">
+	            <div class = "item_title"><%= link_to(truncate(recent.title, 40, "..."), recent ) %></div>
+	            <div class = "item_author"><%= link_to(recent.user.alias, recent ) %></div>
+	            <div class = "item_price"><%= "$" + recent.price.to_s %></div>
+	          </div> 
+	        </div><!-- item end -->        
+	        <% end -%> 
+	        <div id = "clear"></div>    
+</div>
+
+
+<% if !@mod_listings.nil? %>
+<p class="title">Moderate Listings</p>
+      <div id = "recent_items">
+      <% @mod_listings.each_with_index do |recent, count| %>
+          <% if recent.listing_images.length > 0 %>
+      <% if count%4 == 0 and count != 0 %>
+      <div id = "clear"></div> 
+      </div>
+      <div id = "recent_items">
+      <% end %>
+     <div class="item">
+      <div class ="item_image"><%= link_to(image_tag(recent.listing_images.first.photo.url(:small)), recent) %></div>
+      <div class = "item_text">
+        <div class = "item_title"><%= link_to(recent.title, recent ) %></div>
+        <div class = "item_author"><%= link_to(recent.author, recent ) %></div>
+        <div class = "item_price"><%= "$" + recent.price.to_s %><%= link_to "x", listing_path(recent.id), :method=>:delete, :class=>"color_button red small right edit", :confirm=>"Are you sure?"  %></div>
+      </div>
+    </div>          
+		<% end %>
+    <% end -%>
+		        <div id = "clear"></div>    
+	</div>
+
+
+	<p class="title">Moderate Housings</p>
+	      <div id = "recent_items">
+	      <% @mod_housings.each_with_index do |recent, count| %>
+	      <% if count%4 == 0 and count != 0 %>
+	      <div id = "clear"></div> 
+	      </div>
+	      <div id = "recent_items">
+	      <% end %>
+	        <div class="item">
+          <div class = "item_text">
+	            <div class = "item_title"><%= link_to(truncate(recent.title, 40, "..."), recent ) %></div>
+	            <div class = "item_author"><%= link_to(recent.user.alias, recent ) %></div>
+	            <div class = "item_price"><%= "$" + recent.price.to_s %> <%= link_to "x", housing_path(recent.id), :method=>:delete, :class=>"color_button red small right edit", :confirm=>"Are you sure?"  %></div>
+	          </div> 
+	        </div><!-- item end -->        
+	        <% end -%> 
+	        <div id = "clear"></div>    
+</div>
+<% end %>

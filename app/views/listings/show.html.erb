@@ -2,14 +2,15 @@
   <div id = "box" class="small_box">
   
   	<p class="title"><%= @show_listing.title %>
-		<% if !current_user.nil? and current_user.id == @show_listing.author_id %>
+		<% if !current_user.nil? and current_user.id == @show_listing.user.id %>
+		<%= link_to "Delete", listing_path(@show_listing.id), :method=>:delete, :class=>"color_button red medium right edit", :confirm=>"Are you sure?"  %>
 			<%= link_to 'Edit', edit_listing_path(@show_listing), :class => "color_button blue medium right edit" -%>
 		<% end %>
 	</p>
   <!-- ><h2><%= flash[:notice] %></h2> -->
 <table>
 	<tr>
-		<td>Author:</td><td><div class="table_text"><%= @show_listing.author %></div></td>
+		<td>Author:</td><td><div class="table_text"><%= @show_listing.user.alias %></div></td>
   </tr>
   <% if @show_listing_author.first.email_is_public %>
   <tr>

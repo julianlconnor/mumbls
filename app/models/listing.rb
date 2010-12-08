@@ -7,7 +7,7 @@ class Listing < ActiveRecord::Base
   
   has_many :listing_images, :dependent => :destroy
   belongs_to :category
-  has_one :user
+  belongs_to :user
   accepts_nested_attributes_for :listing_images, :reject_if => proc { |attrs| attrs.all? { |k, v| v.blank? } }
   
   validates_numericality_of :price, :message => "Can only be a number."
