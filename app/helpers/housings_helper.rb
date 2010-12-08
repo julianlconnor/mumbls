@@ -13,7 +13,11 @@ module HousingsHelper
       marker_str = "markers: ["
       housings.each do |housing|
         truncated_description = truncate(housing.description,:length => 45)
-        marker_str = marker_str + "{ address: '#{housing.address},#{housing.city},#{housing.state},#{housing.zip_code}',html: '<strong>#{link_to(housing.title,housing)}</strong> - $#{housing.price} <br /> #{truncated_description} <br /><center> #{image_tag(housing.housing_images.first.photo.url(:small))} </center>'},"
+        if !housing.housing_images.nil?
+          marker_str = marker_str + "{ address: '#{housing.address},#{housing.city},#{housing.state},#{housing.zip_code}',html: '<strong>#{link_to(housing.title,housing)}</strong> - $#{housing.price} <br /> #{truncated_description} <br /><center> #{image_tag(housing.housing_images.first.photo.url(:small))} </center>'},"
+        else
+          marker_str = marker_str + "{ address: '#{housing.address},#{housing.city},#{housing.state},#{housing.zip_code}',html: '<strong>#{link_to(housing.title,housing)}</strong> - $#{housing.price} <br /> #{truncated_description} <br />images.first.photo.url(:small))}'},"
+        end
       end
       marker_str = marker_str.chop
       marker_str = marker_str + "]"
