@@ -69,15 +69,13 @@
 		      <div id = "recent_items">
 	        <% end %>
 				<div class="item">
-				<div class = "item_image"></div>
 				<div class = "item_text">
-				<div class = "item_title"><%= h hit.title %></div>
+				<div class = "item_title"><%= link_to(hit.title, hit ) %></div>
 				<div class = "item_author"><%= link_to(hit.user.name, hit ) %></div>
 				<div class = "item_price">$<%= h hit.price %></div>
 				</div><!-- item_text end -->
 				</div><!-- item end -->
 				<% end %>
-			<% end %>
 		<% elsif @category_name.to_s == "Housing" or @category_name.to_s == "All" or (@category_id.to_i > 11 and @category_id.to_i <= 15 or @category_id.to_i == 18) %>
 			<p class="title">There were no housings found with the query of: <%= h @query %> within <%= h @category_name.to_s %></p>
 		<% else %>
@@ -92,22 +90,5 @@
 </div><!-- middle end -->    
 <div id = "clear"></div>
 
-<p class="title">Recently Added Items</p>
-      <div id = "recent_items">
-      <% @housings.each_with_index do |recent, count| %>
-      <% if count%4 == 0 and count != 0 %>
-      <div id = "clear"></div> 
-      </div>
-      <div id = "recent_items">
-      <% end %>
-        <div class="item">
-          <div class = "item_text">
-            <div class = "item_title"><%= link_to(truncate(recent.title, 40, "..."), recent ) %></div>
-            <div class = "item_author"><%= link_to(recent.user.name, recent ) %></div>
-            <div class = "item_price"><%= "$" + recent.price.to_s %></div>
-          </div> 
-        </div><!-- item end -->        
-        <% end -%> 
-        <div id = "clear"></div>    
-</div>
+
 

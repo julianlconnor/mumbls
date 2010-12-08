@@ -18,8 +18,12 @@ class HomeController < ApplicationController
         flash[:notice] = "Please log in to see your dashboard. ;)"
         redirect_to(:controller => "user_session", :action => "new")
       else
-        @listings = Listing.order("created_at DESC").where(:author_id => @user.user.id).limit(5)
-        @housings = Housing.order("created_at DESC").where(:author_id => @user.user.id).limit(5)
+        if @user.user.user_role == "admin"
+          @mod_listings = Listing.all
+          @mod_housings = Housing.all
+        end
+        @listings = Listing.order("created_at DESC").where(:user_id => @user.user.id).limit(5)
+        @housings = Housing.order("created_at DESC").where(:user_id => @user.user.id).limit(5)
         
         respond_to do |format|
           format.html # dashboard.html.erb

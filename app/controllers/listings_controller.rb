@@ -19,7 +19,7 @@ class ListingsController < ApplicationController
   def show
     @show_listing = Listing.find(params[:id])
     flash[:error] = "Listing not found" and return unless @show_listing
-    @show_listing_author = User.where(:id => @show_listing.author_id)
+    @show_listing_author = User.where(:id => @show_listing.user.id)
 
     respond_to do |format|
       format.html # show.html.erb
