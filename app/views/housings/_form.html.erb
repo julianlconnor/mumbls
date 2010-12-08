@@ -48,7 +48,11 @@
 	</tr>
 	<tr>
 		<td><%= f.label :description %></td>
-		<td><%= f.text_area :description %></td>
+		<td><%= f.text_area :description %><span id="format_button">Formatting Help</span></td>
+	</tr>
+	<tr id ="format_box" style="display: none;">
+		<td></td>
+		<td>Help</td>
 	</tr>
 	<tr>
 		<td><%= f.label :price %></td>
@@ -78,4 +82,9 @@
 <% end %>
 </div>
 </div>
+<script type="text/javascript">
+  $('#format_button').click(function(){
+	  $('#format_box').toggle();
+  });
+</script>
 

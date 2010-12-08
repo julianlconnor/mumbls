@@ -1,6 +1,10 @@
 <div id = "small_outside">
   <div id = "box" class="small_box">
     <p class="title"><%= @housing.title %>
+		<% if !current_user.nil? and current_user.id == @housing.user.id %>
+			<%= link_to "Delete", housing_path(@housing.id), :method=>:delete, :class=>"color_button red medium right edit", :confirm=>"Are you sure?"  %>
+			<%= link_to 'Edit', edit_housing_path(@housing), :class => "color_button blue medium right edit" -%>
+		<% end %>
       <!-- ><h2><%= flash[:notice] %></h2>-->
 
     <table>
@@ -11,7 +15,7 @@
     		<td>Title:</td><td><div class="table_text"><%= @housing.title %></div></td>
       </tr>
       <tr>
-    		<td>Description:</td><td><div class="table_text"><%= @housing.description %></div></td>
+    		<td>Description:</td><td><div class="table_text"><%= RedCloth.new(@housing.description).to_html.html_safe %></div></td>
       </tr>
     	<tr>
     		<td>Price:</td><td><div class="table_text">$<%= @housing.price %>/month</div></td>
@@ -33,7 +37,6 @@
     </table>
   </div>
 </div>
-
 <script type="text/javascript">
-	<%= show_housing_listing(@address) %>
+	<%= show_housing_listing(@address).html_safe %>
 </script>

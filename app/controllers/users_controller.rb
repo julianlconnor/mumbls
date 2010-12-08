@@ -53,13 +53,13 @@ class UsersController < ApplicationController
     @user = UserSession.find
     if @user.nil?
       flash[:notice] = "Please sign-in to edit your profile. ;)"
-      redirect_to(:controller => "user_session", :action => "new")
+      redirect_to login_path
     elsif @user.user.id != params[:id].to_i
       flash[:notice] = "Silly goose.. You can't edit other users' profiles."
-      redirect_to(:controller => "home", :action => "index")
+      redirect_to login_path
     elsif @user.user.id == params[:id].to_i
       @user = User.find(params[:id])
-      redirect_to root_path
+      redirect_to login_path
     end
   end
 
@@ -96,7 +96,8 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        format.html { redirect_to(@user, :notice => 'User was successfully updated.') }
+        flash[:notice] = "Your profile has been updated."
+        format.html { render :action => "show"}
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

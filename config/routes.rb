@@ -24,7 +24,7 @@ AuthlogicRails3Example::Application.routes.draw do |map|
   match '/activate/:activation_code' => 'activations#create'
   
   # Route for showing users
-  match '/profile/:alias' => 'users#show_profile'
+  match '/profile/:alias' => 'users#show_profile', :as => :show_profile
   
   # Route for user dashboards
   match '/home/dashboard', :to => 'home#dashboard'
