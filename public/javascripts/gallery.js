@@ -37,6 +37,7 @@ $(document).ready(function(){
 		
 		function intervalSwitching(){
 			var $active = $('.image_thumb ul .active');
+			
 			//alert($active.find('.block').html());
 			if ( $active.next().length != 0 ){ // if the element isn't last
 				var $next = $active.next();

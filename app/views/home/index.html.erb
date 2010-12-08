@@ -94,7 +94,7 @@
 
       <p class="title">Recently Added Items</p>
       <div id = "recent_items">
-       <% @latest_listings.each do |recent| %>
+       <% @latest_listings.each_with_index do |recent, count| %>
 			<% if recent.listing_images.length > 0 %>
          <div class="item">
           <div class ="item_image"><%= link_to(image_tag(recent.listing_images.first.photo.url(:small)), recent) %></div>
