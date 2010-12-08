@@ -48,7 +48,7 @@ a.button:hover, a.color_button:hover {
 .blue.color_button, .blue.color_button:visited	{ background-color: #4271a3; }
 .blue.color_button:hover				        { background-color: #2a4a6a; } 
 
-.red.color_button, .blue.color_button:visited	{ background-color: #da3939; }
+.red.color_button, .red.color_button:visited	{ background-color: #da3939; }
 .red.color_button:hover				        { background-color: #b51111; } 
 
 .green.color_button, .green.color_button:visited	{ background-color: #91bd09; }
