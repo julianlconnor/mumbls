@@ -12,7 +12,7 @@
 					<% end %>
 				</select>
 			</td>
-	        <td><%= text_field_tag "searchbar"%></td>
+	        <td><%= text_field_tag "searchbar", "Search" %></td>
 			    <td><%= submit_tag("Search", :class => "button") %></td>
       <% end %>
       <td><%= link_to 'New Listing', new_listing_path, :class => 'large color_button green new_listing' %></td>  
@@ -31,10 +31,19 @@
     </div>
     </div>
     <div id = "content">
-      	<p class="title">Items</p>
-	      <div id = "recent_items">
-	       <% @listings.each do |recent| %>
+    <p class="title"><%= @category.name %></p>
+	      <div class = "recent_items">
+        <% if @listings.first.nil? %>        
+        There doesn't appear to be any items listed in this category!<br/><br/><%= link_to 'Post an Item', new_listing_path, :class => 'large color_button blue new_listing' %></div>        
+        <% end %>
+          
+	       <% @listings.each_with_index do |recent, count| %>
 				<% if recent.listing_images.length > 0 %>
+        <% if count%4 == 0 and count != 0 %>
+          <div id = "clear"></div> 
+          </div>
+          <div id = "recent_items">
+        <% end %>
 	         <div class="item">
 	          <div class ="item_image"><%= link_to(image_tag(recent.listing_images.first.photo.url(:small)), recent) %></div>
 	          <div class = "item_text">
@@ -49,7 +58,7 @@
 	      </div>
         <div id = "clear"></div>
       </div>      
-    </div> <!-- content -->
+    </div> <!-- content -->   
     <div id = "clear"></div>
   </div><!-- middle end -->
   <div id = "clear"></div>

@@ -310,7 +310,8 @@ div.item_image {
 
 
 div.item_title {    
-  padding-left: 10px;  
+  padding-left: 10px; 
+  padding-right: 10px; 
   height: 40px;
 }
 

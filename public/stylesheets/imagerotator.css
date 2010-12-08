@@ -12,6 +12,10 @@
     float: left;
     margin-right: 20px;
     text-align: center;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    -moz-box-shadow: 0 1px 5px rgba(0,0,0,0.6);
+    -webkit-box-shadow: 0 1px 5px rgba(0,0,0,0.6);
 }
 .main_image img {
 	height: 120%;
@@ -47,6 +51,8 @@
     background: #111;
     border-top: 1px solid #000;
     height: 50px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
 }
 .main_image a.collapse { /*--This is our hide/show tab--*/
     background: url(btn_collapse.gif) no-repeat left top;
@@ -69,6 +75,8 @@
 }
 
 .image_thumb img {  
+  -moz-border-radius: 5px;
+  border-radius: 5px;
   padding: 10px;
   background: #333;
   float: left; 

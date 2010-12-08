@@ -30,8 +30,9 @@
     </div>
     </div>
     <div id = "content">
+      	<p class="title">Housing Listings in Troy, NY</p>
       	<%= render :partial => "googleMap" %>
-		<p class="title">Recently Added Items</p>
+		<p class="title">Recently Added Housing Listings</p>
 		      <div id = "recent_items">
 		      <% @housings.each_with_index do |recent, count| %>
 		      <% if count%4 == 0 and count != 0 %>
@@ -40,9 +41,9 @@
 		      <div id = "recent_items">
 		      <% end %>
 		        <div class="item">
-		          <div class = "item_text">
+              <div class = "item_text">
 		            <div class = "item_title"><%= link_to(truncate(recent.title, 40, "..."), recent ) %></div>
-		            <div class = "item_author"><%= link_to(recent.user.name, recent ) %></div>
+		            <div class = "item_author"><%= link_to(recent.user.alias, recent ) %></div>
 		            <div class = "item_price"><%= "$" + recent.price.to_s %></div>
 		          </div> 
 		        </div><!-- item end -->        
