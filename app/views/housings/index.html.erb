@@ -1,10 +1,15 @@
 <div id = "middle">
   <div id = "middle_content">   
     <!-- rendering partial for search_bar -->
-	<%= form_tag(listingsearch_path, :method => 'get') do %>
+	<%= form_tag(housingsearch_path, :method => 'get') do %>
 	  <table>
 	        <tr>
-	        <td><%= select ("selected_category", "id", @categories.map {|u| [u.name,u.id]}) %></td>
+	        <td>	<select name="category_id">
+					<option value="all">All</option>
+					<% @categories.each do |category| %>
+						<option value="<%= category.id %>"><%= category.name %></option>
+					<% end %>
+				</select></td>
 		    <td><%= text_field_tag "searchbar", "Search"%></td>
 			<td><%= submit_tag("Search", :class => "button") %></td>
 			<td><%= link_to 'New Housing Listing', new_housing_path, :class => 'large color_button green new_listing' %></td>  
