@@ -81,30 +81,39 @@
       </div><!-- image_thumb end -->
 	<% end %>
   <div id = "clear"></div>
-</div><!-- premium items gallery end -->
+  </div><!-- premium items gallery end -->
+	 <% if !@premium_items.nil? and @premium_items.count > 0%>
+      <p class="title">Premium Items</p>
+      <div id = "recent_items">
+        <% for i in (1..4) %>
+          <div class="item"></div>
+        <% end -%>
+        <div class="bigarrow"></div>
+        <div id = "clear"></div>
+      </div>
+	<% end %>
 
       <p class="title">Recently Added Items</p>
-      <div id = "recent_items">
-      <% @latest_listings.each_with_index do |recent, count| %>
-  		<% if recent.listing_images.length > 0 %>
-      <% if count%4 == 0 and count != 0 %>
-      <div id = "clear"></div> 
-      </div>
-      <div id = "recent_items">
-      <% end %>
-        <div class="item">
-          <div class ="item_image"><%= link_to(image_tag(recent.listing_images.first.photo.url(:small)), recent) %></div>
-          <div class = "item_text">
-            <div class = "item_title"><%= link_to(truncate(recent.title, 40, "..."), recent ) %></div>
-            <div class = "item_author"><%= link_to(recent.author, recent ) %></div>
-            <div class = "item_price"><%= "$" + recent.price.to_s %></div>
-          </div> 
-        </div><!-- item end -->        
-  		<% end %>
-	    <% end -%> 
-        <div id = "clear"></div>    
-      </div>
-    
+	      <div id = "recent_items">
+	      <% @latest_listings.each_with_index do |recent, count| %>
+	          <% if recent.listing_images.length > 0 %>
+	      <% if count%4 == 0 and count != 0 %>
+	      <div id = "clear"></div> 
+	      </div>
+	      <div id = "recent_items">
+	      <% end %>
+	        <div class="item">
+	          <div class ="item_image"><%= link_to(image_tag(recent.listing_images.first.photo.url(:small)), recent) %></div>
+	          <div class = "item_text">
+	            <div class = "item_title"><%= link_to(truncate(recent.title, 40, "..."), recent ) %></div>
+	            <div class = "item_author"><%= link_to(recent.author, recent ) %></div>
+	            <div class = "item_price"><%= "$" + recent.price.to_s %></div>
+	          </div> 
+	        </div><!-- item end -->        
+	          <% end %>
+	        <% end -%> 
+	        <div id = "clear"></div>    
+	      </div> 
 
 	 <p class="title">Latest Housings</p>
       <div id = "recent_housings">
