@@ -58,9 +58,7 @@
 		<% elsif @category_name.to_s == "Listing" or @category_name.to_s == "All" or (@category_id.to_i > 0 and @category_id.to_i <= 6 or @category_id.to_i == 16) %>
 			<p class="title">There were no listings found with the query of: <%= h @query %> within <%= h @category_name.to_s %></p>
 		<% end %>
-		<p>h_search.nil? :<%= @h_search.nil? %></p>
-		<p>h_search.count :<%= @h_search.count %></p>
-		<p>category_name : <%= @category_name %></p>
+
 		<% if !@h_search.nil? and @h_search.count > 0 and (@category_name.to_s == "Housings" or @category_name.to_s == "All" or (@category_id.to_i > 11 and @category_id.to_i <= 15 or @category_id.to_i == 18) ) %>
 			<p class="title">Housing Results</p>
 			<% @h_search.each do |hit| %>
