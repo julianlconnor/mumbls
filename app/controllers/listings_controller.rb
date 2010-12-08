@@ -6,7 +6,7 @@ class ListingsController < ApplicationController
   def index
     @listings = Listing.all
     @categories = Category.where(:parent => "Items")
-    @latest_listings = Listing.order("created_at DESC").limit(4)
+    @latest_listings = Listing.order("created_at DESC").limit(12)
     respond_to do |format|
       format.html # index.html.erb
       format.js

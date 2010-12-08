@@ -1,30 +1,39 @@
-<h1>Showing listing <%= @housing.title %></h1>
-<h2><%= flash[:notice] %></h2>
+<div id = "small_outside">
+  <div id = "box" class="small_box">
+    <p class="title"><%= @housing.title %>
+      <!-- ><h2><%= flash[:notice] %></h2>-->
+
+    <table>
+    	<tr>
+    		<td>Seller:</td><td><div class="table_text"><%= @housing.user.alias %></div></td>
+      </tr>
+    	<tr>
+    		<td>Title:</td><td><div class="table_text"><%= @housing.title %></div></td>
+      </tr>
+      <tr>
+    		<td>Description:</td><td><div class="table_text"><%= @housing.description %></div></td>
+      </tr>
+    	<tr>
+    		<td>Price:</td><td><div class="table_text">$<%= @housing.price %>/month</div></td>
+      </tr>
+      </tr>
+    		<td>Images:</td>
+    			<% @housing.housing_images.each do |image| %>
+            <td>
+    				<%= image_tag image.photo.url(:large), :class => "table_img" %>
+            </td>
+    			<% end %>
+    	</tr>
+      <tr><td>Location:</td></tr>
+      <tr>
+      <td colspan = "2">
+        <div id="map" style="width: 547px; height: 320px; border: 1px solid #777; overflow: hidden; margin: 0 auto;"></div>
+      </td>
+      </tr>
+    </table>
+  </div>
+</div>
+
 <script type="text/javascript">
 	<%= show_housing_listing(@address) %>
 </script>
-<table>
-	<tr>
-		<th>Title</th>
-		<th>Description</th>
-		<th>Pics</th>
-		<th></th>
-	</tr>
-	<tr>
-		<td><%= @housing.title %></td>
-		<td><%= @housing.description %></td>
-		<td>
-			<% @housing.housing_images.each do |image| %>
-				<%= image_tag image.photo.url(:small) %>
-			<% end %>
-		</td>
-		<td></td>
-	</tr>
-
-</table>
-<div id="map" style="width: 547px; height: 320px; border: 1px solid #777; overflow: hidden;">
-</div>
-<br />
-
-
-<%= link_to 'New listing', new_housing_path %>
