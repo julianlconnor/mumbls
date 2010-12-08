@@ -30,7 +30,7 @@
       <ul>
 		<li class="subtitle">Items</li>
 		<% @items.each do |item| %>
-        	<li><%= link_to item.name + " (" + item.listing.count.to_s + ")" , "listings/category/#{item.name.downcase.sub('(','').sub(')','').sub(' ','-')}" %></li>
+        	<li><%= link_to item.name + " (" + item.listing.count.to_s + ")" , listings_path + "/category/#{item.name.downcase.sub('(','').sub(')','').sub(' ','-')}" %></li>
 		<% end %>
 		<li class="subtitle">Jobs</li>
 		<% @jobs.each do |job| %>
@@ -81,7 +81,6 @@
 	<% end %>
   <div id = "clear"></div>
   </div><!-- premium items gallery end -->
-      <img src = "/images/mums_banner.png" class="banner" border="0"/>
 	 <% if !@premium_items.nil? and @premium_items.count > 0%>
       <p class="title">Premium Items</p>
       <div id = "recent_items">

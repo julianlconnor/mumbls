@@ -26,7 +26,7 @@ class HousingsController < ApplicationController
   def search
      @search_housing_title = Housing.where(:title.matches => @query)
      @search_housing_description = Housing.where(:description.matches => @query)
-     @search = @search_housing_description | @search_housing_title
+     @search = Housing.search(params[:searchbar])
   end
 
   # GET /housings/new

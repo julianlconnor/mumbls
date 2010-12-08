@@ -29,37 +29,37 @@ class HomeController < ApplicationController
   
   def search
     # Build hash of results
+    @query = params[:searchbar]
+    @category_id = params[:category_id]
     c_id = params[:category_id]
-    @query = '%' + params[:searchbar].to_s + '%'
     if c_id == "all" # User wants to search all models
-      @search_listing_title = Listing.where(:title.matches => @query)
-      @search_listing_description = Listing.where(:description.matches => @query)
-      @search_housing_title = Housing.where(:title.matches => @query)
-      @search_housing_description = Housing.where(:description.matches => @query)
-      @search = @search_listing_title | @search_listing_description | @search_housing_description | @search_housing_title
+      @l_search = Listing.search(params[:searchbar])
+      @h_search = Housing.search(params[:searchbar])
+      @category_name = "All"
       # Job results go here
     elsif c_id == "listings"
-      @search_listing_title = Listing.where(:title.matches => @query)
-      @search_listing_description = Listing.where(:description.matches => @query)
-      @search = @search_listing_title | @search_listing_description
+      @l_search = Listing.search(params[:searchbar])
+      @category_name = "Listings"
     elsif c_id == "housings"
-       @search_housing_title = Housing.where(:title.matches => @query)
-       @search_housing_description = Housing.where(:description.matches => @query)
-       @search = @search_housing_description | @search_housing_title
+      @h_search = Housing.search(params[:searchbar])
+      @category_name = "Housings"
     else
       c_id = c_id.to_i
-      if c_id > 0 and c_id <= 6 # Category ID points at listing items
-        @search_listing_title = Listing.where(:title.matches => @query, :category_id => c_id)
-        @search_listing_description = Listing.where(:description.matches => @query, :category_id => c_id)
-        @search = @search_listing_description | @search_listing_title
-      elsif c_id >= 7 and c_id <= 11 # Category ID points at Jobs
+      if c_id > 0 and c_id <= 6 or c_id == 16 # Category ID points at listing items
+        @category_name = Category.where(:id => c_id).first.name.to_s
+        @l_search = Listing.search(params[:searchbar]).where(:category_id => c_id)
+      elsif c_id >= 7 and c_id <= 11 or c_id == 17 # Category ID points at Jobs
         # Still need to implement Jobs
       else # Category ID points to housings
-        @search_housing_title = Housing.where(:title.matches => @query, :category_id => c_id)
-        @search_housing_description = Housing.where(:description.matches => @query, :category_id => c_id)
-        @search = @search_housing_description | @search_housing_title
+        @category_name = Category.where(:id => c_id).first.name.to_s
+        @l_search = Listing.search(params[:searchbar]).where(:category_id => c_id)
       end
     end
+    @categories = Category.all
+    @items = Category.where(:parent => "Items")
+    @jobs = Category.where(:parent => "Jobs")
+    @rent = Category.where(:parent => "Rent")
+    #debugger
   end
   
 end

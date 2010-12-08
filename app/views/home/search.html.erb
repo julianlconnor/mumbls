@@ -1,25 +1,89 @@
-<div class="results">
-	
-	<% if !@l_results.nil? %>
-		<h1>Listing Results</h1>
-		<% @l_results.each_hit_with_result do |hit, post| %>
-			<div class="result">
-				<%= h post.title %>
-				<%= h hit.score %>
-				<%= h truncate(post.description, 100) %>
-			</div>
-		<% end %>
+<div id = "middle">
+  <div id = "middle_content">   
+    <!-- rendering partial for search_bar -->
+	<%= form_tag(homesearch_path, :method => 'get') do %>
+	  <table>
+	        <tr>
+	        <td>
+				<select name="category_id">
+					<option value="all">All</option>
+					<option value="listings">Listings</option>
+					<option value="housings">Housings</option>
+					<% @categories.each do |category| %>
+						<option value="<%= category.id %>"><%= category.name %></option>
+					<% end %>
+				</select>
+			</td>
+	        <td><%= text_field_tag "searchbar", "Search"%></td>
+			<td><%= submit_tag("Search", :class => "button") %></td>
+            <td><%= link_to 'New Listing', new_listing_path, :class => 'large color_button green new_listing' %></td>  
+ 
+	      </tr>
+	    </table>
 	<% end %>
-	
-	<% if !@h_results.nil? %>
-		<h1>Housing Results</h1>
-		<% @h_results.each_hit_with_result do |hit, post| %>
-			<div class="result">
-				<%= h post.title %>
-				<%= h hit.score %>
-				<%= h truncate(post.description, 100) %>
-			</div>
+    
+    <div id = "container">
+    <p class="title">Categories</p>
+    <div id = "categories">
+      <ul>
+		<li class="subtitle">Items</li>
+		<% @items.each do |item| %>
+        	<li><%= link_to item.name + " (" + item.listing.count.to_s + ")" , "listings/category/#{item.name.downcase.sub('(','').sub(')','').sub(' ','-')}" %></li>
 		<% end %>
-	<% end %>
-	
+		<li class="subtitle">Jobs</li>
+		<% @jobs.each do |job| %>
+        	<li><%= link_to job.name, "jobs/category/#{job.name.downcase.sub('(','').sub(')','').sub(' ','-')}" %></li>
+		<% end %>
+		<li class="subtitle">Rent</li>
+		<% @rent.each do |r| %>
+        	<li><%= link_to r.name + " (" + r.housing.count.to_s + ")" , housings_path + "/category/#{r.name.downcase.sub('(','').sub(')','').gsub(' ','-').sub('/','-')}" %></li>
+		<% end %>
+      </ul>
+    </div>
+    </div>
+    <div id = "content">
+		<!-- Only show listings if @l_search is not nil, has a size > 0 and was chosen in the dropdown  -->
+		<% if !@l_search.nil? and @l_search.count > 0 and (@category_name.to_s == "Listings" or @category_name.to_s == "All" or (@category_id.to_i > 0 and @category_id.to_i <= 6 or @category_id.to_i == 16) ) %>
+			<p class="title">Listing Results</p>
+			<% @l_search.each do |hit| %>
+				<div class="item">
+				<div class = "item_image"><%= link_to(image_tag(hit.listing_images.first.photo.url(:small)), hit) %></div>
+				<div class = "item_text">
+				<div class = "item_title"><%= h hit.title %></div>
+				<div class = "item_author"><%= link_to(hit.author, hit ) %></div>
+				<div class = "item_price">$<%= h hit.price %></div>
+				</div><!-- item_text end -->
+				</div><!-- item end -->
+			<% end %>
+		<% elsif @category_name.to_s == "Listing" or @category_name.to_s == "All" or (@category_id.to_i > 0 and @category_id.to_i <= 6 or @category_id.to_i == 16) %>
+			<p class="title">There were no listings found with the query of: <%= h @query %> within <%= h @category_name.to_s %></p>
+		<% end %>
+		<p>h_search.nil? :<%= @h_search.nil? %></p>
+		<p>h_search.count :<%= @h_search.count %></p>
+		<p>category_name : <%= @category_name %></p>
+		<% if !@h_search.nil? and @h_search.count > 0 and (@category_name.to_s == "Housings" or @category_name.to_s == "All" or (@category_id.to_i > 11 and @category_id.to_i <= 15 or @category_id.to_i == 18) ) %>
+			<p class="title">Housing Results</p>
+			<% @h_search.each do |hit| %>
+				<div class="item">
+				<div class = "item_image"></div>
+				<div class = "item_text">
+				<div class = "item_title"><%= h hit.title %></div>
+				<div class = "item_author"><%= link_to(hit.author, hit ) %></div>
+				<div class = "item_price">$<%= h hit.price %></div>
+				</div><!-- item_text end -->
+				</div><!-- item end -->
+			<% end %>
+		<% elsif @category_name.to_s == "Housing" or @category_name.to_s == "All" or (@category_id.to_i > 11 and @category_id.to_i <= 15 or @category_id.to_i == 18) %>
+			<p class="title">There were no housings found with the query of: <%= h @query %> within <%= h @category_name.to_s %></p>
+		<% else %>
+			<p> LOLOLOOL</p>
+			<% end %>
 </div>
+    </div> <!-- content -->
+    <div id = "clear"></div>
+  </div><!-- middle content -->
+  <div id = "clear"></div>
+
+</div><!-- middle end -->    
+<div id = "clear"></div>
+

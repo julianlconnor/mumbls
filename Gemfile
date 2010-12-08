@@ -22,12 +22,13 @@ gem 'mongrel'
 # Add bundler
 gem 'bundler'
 
-
+gem 'pg'
 
 # Indexing powered by Solr
 #gem 'sunspot_rails', '1.2.rc4'
 #gem "meta_where"  # Last officially released gem
 gem "meta_where" # :git => "git://github.com/ernie/meta_where.git" # Track git repo
+gem 'texticle'
 #gem "searchlogic"
 
 # Add S3 support for attaching files with paperclip
