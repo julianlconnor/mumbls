@@ -22,8 +22,8 @@ class HomeController < ApplicationController
           @mod_listings = Listing.all
           @mod_housings = Housing.all
         end
-        @listings = Listing.order("created_at DESC").where(:user_id => @user.user.id).limit(5)
-        @housings = Housing.order("created_at DESC").where(:user_id => @user.user.id).limit(5)
+        @listings = Listing.order("created_at DESC").where(:user_id => @user.user.id)
+        @housings = Housing.order("created_at DESC").where(:user_id => @user.user.id)
         
         respond_to do |format|
           format.html # dashboard.html.erb

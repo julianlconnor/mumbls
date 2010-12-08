@@ -189,8 +189,39 @@ margin-top: 35px;
 float: left;
 }
 
-.b {
+#dashboard {
+  border-spacing: 0em .4em;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+#dashboard p.title {
+  border-bottom: none;
+}
+#dashboard td {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+
+#dashboard .valign {
+  vertical-align: middle;
+}
+
+#dashboard .b {
   font-weight: bold;
+}
+
+#dashboard tr.lightrow {
+  background: #eee;
+}
+
+#dashboard tr.darkrow {
+  background: #ddd;
+}
+
+#dashboard .mtop {
+  margin-top: 5px;
 }
 
 #nav ul li{
@@ -405,11 +436,11 @@ width: 825px;
 
 #small_outside {
 margin: 0 auto;
-width: 600px;
+width: 750px;
 }
 
 .small_box {
-width: 600px !important;
+width: 750px !important;
 }
 
 #box input, textarea {
