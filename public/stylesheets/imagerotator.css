@@ -8,7 +8,7 @@
     position: relative;
     overflow: hidden; /*--Overflow hidden allows the description to toggle/tuck away as it slides down--*/
     color: #fff;
-    width: 500px;
+    width: 520px;
     float: left;
     margin-right: 20px;
     text-align: center;
@@ -62,9 +62,6 @@
   background-position: left bottom;
 }
 
-.image_thumb { 
-  float: left;
-}
 
 .image_thumb li.active img {  
   filter: alpha(opacity=100);
@@ -91,10 +88,9 @@
     padding: 0;
     list-style: none;
 }
-.image_thumb ul li{
-    margin: 0;    
+.image_thumb ul li{  
     float: left;
-    margin-right: 10px;
+    margin: 0px 10px 10px 0px;
   /*  background: #f0f0f0 url(nav_a.gif) repeat-x;
     width: 279px;
     border-bottom: 1px solid #ccc;

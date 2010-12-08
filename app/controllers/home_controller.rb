@@ -7,7 +7,7 @@ class HomeController < ApplicationController
     @jobs = Category.where(:parent => "Jobs")
     @rent = Category.where(:parent => "Rent")
     # Find last 3 posted listings
-    @latest_listings = Listing.order("created_at DESC").limit(4)
+    @latest_listings = Listing.order("created_at DESC").limit(8)
     # Find last 3 posted housings
     @latest_housings = Housing.order("created_at DESC").limit(10)
   end

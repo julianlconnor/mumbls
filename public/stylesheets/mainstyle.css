@@ -279,16 +279,21 @@ line-height: 22px;
 padding-left: 10px;
 }
 
+
 div.item {
 -moz-border-radius: 8px;
 border-radius: 8px;
-margin-right: 30px;
+margin-right: 46px;
 width: 158px;
 border: solid 1px #999;
 float: left;
 background:-moz-linear-gradient(center bottom , #ededed, #fffdfd) repeat scroll 0 0 transparent;
 background:-webkit-gradient(linear, left top, left bottom, from(#fffdfd), to(#ededed));
 padding-bottom: 10px;
+}
+
+#recent_items {
+margin-bottom: 30px;
 }
 
 div.item:hover {
@@ -306,6 +311,7 @@ div.item_image {
 
 div.item_title {    
   padding-left: 10px;  
+  height: 40px;
 }
 
 div.item_price {
