@@ -1,9 +1,9 @@
 class Listing < ActiveRecord::Base
   
-  # searchable do
-  #   text :title
-  #   text :description
-  # end
+  index do
+    title
+    description
+  end
   
   has_many :listing_images, :dependent => :destroy
   belongs_to :category

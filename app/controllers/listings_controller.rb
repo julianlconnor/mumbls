@@ -28,10 +28,7 @@ class ListingsController < ApplicationController
   end
   
   def search
-    @query = '%' + params[:searchbar].to_s + '%'
-    @search_title = Listing.where(:title.matches => @query)
-    @search_description = Listing.where(:description.matches => @query)
-    @search = @search_title | @search_description
+    @search = Listing.search(params[:searchbar].to_s)
     # Fetch categories for drop down
     @categories = Category.all
     # Fetch all categories with parent = Items, Jobs, and Rent
