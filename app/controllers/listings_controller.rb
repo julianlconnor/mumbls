@@ -40,6 +40,7 @@ class ListingsController < ApplicationController
   def list_by_category
     @listings = Listing.where(:category_id => params[:id])
     @categories = Category.where(:parent => "Items")
+    @category = Category.find(params[:id])
   end
 
 

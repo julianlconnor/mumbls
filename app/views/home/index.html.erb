@@ -1,49 +1,50 @@
 <div id = "middle">
   <div id = "middle_content">   
     <!-- rendering partial for search_bar -->
-	<%= form_tag(homesearch_path, :method => 'get') do %>
+    <%= form_tag(homesearch_path, :method => 'get') do %>
 	  <table>
-	        <tr>
-	        <td>
-				<select name="category_id">
-					<option value="all">All</option>
-					<option value="listings">Listings</option>
-					<option value="housings">Housings</option>
-					<% @categories.each do |category| %>
-						<% if category.id > 15 %>
-							<option value="<%= category.id %>"><%= category.name + ' - ' + category.parent %></option>
+	    <tr>
+	      <td>
+				  <select name="category_id">
+					  <option value="all">All</option>
+					  <option value="listings">Listings</option>
+					  <option value="housings">Housings</option>
+            <% @categories.each do |category| %>
+            <% if category.id > 15 %>
+						<option value="<%= category.id %>"><%= category.name + ' - ' + category.parent %></option>
 						<% else %>
-							<option value="<%= category.id %>"><%= category.name  %></option>
+						<option value="<%= category.id %>"><%= category.name  %></option>
 						<% end %>
 					<% end %>
-				</select>
-			</td>
-	        <td><%= text_field_tag "searchbar", "Search"%></td>
-			<td><%= submit_tag("Search", :class => "button") %></td>
-	      </tr>
-	    </table>
-	<% end %>
-    
+				  </select>
+			  </td>
+	      <td><%= text_field_tag "searchbar", "Search"%></td>
+			  <td><%= submit_tag("Search", :class => "button") %></td>
+        <td><%= link_to 'New Listing', new_listing_path, :class => 'large color_button green new_listing' %></td>  
+	    </tr>
+	  </table>
+    <% end %>
+ 
     <div id = "container">
-    <p class="title">Categories</p>
-    <div id = "categories">
-      <ul>
-		<li class="subtitle">Items</li>
-		<% @items.each do |item| %>
-        	<li><%= link_to item.name + " (" + item.listing.count.to_s + ")" , listings_path + "/category/#{item.name.downcase.sub('(','').sub(')','').sub(' ','-')}" %></li>
-		<% end %>
-		<li class="subtitle">Jobs</li>
-		<% @jobs.each do |job| %>
-        	<li><%= link_to job.name, "jobs/category/#{job.name.downcase.sub('(','').sub(')','').sub(' ','-')}" %></li>
-		<% end %>
-		<li class="subtitle">Rent</li>
-		<% @rent.each do |r| %>
-        	<li><%= link_to r.name + " (" + r.housing.count.to_s + ")" , housings_path + "/category/#{r.name.downcase.sub('(','').sub(')','').gsub(' ','-').sub('/','-')}" %></li>
-		<% end %>
-      </ul>
-    </div>
-    </div>
-    <div id = "content">
+      <p class="title">Categories</p>
+      <div id = "categories">
+        <ul>
+          <li class="subtitle">Items</li>
+          <% @items.each do |item| %>
+          <li><%= link_to item.name + " (" + item.listing.count.to_s + ")" , listings_path + "/category/#{item.name.downcase.sub('(','').sub(')','').sub(' ','-')}" %></li>
+          <% end %>
+          <li class="subtitle">Jobs</li>
+          <% @jobs.each do |job| %>
+          <li><%= link_to job.name, "jobs/category/#{job.name.downcase.sub('(','').sub(')','').sub(' ','-')}" %></li>
+          <% end %>
+          <li class="subtitle">Rent</li>
+          <% @rent.each do |r| %>
+          <li><%= link_to r.name + " (" + r.housing.count.to_s + ")" , housings_path + "/category/#{r.name.downcase.sub('(','').sub(')','').gsub(' ','-').sub('/','-')}" %></li>
+          <% end %>
+        </ul>
+      </div> <!-- categories end -->
+    </div><!-- container end -->
+  <div id = "content">
  	<!-- jQuery Featured Seller Gallery -->
 	<% if !@latest_listings.first.nil? %>
 		<p class="title">Premium Items</p>
