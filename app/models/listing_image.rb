@@ -10,6 +10,6 @@ class ListingImage < ActiveRecord::Base
   validates_attachment_presence :photo
   validates_attachment_size :photo, :less_than => 2.megabytes
 
-  validates_attachment_content_type :photo, :content_type => 'image/jpeg'     
+  validates_attachment_content_type :photo, :content_type => /image/  
 
 end

@@ -50,6 +50,7 @@ class HousingsController < ApplicationController
   # GET /housings/1/edit
   def edit
     @housing = Housing.find(params[:id])
+    @categories = Category.where(:parent => "Rent")
     2.times {@housing.housing_images.build} #initializes 3 images for each housing listing
   end
 
