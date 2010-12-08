@@ -5,7 +5,8 @@ class ApplicationController < ActionController::Base
   helper_method :current_user_session, :current_user
 
   protected
-    RECAPTCHA_PRIVATE_KEY = 'PRIVATE_KEY';
+  RECAPTCHA_PRIVATE_KEY = '6Leccr8SAAAAANVUYUpGxGjmODaArAkuY-s4NR7q';
+  RECAPTCHA_PUBLIC_KEY = '6Leccr8SAAAAABT7-xUQRwN99RniQULt4XJFW4WX';
 
   #try and verify the captcha response. Then give out a message to flash
   def verify_recaptcha(remote_ip, params)

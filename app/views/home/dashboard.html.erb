@@ -42,6 +42,7 @@
 	      <div id = "recent_items">
 	      <% end %>
 	        <div class="item">
+		<div class ="item_image"><%= link_to(image_tag(recent.housing_images.first.photo.url(:small)), recent) %></div>
           <div class = "item_text">
 	            <div class = "item_title"><%= link_to(truncate(recent.title, 40, "..."), recent ) %></div>
 	            <div class = "item_author"><%= link_to(recent.user.alias, recent ) %></div>

@@ -75,6 +75,10 @@
 			</tr>
 		<% end %>
 	<% end %>
+	<tr>
+		<td></td>
+		<td><div id="captcha"><%= render 'recaptcha' %></div></td>
+	  </tr>
 		<tr>
 			<td><%= f.submit "Post", :class => 'button submission' -%></td>
 		</tr>
