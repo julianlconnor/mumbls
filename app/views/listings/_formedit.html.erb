@@ -33,6 +33,16 @@
         <td><%= f.label :price, "Price ($): " %></td>
         <td><%= f.text_field :price %></td>
       </tr>  
+      <tr>
+        <td>Image(s):</td>
+		    <td>
+          <% @listing.listing_images.each do |image| %>
+          <%= image_tag image.photo.url(:large), :class => "table_img" %>
+          <% end %>
+		    </td>
+		    <td></td>
+	    </tr>
+ 
     </table>
   
   <table class="upload_images">

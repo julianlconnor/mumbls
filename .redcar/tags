@@ -1,4 +1,4 @@
-1291851035
+1291853109
 ActivationsController	/home/panfia/Documents/mumbls-heroku/app/controllers/activations_controller.rb	class ActivationsController 
 ActivationsHelper	/home/panfia/Documents/mumbls-heroku/app/helpers/activations_helper.rb	module ActivationsHelper
 AddActivationCodeToUsers	/home/panfia/Documents/mumbls-heroku/db/migrate/20101008183745_add_activation_code_to_users.rb	class AddActivationCodeToUsers 
@@ -89,6 +89,8 @@ PaymentsHelper	/home/panfia/Documents/mumbls-heroku/app/helpers/payments_helper.
 Person	/home/panfia/Documents/mumbls-heroku/vendor/plugins/meta_where/test/fixtures/person.rb	class Person 
 Predicate	/home/panfia/Documents/mumbls-heroku/vendor/plugins/meta_where/lib/meta_where/visitors/predicate.rb	    class Predicate 
 Project	/home/panfia/Documents/mumbls-heroku/vendor/plugins/meta_where/test/fixtures/project.rb	class Project 
+RECAPTCHA_PRIVATE_KEY	/home/panfia/Documents/mumbls-heroku/app/controllers/application_controller.rb	  RECAPTCHA_PRIVATE_KEY =
+RECAPTCHA_PUBLIC_KEY	/home/panfia/Documents/mumbls-heroku/app/controllers/application_controller.rb	  RECAPTCHA_PUBLIC_KEY =
 Relation	/home/panfia/Documents/mumbls-heroku/vendor/plugins/meta_where/lib/meta_where/relation.rb	  module Relation
 RenameAuthorIdToUserId	/home/panfia/Documents/mumbls-heroku/db/migrate/20101208034744_rename_author_id_to_user_id.rb	class RenameAuthorIdToUserId 
 Symbol	/home/panfia/Documents/mumbls-heroku/vendor/plugins/meta_where/lib/core_ext/symbol.rb	class Symbol
@@ -311,6 +313,7 @@ update	/home/panfia/Documents/mumbls-heroku/app/controllers/users_controller.rb	
 valid_comparison_method?	/home/panfia/Documents/mumbls-heroku/vendor/plugins/meta_where/lib/meta_where/utility.rb	    def valid_comparison_method?
 validate_each	/home/panfia/Documents/mumbls-heroku/lib/email_format_validator.rb	  def validate_each
 value	/home/panfia/Documents/mumbls-heroku/vendor/plugins/meta_where/lib/meta_where/condition.rb	    attr_reader :column, :value, :method
+verify_recaptcha	/home/panfia/Documents/mumbls-heroku/app/controllers/application_controller.rb	  def verify_recaptcha
 visit	/home/panfia/Documents/mumbls-heroku/vendor/plugins/meta_where/lib/meta_where/visitors/visitor.rb	      def visit
 visit_Hash	/home/panfia/Documents/mumbls-heroku/vendor/plugins/meta_where/lib/meta_where/visitors/attribute.rb	      def visit_Hash
 visit_Hash	/home/panfia/Documents/mumbls-heroku/vendor/plugins/meta_where/lib/meta_where/visitors/predicate.rb	      def visit_Hash
