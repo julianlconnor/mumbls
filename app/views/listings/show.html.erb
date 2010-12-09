@@ -36,8 +36,12 @@
   <tr>
     <td>Image(s):</td>
 		<td>
-			<% @show_listing.listing_images.each do |image| %>
-				<%= image_tag image.photo.url(:large), :class => "table_img" %>
+			<% if !@show_listing.listing_images.nil? %>
+				<% @show_listing.listing_images.each do |image| %>
+					<%= image_tag image.photo.url(:large), :class => "table_img" %>
+				<% end %>
+			<% else %>
+				<%= image_tag '/images/penguin_listings_pic.png' %>
 			<% end %>
 		</td>
 		<td></td>

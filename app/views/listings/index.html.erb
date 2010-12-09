@@ -37,7 +37,11 @@
 		<p class="title">Featured Items</p>
     <div class = "premium_items">
 		  <div class="main_image">
-		    <%= image_tag(@latest_listings.first.listing_images.first.photo.url(:large))%>	
+			<% if !@latest_listings.first.listing_images.nil? %>
+		    	<%= image_tag(@latest_listings.first.listing_images.first.photo.url(:large))%>
+			<% else %>
+				<%= image_tag '/images/penguin_listing_pic.png' %>
+			<% end %>
 		    <div class="desc">
 		        <a href="#" class="collapse">Close Me!</a>
 		        <div class="block">
