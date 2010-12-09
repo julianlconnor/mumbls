@@ -19,12 +19,18 @@ html, body {
   font-size: 10px;
   color: #999;
 }
+
 .edit {
-  font-size: 14px;
-  font-weight: normal;
   letter-spacing: 0px;
-  position: relative;
   bottom: 5px;
+}
+
+.delete {
+  margin-left: 10px;
+}
+
+.ital {
+font-style: italic;
 }
 
 .notice {  
@@ -59,7 +65,7 @@ li.error {
   margin-left: 30px;
 }
 
-div.bold {
+div.bold, td.bold {
   font-weight: bold;
 }
 
@@ -203,7 +209,6 @@ float: left;
   padding-right: 10px;
 }
 
-
 #dashboard .valign {
   vertical-align: middle;
 }
@@ -282,6 +287,11 @@ letter-spacing: -1px;
 font-family: Arial;
 }
 
+p.subtitle {
+  font-weight: bold;
+  font-size: 16px !important;
+}
+
 
 p.title {
 font-size: 14pt;
@@ -320,8 +330,8 @@ padding-left: 10px;
 div.item {
 -moz-border-radius: 8px;
 border-radius: 8px;
-margin-right: 46px;
-width: 158px;
+margin-right: 30px;
+width: 168px;
 border: solid 1px #999;
 float: left;
 background:-moz-linear-gradient(center bottom , #ededed, #fffdfd) repeat scroll 0 0 transparent;
@@ -342,7 +352,7 @@ div.item_image {
   height: 140px;
   margin: 0 auto;
   width: 140px;  
-  padding: 10px 3px 10px 3px;  
+  padding: 14px 3px 14px 3px;  
 }
 
 
@@ -434,6 +444,11 @@ margin: 0 auto;
 width: 825px;
 }
 
+#big_outside {
+margin: 0 auto;
+width: 915px;
+}
+
 #small_outside {
 margin: 0 auto;
 width: 750px;
@@ -441,6 +456,16 @@ width: 750px;
 
 .small_box {
 width: 750px !important;
+}
+
+.display_box {
+width: 550px !important;
+float: left;
+}
+
+.poster_box {
+  width: 245px !important;
+  float: left;
 }
 
 #box input, textarea {
@@ -451,25 +476,58 @@ border-radius: 5px;
 height: 20px;
 }
 
+.school {
+font-weight: bold;
+font-size: 10px;
+color: #999;
+}
+.posted_by {
+  width: 140px;
+}
 
+.poster_box img {
+  border: solid 1px #999;
+}
+
+.posted_by div {
+margin-bottom: 3px;
+}
+
+.section {
+  padding-bottom: 10px;
+  border-bottom: solid 1px #999;
+}
+
+.light {
+color: #909090;
+}
+
+.posted_by .user {
+  color: #2a4a6a;
+  margin-bottom: 0px !important;
+}
 
 #box select {
 margin-left: 15px;
+}
+
+.table_img_center {
+  display:block;
+  margin: 0 auto;
 }
 
 #listing_price {
 width: 100px;
 }
 
-.avatar {
-  float: right;
-  border: solid 1px #ccc;
-}
-
 
 input.submission {  
   height: 35px !important;
   margin-top: 30px;
+}
+
+.no_margin {
+  margin: 0px !important;
 }
 
 #listing_description {
@@ -483,18 +541,31 @@ width: 400px;
 
 td {
 vertical-align: top;
+text-align: left;
 }
 
-img.avatar {
-  margin-left: 15px;
+.avatar {
+  border: solid 1px #999;
 }
 
 .label {
   width: 102px;
 
 }
+
 div.table_text {
   margin-left: 15px;
+}
+
+td {
+  padding-bottom: 10px;
+}
+
+.table_text p {
+  border-bottom: none !important;
+  font-size: 12px !important;
+  padding: 0px !important;
+  margin: 0px !important;
 }
 
 .text {

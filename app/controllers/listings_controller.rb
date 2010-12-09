@@ -20,6 +20,7 @@ class ListingsController < ApplicationController
     @show_listing = Listing.find(params[:id])
     flash[:error] = "Listing not found" and return unless @show_listing
     @show_listing_author = User.where(:id => @show_listing.user.id)
+    @listings = Listing.order("created_at DESC").where(:user_id => @show_listing.user.id).limit(8)
 
     respond_to do |format|
       format.html # show.html.erb

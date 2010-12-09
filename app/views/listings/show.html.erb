@@ -1,54 +1,77 @@
-<div id = "small_outside">
-  <div id = "box" class="small_box">
-  
-  	<p class="title"><%= @show_listing.title %>
+<div id = "big_outside">
+  <div id = "box" class="display_box">
+  	<p class="title"><%= @show_listing.title %> - $<%= @show_listing.price %>
 		<% if !current_user.nil? and current_user.id == @show_listing.user.id %>
-    <%= link_to "Delete", listing_path(@show_listing.id), :method=>:delete, :class=>"color_button red medium right edit", :confirm=>"Are you sure?"  %>
+    <%= link_to "Delete", listing_path(@show_listing.id), :method=>:delete, :class=>"color_button red medium right edit delete", :confirm=>"Are you sure?"  %>
 			<%= link_to 'Edit', edit_listing_path(@show_listing), :class => "color_button blue medium right edit" -%>
 		<% end %>
 	</p>
   <!-- ><h2><%= flash[:notice] %></h2> -->
-<table>
-	<tr>
-		<td>Author:</td><td><div class="table_text"><%= @show_listing.user.alias %></div></td>
-  </tr>
-  <% if @show_listing_author.first.email_is_public %>
+
+<table class = "left"> 
   <tr>
-		<td>Email:</td><td><div class="table_text"><%= @show_listing_author.first.email %></div></td>
-  </tr>
-  <% else %>
-  <tr>
-		<td>Email:</td><td><div class="table_text"><%= @show_listing_author.first.email %></div></td>
-  </tr>
-  <% end %>
-  <tr>
-		<td>Title:</td><td><div class="table_text"><%= @show_listing.title %></div></td>
-  </tr>
-  <tr>
-		<td>Price:</td><td><div class="table_text">$<%= @show_listing.price %></div></td>
-  </tr>
-  <tr>
-		<td>Description:</td><td><div class="table_text"><%= @show_listing.description %></div></td>
-  </tr>
-<tr>
-		<td>Category:</td><td><div class="table_text"><%= @show_listing.category.name %></div></td>
-  </tr>
-  <tr>
-    <td>Image(s):</td>
-		<td>
+		<td colspan = "2">
 			<% if !@show_listing.listing_images.nil? %>
 				<% @show_listing.listing_images.each do |image| %>
-					<%= image_tag image.photo.url(:large), :class => "table_img" %>
+					<%= image_tag image.photo.url(:large), :class => "table_img_center" %>
 				<% end %>
 			<% else %>
 				<%= image_tag '/images/penguin_listings_pic.png' %>
 			<% end %>
 		</td>
 		<td></td>
-	</tr>
+  </tr>
+  <tr>
+		<td class = "bold">Description:</td><td><div class="table_text"><%= @show_listing.description %></div></td>
+  </tr>
+  <tr>
+		<td class = "bold">Price:</td><td><div class="table_text bold">$<%= @show_listing.price %></div></td>
+  </tr> 
+  <tr>
+    <td colspan = "2" class = 'light'>Listed on <%= @show_listing.created_at.to_formatted_s(:long_ordinal)  %></div></td>
+  </tr>
 </table>
+</div><!-- display_box end -->
 
-<%= link_to 'Post Another Listing', new_listing_path, :class => 'green right color_button medium' %>
-<div id = "clear"></div>
+
+
+<div id = "box" class = "poster_box">
+  <p class = "subtitle">Contact Seller</p>
+  <div class = "section">
+  	<div class = "left">
+      <% if !@show_listing.user.avatar.url(:thumb).nil? %>
+        <%= image_tag @show_listing.user.avatar.url(:thumb), :class => 'avatar'%>
+      <% else %>
+        <img src = "/images/no_user_picture.png" border="0"/>
+      <% end %>
+    </div>
+    <div class = "left posted_by table_text"><div class = 'bold user'><%= link_to @show_listing.user.alias %></div>
+        <div class = "school">Senior @ RPI</div>
+        <div>
+        <% if @show_listing_author.first.email_is_public %>
+          <%= mail_to(@show_listing_author.first.email, 'Contact ' + @show_listing.user.alias)%>
+        <% else %>
+        <%= 'Email is unavailable'%>
+        <% end %>
+        </div>
+        <div><%= link_to 'Feedback'%> </div>
+    </div>
+    <div id = "clear"></div>
+  </div>
+  <div class="section">
+    <h3><%= @show_listing.user.alias %>'s Other Items</h3>
+      <% @listings.each_with_index do |recent, count| %>
+        <% if recent.listing_images.length > 0 %>
+          <% if recent.id != @show_listing.id %>
+            <%= link_to(image_tag(recent.listing_images.first.photo.url(:thumb)), recent) %>
+          <% end %>
+		    <% end %>
+      <% end -%>
+    <div id = "clear"></div>
+  </div>
 </div>
+
+
+
+<div id = "clear"></div>
 </div>
