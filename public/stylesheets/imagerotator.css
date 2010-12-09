@@ -106,7 +106,7 @@
     border-right: 1px solid #ccc;*/
 }
 
-.premium_title {
+a.premium_title {
   font-size: 18px;
   padding: 10px 0px 0px 10px;
 }

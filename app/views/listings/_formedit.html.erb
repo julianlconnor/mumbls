@@ -32,16 +32,15 @@
       <tr>
         <td><%= f.label :price, "Price ($): " %></td>
         <td><%= f.text_field :price %></td>
-      </tr>  
-      <tr>
-        <td>Image(s):</td>
-		    <td>
-          <% @listing.listing_images.each do |image| %>
-          <%= image_tag image.photo.url(:large), :class => "table_img" %>
-          <% end %>
-		    </td>
-		    <td></td>
-	    </tr>
+      </tr>        
+      
+          <% @listing.listing_images.each do |image| %>           
+              <tr>
+                <td colspan="2">
+                  <%= image_tag image.photo.url(:large), :class => "table_img_center" %>
+                </td>
+              </tr>              
+          <% end %>          
  
     </table>
   
@@ -56,7 +55,7 @@
   	  	<td colspan = "2"><%= builder.file_field :photo %></td>
       </tr>
       <tr>
-  	    <td><%= builder.label :caption, "Image caption" %></td>
+  	    <td><%= builder.label :caption, "Image Caption" %></td>
   	  	<td colspan = "2"><%= builder.text_field :caption %></td>
       </tr>
     	<% end %>
