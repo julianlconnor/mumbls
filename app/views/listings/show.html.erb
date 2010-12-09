@@ -45,7 +45,7 @@
         <%= image_tag "/images/no_user_picture.png", :class => 'avatar' %>
       <% end %>
     </div>
-    <div class = "left posted_by table_text"><div class = 'bold user'><%= link_to @show_listing.user.alias, root_path + '/profile/#{@show_listing.user.alias}' %></div>
+    <div class = "left posted_by table_text"><div class = 'bold user'><%= link_to @show_listing.user.alias, root_path + 'http://mumbls.heroku.com/profile/' + @show_listing.user.alias %></div>
         <div class = "school">Senior @ RPI</div>
         <div>
         <% if @show_listing_author.first.email_is_public %>
