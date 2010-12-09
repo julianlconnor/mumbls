@@ -20,6 +20,11 @@ html, body {
   color: #999;
 }
 
+.premium_title a {
+  color: #fff;
+  font-size: 18px;  
+}
+
 .edit {
   letter-spacing: 0px;
   bottom: 5px;
