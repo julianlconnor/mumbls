@@ -75,6 +75,11 @@ ActiveRecord::Schema.define(:version => 20101209044604) do
     t.datetime "updated_at"
   end
 
+  create_table "staticpages", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"

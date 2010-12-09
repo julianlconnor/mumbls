@@ -3,7 +3,7 @@ class HousingsController < ApplicationController
   # GET /housings.xml
   def index
     @housing_count = Housing.count
-    @housings = Housing.all
+    @housings = Housing.order("created_at DESC").limit(8)
     @categories = Category.where(:parent => "Rent")
     @latest_listings = Housing.order("created_at DESC").limit(4)
    
