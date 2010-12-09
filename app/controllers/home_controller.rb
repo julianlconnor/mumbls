@@ -10,6 +10,7 @@ class HomeController < ApplicationController
     @latest_listings = Listing.order("created_at DESC").limit(8)
     # Find last 3 posted housings
     @latest_housings = Housing.order("created_at DESC").limit(10)
+    @premium_listings = Listing.where(:is_prem => true).order("created_at DESC").limit(12)
   end
   
   def dashboard
