@@ -7,6 +7,7 @@ class ListingsController < ApplicationController
     @listings = Listing.all
     @categories = Category.where(:parent => "Items")
     @latest_listings = Listing.order("created_at DESC").limit(12)
+    @premium_listings = Listing.where(:is_prem => true).order("created_at DESC").limit(12)
     respond_to do |format|
       format.html # index.html.erb
       format.js
