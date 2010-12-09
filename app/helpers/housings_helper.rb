@@ -10,11 +10,11 @@ module HousingsHelper
   
   def show_all(housings)
 	output = "var markers = new Array();\n"
-	output = output + "markers[0] = MapIconMaker.createMarkerIcon({width: 32, height: 32, primaryColor: '#00ff00'});\n"
-	output = output + "markers[1] = MapIconMaker.createMarkerIcon({width: 32, height: 32, primaryColor: '#ccffcc'});\n"
-	output = output + "markers[2] = MapIconMaker.createMarkerIcon({width: 32, height: 32, primaryColor: '#ccffcc'});\n"
-	output = output + "markers[3] = MapIconMaker.createMarkerIcon({width: 32, height: 32, primaryColor: '#DD2200'});\n"
-	output = output + "markers[4] = MapIconMaker.createMarkerIcon({width: 32, height: 32, primaryColor: '#00ffcc'});\n"
+	output = output + "markers[0] = MapIconMaker.createMarkerIcon({width: 32, height: 32, primaryColor: '#2b6edf'});\n"
+	output = output + "markers[1] = MapIconMaker.createMarkerIcon({width: 32, height: 32, primaryColor: '#eb3825'});\n"
+	output = output + "markers[2] = MapIconMaker.createMarkerIcon({width: 32, height: 32, primaryColor: '#48e528'});\n"
+	output = output + "markers[3] = MapIconMaker.createMarkerIcon({width: 32, height: 32, primaryColor: '#f8f612'});\n"
+	output = output + "markers[4] = MapIconMaker.createMarkerIcon({width: 32, height: 32, primaryColor: '#ffb80c'});\n"
 	
     if !housings.nil? and housings.count > 0
       marker_str = "markers: ["
