@@ -5,7 +5,13 @@
 			<span id="edit_button" class="color_button blue medium right edit">Edit</span>
 		<% end %>
     </p> 
-    <div class = 'right'><%= image_tag @user.avatar.url(:thumb) %></div>
+    <div class = 'right'>
+		<% if !@user.avatar.url.to_s.include?("missing.png") %>
+			<%= image_tag @user.avatar.url(:thumb) %>
+		<% else %>
+			<%= image_tag '/images/no_user_picture.png' %>
+		<% end%>
+	</div>
     <table>
       <tr>
         <td>Name:</td><td><div class = "table_text"><%= @user.name %></div></td>
