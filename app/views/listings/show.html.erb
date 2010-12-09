@@ -42,7 +42,7 @@
       <% if !@show_listing.user.avatar.url(:thumb).nil? %>
         <%= image_tag @show_listing.user.avatar.url(:thumb), :class => 'avatar'%>
       <% else %>
-        <img src = "/images/no_user_picture.png" border="0"/>
+        <%= image_tag"/images/no_user_picture.png", :class => 'avatar' %>
       <% end %>
     </div>
     <div class = "left posted_by table_text"><div class = 'bold user'><%= link_to @show_listing.user.alias %></div>

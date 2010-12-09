@@ -48,7 +48,7 @@
       <div class = "item_image"><%= link_to(image_tag(hit.listing_images.first.photo.url(:small)), hit) %></div>
       <div class = "item_text">
         <div class = "item_title"><%= h hit.title %></div>
-        <div class = "item_author"><%= link_to(hit.author, hit ) %></div>
+        <div class = "item_author"><%= link_to(hit.user.alias, hit ) %></div>
         <div class = "item_price">$<%= h hit.price %></div>
       </div><!-- item_text end -->
     </div><!-- item end -->
