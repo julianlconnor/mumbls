@@ -33,27 +33,27 @@
     <div id = "content">
 
 	<!-- jQuery Featured Seller Gallery -->
-	<% if !@latest_listings.first.nil? %>
+	<% if !@premium_listings.first.nil? %>
 		<p class="title">Featured Items</p>
     <div class = "premium_items">
 		  <div class="main_image">
-			<% if !@latest_listings.first.listing_images.nil? %>
-		    	<%= image_tag(@latest_listings.first.listing_images.first.photo.url(:large))%>
+			<% if !@premium_listings.first.listing_images.nil? %>
+		    	<%= image_tag(@premium_listings.first.listing_images.first.photo.url(:large))%>
 			<% else %>
 				<%= image_tag '/images/penguin_listing_pic.png' %>
 			<% end %>
 		    <div class="desc">
 		        <a href="#" class="collapse">Close Me!</a>
 		        <div class="block">
-                <div class = "premium_title"><%= @latest_listings.first.title %></div>
-                <small><%= @latest_listings.first.description %></small>
+                <div class = "premium_title"><%= link_to @premium_listings.first.title, listing_path(@premium_listings.first.id) %></div>
+                <small><%= @premium_listings.first.description %></small>
 		        </div>
 		    </div>
       </div><!-- main_image end -->
 		  <div class="image_thumb">
 			<ul>
-				<% @latest_listings.each do |recent| %>
-				<% if @latest_listings.first.title == recent.title %>
+				<% @premium_listings.each do |recent| %>
+				<% if @premium_listings.first.title == recent.title %>
 					<li class="active">
 				<% else %>
 					<li>
@@ -62,7 +62,7 @@
 						<%= link_to(image_tag(recent.listing_images.first.photo.url(:thumb)),recent.listing_images.first.photo.url(:large)) %>
 					<% end %>
           <div class="block">
-            <div class = "premium_title"><%= h recent.title%></div>
+            <div class = "premium_title"><%= link_to recent.title, listing_path(recent.id) %></div>
             <small><%= h recent.description %></small>
             </div>
           </li>

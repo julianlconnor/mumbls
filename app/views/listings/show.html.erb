@@ -28,7 +28,7 @@
 		<td class = "bold">Price:</td><td><div class="table_text bold">$<%= @show_listing.price %></div></td>
   </tr> 
   <tr>
-    <td colspan = "2" class = 'light'>Listed on <%= @show_listing.created_at.to_formatted_s(:long_ordinal)  %></div></td>
+    <td colspan = "2" class = 'light'>Listed on <%= @show_listing.created_at.strftime("%b %d, %Y at %I:%M %p")  %></div></td>
   </tr>
 </table>
 </div><!-- display_box end -->
