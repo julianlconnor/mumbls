@@ -32,7 +32,7 @@ module HousingsHelper
 				markerval = 4
 		end
         truncated_description = truncate(housing.description,:length => 45)
-        if !housing.housing_images.nil?
+        if !housing.housing_images.nil? and housing.housing_images.count > 0
           marker_str = marker_str + "{ icon: { image: markers[#{markerval}]['image'], iconsize: [32, 32], iconanchor: [18,32], infowindowanchor: [18, 0] }, address: '#{housing.address},#{housing.city},#{housing.state},#{housing.zip_code}',html: '<strong>#{link_to(housing.title,housing)}</strong> - $#{housing.price} <br /> #{truncated_description} <br /><center> #{image_tag(housing.housing_images.first.photo.url(:small))} </center>'},"
         else
           marker_str = marker_str + "{ icon: { image: markers[#{markerval}]['image'], iconsize: [32, 32], iconanchor: [18,32], infowindowanchor: [18, 0] }, address: '#{housing.address},#{housing.city},#{housing.state},#{housing.zip_code}',html: '<strong>#{link_to(housing.title,housing)}</strong> - $#{housing.price} <br /> #{truncated_description} <br />images.first.photo.url(:small))}'},"
