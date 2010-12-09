@@ -39,10 +39,10 @@
   <p class = "subtitle">Contact Seller</p>
   <div class = "section">
   	<div class = "left">
-      <% if !@show_listing.user.avatar.url(:thumb).nil? %>
+      <% if !@show_listing.user.avatar.url.to_s.include?("missing.png") %>
         <%= image_tag @show_listing.user.avatar.url(:thumb), :class => 'avatar'%>
       <% else %>
-        <%= image_tag"/images/no_user_picture.png", :class => 'avatar' %>
+        <%= image_tag "/images/no_user_picture.png", :class => 'avatar' %>
       <% end %>
     </div>
     <div class = "left posted_by table_text"><div class = 'bold user'><%= link_to @show_listing.user.alias %></div>
