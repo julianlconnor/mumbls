@@ -6,6 +6,7 @@ class HousingsController < ApplicationController
     @housings = Housing.all
     @categories = Category.where(:parent => "Rent")
     @latest_listings = Housing.order("created_at DESC").limit(4)
+   
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @housings }
