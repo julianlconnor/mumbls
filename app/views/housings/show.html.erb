@@ -42,7 +42,7 @@
         <%= image_tag "/images/no_user_picture.png", :class => 'avatar' %>
         <% end %>
       </div>
-      <div class = "left posted_by table_text"><div class = 'bold user'><%= link_to @housing.user.alias, user_path(@housing.user.id) %></div>
+      <div class = "left posted_by table_text"><div class = 'bold user'><%= link_to @housing.user.alias %></div>
       <div class = "school">Senior @ RPI</div>
           <div>
             <% if @housing.user.email_is_public %>
