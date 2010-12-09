@@ -9,19 +9,44 @@ module HousingsHelper
   end
   
   def show_all(housings)
+	output = "var markers = new Array();\n"
+	output = output + "markers[0] = MapIconMaker.createMarkerIcon({width: 32, height: 32, primaryColor: '#00ff00'});\n"
+	output = output + "markers[1] = MapIconMaker.createMarkerIcon({width: 32, height: 32, primaryColor: '#ccffcc'});\n"
+	output = output + "markers[2] = MapIconMaker.createMarkerIcon({width: 32, height: 32, primaryColor: '#ccffcc'});\n"
+	output = output + "markers[3] = MapIconMaker.createMarkerIcon({width: 32, height: 32, primaryColor: '#DD2200'});\n"
+	output = output + "markers[4] = MapIconMaker.createMarkerIcon({width: 32, height: 32, primaryColor: '#00ffcc'});\n"
+	
     if !housings.nil? and housings.count > 0
       marker_str = "markers: ["
       housings.each do |housing|
+		case housing.category.id
+			when 12
+				markerval = 0
+			when 13
+				markerval = 1
+			when 14
+				markerval = 2
+			when 15
+				markerval = 3
+			when 18
+				markerval = 4
+		end
         truncated_description = truncate(housing.description,:length => 45)
         if !housing.housing_images.nil?
-          marker_str = marker_str + "{ address: '#{housing.address},#{housing.city},#{housing.state},#{housing.zip_code}',html: '<strong>#{link_to(housing.title,housing)}</strong> - $#{housing.price} <br /> #{truncated_description} <br /><center> #{image_tag(housing.housing_images.first.photo.url(:small))} </center>'},"
+          marker_str = marker_str + "{ icon: { image: markers[#{markerval}]['image'],
+                                      iconsize: [32, 32],
+                                      iconanchor: [18,32],
+                                      infowindowanchor: [18, 0] }, address: '#{housing.address},#{housing.city},#{housing.state},#{housing.zip_code}',html: '<strong>#{link_to(housing.title,housing)}</strong> - $#{housing.price} <br /> #{truncated_description} <br /><center> #{image_tag(housing.housing_images.first.photo.url(:small))} </center>'},"
         else
-          marker_str = marker_str + "{ address: '#{housing.address},#{housing.city},#{housing.state},#{housing.zip_code}',html: '<strong>#{link_to(housing.title,housing)}</strong> - $#{housing.price} <br /> #{truncated_description} <br />images.first.photo.url(:small))}'},"
+          marker_str = marker_str + "{ icon: { image: markers[#{markerval}]['image'],
+                                      iconsize: [32, 32],
+                                      iconanchor: [18,32],
+                                      infowindowanchor: [18, 0] }, address: '#{housing.address},#{housing.city},#{housing.state},#{housing.zip_code}',html: '<strong>#{link_to(housing.title,housing)}</strong> - $#{housing.price} <br /> #{truncated_description} <br />images.first.photo.url(:small))}'},"
         end
       end
       marker_str = marker_str.chop
       marker_str = marker_str + "]"
-      "$(function() { $('#map').gMap({#{marker_str}, zoom: 15 }); });"
+      output + "$(function() { $('#map').gMap({#{marker_str}, zoom: 15 }); });"
     else
       "$(function() { $('#map').gMap({ address: '15th St & RPI Walk over Bridge',zoom: 15 }); });"
     end
