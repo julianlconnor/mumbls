@@ -45,13 +45,14 @@
         <%= image_tag "/images/no_user_picture.png", :class => 'avatar' %>
       <% end %>
     </div>
-    <div class = "left posted_by table_text"><div class = 'bold user'><%= link_to @show_listing.user.alias, @show_listing.user %></div>
+    <div class = "left posted_by table_text"><div class = 'bold user'><%= link_to @show_listing.user.alias, '/profile/'+@show_listing.user.alias %></div>
         <div class = "school">Senior @ RPI</div>
+		<div class = "school">Views: <%= @show_listing.views %></div>
         <div>
         <% if @show_listing_author.first.email_is_public %>
           <%= mail_to(@show_listing_author.first.email, 'Contact ' + @show_listing.user.alias)%>
         <% else %>
-        <%= 'Email is unavailable'%>
+          <%= 'Email is hidden' %>
         <% end %>
         </div>
         <div><%= link_to 'Feedback'%> </div>

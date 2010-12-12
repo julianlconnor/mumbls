@@ -87,7 +87,7 @@
           <div class = "item_text">
             <div class = "item_title">  <%= link_to(truncate(recent.title, :length => 40), recent ) %>
             </div>
-            <div class = "item_author"><%= link_to(recent.user.alias, recent ) %></div>
+            <div class = "item_author"><%= link_to(recent.user.alias, '/profile/'+recent.user.alias ) %></div>
             <div class = "item_price"><%= "$" + recent.price.to_s %></div>
           </div>
         </div>          

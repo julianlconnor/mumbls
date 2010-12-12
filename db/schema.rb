@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101209044604) do
+ActiveRecord::Schema.define(:version => 20101212214418) do
 
   create_table "categories", :force => true do |t|
     t.string "name"
@@ -61,6 +61,18 @@ ActiveRecord::Schema.define(:version => 20101209044604) do
     t.integer  "price"
     t.integer  "user_id"
     t.boolean  "is_prem",     :default => false
+    t.integer  "views",       :default => 0
+  end
+
+  create_table "messages", :force => true do |t|
+    t.integer  "from_user"
+    t.string   "from_user_alias"
+    t.integer  "to_user"
+    t.string   "to_user_alias"
+    t.string   "title"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "notifiers", :force => true do |t|
@@ -71,11 +83,6 @@ ActiveRecord::Schema.define(:version => 20101209044604) do
   create_table "payments", :force => true do |t|
     t.float    "amount"
     t.string   "transaction_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "staticpages", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end

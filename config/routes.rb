@@ -1,4 +1,6 @@
 AuthlogicRails3Example::Application.routes.draw do |map|
+  resources :messages
+
   
 
   resources :payments
