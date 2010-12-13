@@ -97,7 +97,7 @@
       </div>
 	<% end %>
 
-	<p class="title">Recently Added Items</p>
+	<p class="title"><%= link_to "Recently Added Items", listings_path %></p>
 		<div id = "recent_items">
 		<% @latest_listings.each_with_index do |recent, count| %>
 			<% if recent.listing_images.length > 0 %>
@@ -119,7 +119,7 @@
 		<div id = "clear"></div>    
 	</div> 
 
-	 <p class="title">Latest Housings in Troy</p>
+	 <p class="title"><%= link_to "Latest Housings in Troy", housings_path %></p>
       <div id = "recent_housings">
        	<%= render :partial => "googleMap" %>
         <div class="bigarrow"></div>
