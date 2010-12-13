@@ -549,6 +549,10 @@ input.submission {
   margin-top: 30px;
 }
 
+input.login {
+  margin-top: 0px;
+}
+
 .no_margin {
   margin: 0px !important;
 }
