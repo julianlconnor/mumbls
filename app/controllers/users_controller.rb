@@ -30,7 +30,7 @@ class UsersController < ApplicationController
     else
       @user = User.find(params[:id])
       respond_to do |format|
-        format.html # show.html.haml
+        format.html { render "/users/show" }
         format.xml  { render :xml => @user }
       end
     end

@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   acts_as_authentic
   validates_uniqueness_of :alias,  :presence => true
   validates_length_of :alias, :minimum => 3, :message => "Alias must be at least 3 characters."
+  validates_format_of :alias, :with => /^[A-Za-z\d_]+$/, :message => "Alias can only be alphanumeric with no spaces."
   validates_uniqueness_of :email, :presence => true, :email_format => true, :message => "Sorry, but a user with the emails %s, already exists."
   validates_attachment_size :avatar, :less_than => 1.megabytes, :message => "File size can not be larger than 2mb.", :content_type => 'image/jpeg' 
   
