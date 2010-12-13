@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   has_many :listings
   has_many :housings
   has_many :messages
+  has_many :credits, :dependent => :destroy
   # Paperclip
   has_attached_file :avatar,
                     :storage => :s3,

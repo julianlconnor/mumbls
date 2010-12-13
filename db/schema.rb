@@ -9,11 +9,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101213013406) do
+ActiveRecord::Schema.define(:version => 20101213195906) do
 
   create_table "categories", :force => true do |t|
     t.string "name"
     t.string "parent"
+  end
+
+  create_table "credits", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "credits",    :default => 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "housing_images", :force => true do |t|

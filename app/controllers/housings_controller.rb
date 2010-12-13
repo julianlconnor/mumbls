@@ -76,6 +76,9 @@ class HousingsController < ApplicationController
     
     respond_to do |format|
       if @housing.save
+        @remove_credits = Credit.find(:first, :conditions => [ "user_id = ?", params[:housing][:user_id]])
+        @remove_credits.credits = @remove_credits.credits - 2
+        @remove_credits.save
         format.html { redirect_to(@housing, :notice => 'Your housing classified was successfully created!') }
         format.xml  { render :xml => @housing, :status => :created, :location => @housing }
       else

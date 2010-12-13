@@ -22,10 +22,10 @@ class HomeController < ApplicationController
         if @user.user.user_role == "admin"
           @mod_listings = Listing.all
           @mod_housings = Housing.all
+          debugger
         end
         @listings = Listing.order("created_at DESC").where(:user_id => @user.user.id)
         @housings = Housing.order("created_at DESC").where(:user_id => @user.user.id)
-        
         respond_to do |format|
           format.html # dashboard.html.erb
         end

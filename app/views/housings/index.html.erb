@@ -12,7 +12,11 @@
 				</select></td>
 		    <td><%= text_field_tag "searchbar", "Search"%></td>
 			<td><%= submit_tag("Search", :class => "button") %></td>
-			<td><%= link_to 'New Housing', new_housing_path, :class => 'large color_button green new_listing' %></td>  
+			<% if current_user and current_user.credits.first.credits > 0 %>
+				<td><%= link_to 'New Housing', new_housing_path, :class => 'large color_button green new_listing' %></td>
+			<% else %>
+				<td><%= link_to 'New Housing', {:controller => :payments, :action => :index}, :class => 'large color_button green new_listing' %></td>
+			<% end %>
 	      </tr>
 	    </table>
 	<% end %>

@@ -1,6 +1,7 @@
 <div id = "small_outside">
   <div id = "box" class="small_box">
     <p class="title"><%= current_user.alias %>'s Dashboard </p>
+	<% if !@listings.nil? and @listings.count > 0 %>
     <h3>Your Listings</h3>
     <table id = "dashboard">
       <tr>
@@ -26,6 +27,9 @@
 		      <% end %>
     <% end -%>
     </table>
+<% else %>
+	<h3>You currently have no listings.</h3>
+<% end %>
 
 <% if !@housings.nil? and @housings.count > 0 %>
 	<h3>Your Housing Listings</h3
@@ -88,7 +92,7 @@
   </table>
 
 
-    <h3>Moderate Housing Listings</h3>
+    <h3>Moderate Housing Listings <%= @mod_housings.count.to_s %></h3>
     <table id = "dashboard">
       <tr>
         <td><div class = "b">Image</div></td>
@@ -97,14 +101,14 @@
         <td><div class = "table_text b">Description</div></td> 
         <td><div class = "table_text b">Poster</div></td>
       </tr>
-    <% @mod_housings.each_with_index do |recent, count| %>
-        <% if recent.housing_images.length > 0 %>
-        <% if count%2 == 0%>
-          <tr class = "lightrow">
-        <% else %>
-          <tr class = "darkrow">
-        <% end %>
-         <td><%= link_to(image_tag(recent.housing_images.first.photo.url(:small)), recent) %></td>
+    <% @mod_housings.each do |recent| %>
+
+          <tr class ="<%= cycle("lightrow","darkrow") -%>">
+	     <% if recent.housing_images.length > 0 %>
+         	<td><%= link_to(image_tag(recent.housing_images.first.photo.url(:small)), recent) %></td>
+		 <% else %>
+			<td><%= link_to(image_tag("/images/penguin_housing_pic.png"), recent) %></td>
+		 <% end %>
          <td><div class="table_text mtop"><%= link_to(recent.title, recent ) %></div></td>
          <td><div class="table_text mtop"><%= "$" + recent.price.to_s %></div></td> 
          <td><div class="table_text mtop"><%= truncate(recent.description, :length => 200) %></div></td> 
@@ -112,7 +116,6 @@
          <td class = "valign"><%= link_to 'Edit', edit_housing_path(recent.id), :class => "color_button blue mini right edit" -%></td>
          <td class = "valign"><div class = "valign"><%= link_to "x", housing_path(recent.id), :method=>:delete, :class=>"color_button red mini right edit", :confirm=>"Are you sure?"  %></div></td
         </tr> 
-		      <% end %>
     <% end -%>
     </table>
 

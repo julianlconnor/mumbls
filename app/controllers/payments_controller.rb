@@ -4,17 +4,23 @@ class PaymentsController < ApplicationController
     if params[:transactionAmount].nil? and params[:transactionId].nil?
       # Someone is trying to access payments without an actual transaction
     else
-      @user = User.find(params[:user_id])
-      @user.can_post = true;
-      @user.save
-      @payment = Payment.new(
-        :transaction_amount => params[:transactionAmount],
-        :transaction_id     => params[:transactionId]
-      )
-      if @payment.save
-        redirect_to(@payment, :notice => 'Payment was successfully created.')
+      # Check to see if that transaction has already occured, if it has cancel
+      @check_transaction = Payment.find(:first, :conditions => ["transaction_id = ?", params[:transactionId]])
+      if !@check_transaction.nil?
+        redirect_to(root_path, :notice => "Payment Failed : A transaction with that ID already exists.")
       else
-        redirect_to :action => "index"
+        @add_cred = Credit.find(:first, :conditions => [ "user_id = ?", params[:user_id]])
+        @add_cred.credits = @add_cred.credits + 2
+        @add_cred.save
+        @payment = Payment.new(
+          :transaction_amount => params[:transactionAmount],
+          :transaction_id     => params[:transactionId]
+        )
+        if @payment.save
+          redirect_to(new_housing_path, :notice => 'You have succesfully purchased 2 credits!')
+        else
+          redirect_to :action => "index"
+        end
       end
     end
   end
@@ -29,6 +35,7 @@ class PaymentsController < ApplicationController
     end
     
     @payments = Payment.all
+    
 
     respond_to do |format|
       format.html # index.html.erb

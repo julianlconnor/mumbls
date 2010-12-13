@@ -24,7 +24,7 @@
             <% if current_user %>
             <ul>
               <li><%= link_to 'Logout', logout_path, :method => :delete %></li>
-              <li><%= link_to 'Credits ( )' -%></li>
+              <li><%= link_to 'Credits ('+current_user.credits.first.credits.to_s+')' -%></li>
               <!-- <li><%= link_to 'Conversations (0)' -%></li>-->
               <li><%= link_to 'Dashboard', '/home/dashboard' -%></li>
               <li><%= link_to 'My Account ('+truncate(current_user.alias, 15, "...")+')', '/profile/'+current_user.alias -%></li>   
