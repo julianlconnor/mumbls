@@ -1,4 +1,4 @@
-1292191809
+1292214523
 ActivationsController	/home/panfia/Documents/mumbls-heroku/app/controllers/activations_controller.rb	class ActivationsController 
 ActivationsHelper	/home/panfia/Documents/mumbls-heroku/app/helpers/activations_helper.rb	module ActivationsHelper
 AddActivationCodeToUsers	/home/panfia/Documents/mumbls-heroku/db/migrate/20101008183745_add_activation_code_to_users.rb	class AddActivationCodeToUsers 
@@ -20,6 +20,8 @@ AddPhotoDetailsToListing	/home/panfia/Documents/mumbls-heroku/db/migrate/2010101
 AddPriceToListings	/home/panfia/Documents/mumbls-heroku/db/migrate/20101109233259_add_price_to_listings.rb	class AddPriceToListings 
 AddPublicEmailToUser	/home/panfia/Documents/mumbls-heroku/db/migrate/20101115033608_add_public_email_to_user.rb	class AddPublicEmailToUser 
 AddUserRoleToUser	/home/panfia/Documents/mumbls-heroku/db/migrate/20101014234356_add_user_role_to_user.rb	class AddUserRoleToUser 
+AddViewsToHousings	/home/panfia/Documents/mumbls-heroku/db/migrate/20101213013406_add_views_to_housings.rb	class AddViewsToHousings 
+AddViewsToListings	/home/panfia/Documents/mumbls-heroku/db/migrate/20101212214418_add_views_to_listings.rb	class AddViewsToListings 
 And	/home/panfia/Documents/mumbls-heroku/vendor/plugins/meta_where/lib/meta_where/compound.rb	  class And 
 Application	/home/panfia/Documents/mumbls-heroku/config/application.rb	  class Application 
 ApplicationController	/home/panfia/Documents/mumbls-heroku/app/controllers/application_controller.rb	class ApplicationController 
@@ -41,6 +43,7 @@ CreateHousingImages	/home/panfia/Documents/mumbls-heroku/db/migrate/201011051918
 CreateHousings	/home/panfia/Documents/mumbls-heroku/db/migrate/20101105184146_create_housings.rb	class CreateHousings 
 CreateListingImages	/home/panfia/Documents/mumbls-heroku/db/migrate/20101012005934_create_listing_images.rb	class CreateListingImages 
 CreateListings	/home/panfia/Documents/mumbls-heroku/db/migrate/20101001034548_create_listings.rb	class CreateListings 
+CreateMessages	/home/panfia/Documents/mumbls-heroku/db/migrate/20101212213707_create_messages.rb	class CreateMessages 
 CreateNotifiers	/home/panfia/Documents/mumbls-heroku/db/migrate/20101004172341_create_notifiers.rb	class CreateNotifiers 
 CreatePayments	/home/panfia/Documents/mumbls-heroku/db/migrate/20101202024007_create_payments.rb	class CreatePayments 
 CreateUsers	/home/panfia/Documents/mumbls-heroku/db/migrate/20100701043032_create_users.rb	class CreateUsers 
@@ -67,6 +70,9 @@ ListingImage	/home/panfia/Documents/mumbls-heroku/app/models/listing_image.rb	cl
 ListingsController	/home/panfia/Documents/mumbls-heroku/app/controllers/listings_controller.rb	class ListingsController 
 ListingsHelper	/home/panfia/Documents/mumbls-heroku/app/helpers/listings_helper.rb	module ListingsHelper
 METHOD_ALIASES	/home/panfia/Documents/mumbls-heroku/vendor/plugins/meta_where/lib/meta_where.rb	  METHOD_ALIASES =
+Message	/home/panfia/Documents/mumbls-heroku/app/models/message.rb	class Message 
+MessagesController	/home/panfia/Documents/mumbls-heroku/app/controllers/messages_controller.rb	class MessagesController 
+MessagesHelper	/home/panfia/Documents/mumbls-heroku/app/helpers/messages_helper.rb	module MessagesHelper
 MetaWhere	/home/panfia/Documents/mumbls-heroku/vendor/plugins/meta_where/lib/meta_where.rb	module MetaWhere
 MetaWhere	/home/panfia/Documents/mumbls-heroku/vendor/plugins/meta_where/lib/meta_where/association_reflection.rb	module MetaWhere
 MetaWhere	/home/panfia/Documents/mumbls-heroku/vendor/plugins/meta_where/lib/meta_where/column.rb	module MetaWhere
@@ -148,6 +154,7 @@ contextualize_args	/home/panfia/Documents/mumbls-heroku/vendor/plugins/meta_wher
 create	/home/panfia/Documents/mumbls-heroku/app/controllers/activations_controller.rb	  def create
 create	/home/panfia/Documents/mumbls-heroku/app/controllers/housings_controller.rb	  def create
 create	/home/panfia/Documents/mumbls-heroku/app/controllers/listings_controller.rb	  def create
+create	/home/panfia/Documents/mumbls-heroku/app/controllers/messages_controller.rb	  def create
 create	/home/panfia/Documents/mumbls-heroku/app/controllers/payments_controller.rb	  def create
 create	/home/panfia/Documents/mumbls-heroku/app/controllers/user_session_controller.rb	  def create
 create	/home/panfia/Documents/mumbls-heroku/app/controllers/users_controller.rb	  def create
@@ -160,6 +167,7 @@ debug_sql	/home/panfia/Documents/mumbls-heroku/vendor/plugins/meta_where/lib/met
 desc	/home/panfia/Documents/mumbls-heroku/vendor/plugins/meta_where/lib/core_ext/symbol.rb	  def desc
 destroy	/home/panfia/Documents/mumbls-heroku/app/controllers/housings_controller.rb	  def destroy
 destroy	/home/panfia/Documents/mumbls-heroku/app/controllers/listings_controller.rb	  def destroy
+destroy	/home/panfia/Documents/mumbls-heroku/app/controllers/messages_controller.rb	  def destroy
 destroy	/home/panfia/Documents/mumbls-heroku/app/controllers/payments_controller.rb	  def destroy
 destroy	/home/panfia/Documents/mumbls-heroku/app/controllers/user_session_controller.rb	  def destroy
 destroy	/home/panfia/Documents/mumbls-heroku/app/controllers/users_controller.rb	  def destroy
@@ -191,8 +199,12 @@ down	/home/panfia/Documents/mumbls-heroku/db/migrate/20101202230729_add_more_add
 down	/home/panfia/Documents/mumbls-heroku/db/migrate/20101208034744_rename_author_id_to_user_id.rb	  def self.down
 down	/home/panfia/Documents/mumbls-heroku/db/migrate/20101208051807_change_user_author_id_to_user_id.rb	  def self.down
 down	/home/panfia/Documents/mumbls-heroku/db/migrate/20101209044604_add_is_prem_to_listings.rb	  def self.down
+down	/home/panfia/Documents/mumbls-heroku/db/migrate/20101212213707_create_messages.rb	  def self.down
+down	/home/panfia/Documents/mumbls-heroku/db/migrate/20101212214418_add_views_to_listings.rb	  def self.down
+down	/home/panfia/Documents/mumbls-heroku/db/migrate/20101213013406_add_views_to_housings.rb	  def self.down
 edit	/home/panfia/Documents/mumbls-heroku/app/controllers/housings_controller.rb	  def edit
 edit	/home/panfia/Documents/mumbls-heroku/app/controllers/listings_controller.rb	  def edit
+edit	/home/panfia/Documents/mumbls-heroku/app/controllers/messages_controller.rb	  def edit
 edit	/home/panfia/Documents/mumbls-heroku/app/controllers/payments_controller.rb	  def edit
 edit	/home/panfia/Documents/mumbls-heroku/app/controllers/users_controller.rb	  def edit
 ensure_no_metawhere_in_conditions	/home/panfia/Documents/mumbls-heroku/vendor/plugins/meta_where/lib/meta_where/association_reflection.rb	    def ensure_no_metawhere_in_conditions
@@ -210,6 +222,7 @@ included	/home/panfia/Documents/mumbls-heroku/vendor/plugins/meta_where/lib/meta
 index	/home/panfia/Documents/mumbls-heroku/app/controllers/home_controller.rb	  def index
 index	/home/panfia/Documents/mumbls-heroku/app/controllers/housings_controller.rb	  def index
 index	/home/panfia/Documents/mumbls-heroku/app/controllers/listings_controller.rb	  def index
+index	/home/panfia/Documents/mumbls-heroku/app/controllers/messages_controller.rb	  def index
 index	/home/panfia/Documents/mumbls-heroku/app/controllers/payments_controller.rb	  def index
 index	/home/panfia/Documents/mumbls-heroku/app/controllers/users_controller.rb	  def index
 initialize	/home/panfia/Documents/mumbls-heroku/vendor/plugins/meta_where/lib/meta_where/association_reflection.rb	    def initialize
@@ -240,6 +253,7 @@ name	/home/panfia/Documents/mumbls-heroku/vendor/plugins/meta_where/lib/meta_whe
 new	/home/panfia/Documents/mumbls-heroku/app/controllers/activations_controller.rb	  def new
 new	/home/panfia/Documents/mumbls-heroku/app/controllers/housings_controller.rb	  def new
 new	/home/panfia/Documents/mumbls-heroku/app/controllers/listings_controller.rb	  def new
+new	/home/panfia/Documents/mumbls-heroku/app/controllers/messages_controller.rb	  def new
 new	/home/panfia/Documents/mumbls-heroku/app/controllers/payments_controller.rb	  def new
 new	/home/panfia/Documents/mumbls-heroku/app/controllers/user_session_controller.rb	  def new
 new	/home/panfia/Documents/mumbls-heroku/app/controllers/users_controller.rb	  def new
@@ -263,6 +277,7 @@ search	/home/panfia/Documents/mumbls-heroku/app/controllers/listings_controller.
 select	/home/panfia/Documents/mumbls-heroku/vendor/plugins/meta_where/lib/meta_where/relation.rb	    def select
 show	/home/panfia/Documents/mumbls-heroku/app/controllers/housings_controller.rb	  def show
 show	/home/panfia/Documents/mumbls-heroku/app/controllers/listings_controller.rb	  def show
+show	/home/panfia/Documents/mumbls-heroku/app/controllers/messages_controller.rb	  def show
 show	/home/panfia/Documents/mumbls-heroku/app/controllers/payments_controller.rb	  def show
 show	/home/panfia/Documents/mumbls-heroku/app/controllers/users_controller.rb	  def show
 show_all	/home/panfia/Documents/mumbls-heroku/app/helpers/home_helper.rb	  def show_all
@@ -309,8 +324,12 @@ up	/home/panfia/Documents/mumbls-heroku/db/migrate/20101202230729_add_more_addre
 up	/home/panfia/Documents/mumbls-heroku/db/migrate/20101208034744_rename_author_id_to_user_id.rb	  def self.up
 up	/home/panfia/Documents/mumbls-heroku/db/migrate/20101208051807_change_user_author_id_to_user_id.rb	  def self.up
 up	/home/panfia/Documents/mumbls-heroku/db/migrate/20101209044604_add_is_prem_to_listings.rb	  def self.up
+up	/home/panfia/Documents/mumbls-heroku/db/migrate/20101212213707_create_messages.rb	  def self.up
+up	/home/panfia/Documents/mumbls-heroku/db/migrate/20101212214418_add_views_to_listings.rb	  def self.up
+up	/home/panfia/Documents/mumbls-heroku/db/migrate/20101213013406_add_views_to_housings.rb	  def self.up
 update	/home/panfia/Documents/mumbls-heroku/app/controllers/housings_controller.rb	  def update
 update	/home/panfia/Documents/mumbls-heroku/app/controllers/listings_controller.rb	  def update
+update	/home/panfia/Documents/mumbls-heroku/app/controllers/messages_controller.rb	  def update
 update	/home/panfia/Documents/mumbls-heroku/app/controllers/payments_controller.rb	  def update
 update	/home/panfia/Documents/mumbls-heroku/app/controllers/users_controller.rb	  def update
 valid_comparison_method?	/home/panfia/Documents/mumbls-heroku/vendor/plugins/meta_where/lib/meta_where/utility.rb	    def valid_comparison_method?

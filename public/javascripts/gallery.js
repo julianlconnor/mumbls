@@ -34,7 +34,8 @@ $(document).ready(function(){
 		    $(".main_banner .block").slideToggle(); //Toggle the description (slide up and down)
 		    $("a.collapse").toggleClass("show"); //Toggle the class name of "show" (the hide/show tab)
 		});
-		
+  });
+    
 		function intervalSwitching(){
 			var $active = $('.image_thumb ul .active');
 			
@@ -60,7 +61,7 @@ $(document).ready(function(){
 			// 			var $next = $active.next();
 			// 			$next.addClass('active');
 			// 			$active.remoteClass('active');
-		}
+    }    
 		
-		$(function(){ setInterval("intervalSwitching()",8000);});
-  });
+    $(function(){ setInterval("intervalSwitching()",8000);});    
+    
