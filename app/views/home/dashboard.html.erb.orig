@@ -1,0 +1,143 @@
+<div id = "small_outside">
+  <div id = "box" class="small_box">
+    <p class="title"><%= current_user.alias %>'s Dashboard </p>
+    <h3>Your Listings</h3>
+    <table id = "dashboard">
+      <tr>
+        <td><div class = "b">Image</div></td>
+        <td><div class = "table_text b">Title</div></td>
+        <td><div class = "table_text b">Price</div></td>
+        <td><div class = "table_text b">Description</div></td> 
+      </tr>
+    <% @listings.each_with_index do |recent, count| %>
+        <% if recent.listing_images.length > 0 %>
+        <% if count%2 == 0%>
+          <tr class = "lightrow">
+        <% else %>
+          <tr class = "darkrow">
+        <% end %>
+         <td><%= link_to(image_tag(recent.listing_images.first.photo.url(:thumb)), recent) %></td>
+         <td><div class="table_text mtop"><%= link_to(recent.title, recent ) %></div></td>
+         <td><div class="table_text mtop"><%= "$" + recent.price.to_s %></div></td> 
+         <td><div class="table_text mtop"><%= truncate(recent.description, :length => 200) %></div></td> 
+         <td class = "valign"><%= link_to 'Edit', edit_listing_path(recent.id), :class => "color_button blue mini right edit" -%></td>
+         <td class = "valign"><div class = "valign"><%= link_to "x", listing_path(recent.id), :method=>:delete, :class=>"color_button red mini right edit", :confirm=>"Are you sure?"  %></div></td
+        </tr> 
+		      <% end %>
+    <% end -%>
+    </table>
+
+<% if !@housings.nil? and @housings.count > 0 %>
+	<h3>Your Housing Listings</h3
+    <table id = "dashboard">
+      <tr>
+        <td><div class = "b">Image</div></td>
+        <td><div class = "table_text b">Title</div></td>
+        <td><div class = "table_text b">Price</div></td>
+        <td><div class = "table_text b">Description</div></td> 
+      </tr>
+    <% @housings.each_with_index do |recent, count| %>
+        <% if recent.housing_images.length > 0 %>
+        <% if count%2 == 0%>
+          <tr class = "lightrow">
+        <% else %>
+          <tr class = "darkrow">
+        <% end %>
+         <td><%= link_to(image_tag(recent.housing_images.first.photo.url(:thumb)), recent) %></td>
+         <td><div class="table_text mtop"><%= link_to(recent.title, recent ) %></div></td>
+         <td><div class="table_text mtop"><%= "$" + recent.price.to_s %></div></td> 
+         <td><div class="table_text mtop"><%= truncate(recent.description, :length => 200) %></div></td> 
+          <td class = "valign"><%= link_to 'Edit', edit_housing_path(recent.id), :class => "color_button blue mini right edit" -%></td>
+         <td class = "valign"><div class = "valign"><%= link_to "x", housing_path(recent.id), :method=>:delete, :class=>"color_button red mini right edit", :confirm=>"Are you sure?"  %></div></td
+        </tr> 
+		      <% end %>
+    <% end -%>
+    </table>
+<% end %>
+
+<p class="title">Admin Panel </p>
+<% if !@mod_listings.nil? %>
+  <h3>Moderate Listings</h3>
+    <table id = "dashboard">
+      <tr>
+        <td><div class = "b">Image</div></td>
+        <td><div class = "table_text b">Title</div></td>
+        <td><div class = "table_text b">Price</div></td>
+        <td><div class = "table_text b">Description</div></td> 
+        <td><div class = "table_text b">Poster</div></td>
+      </tr>
+    <% @mod_listings.each_with_index do |recent, count| %>
+        <% if recent.listing_images.length > 0 %>
+        <% if count%2 == 0%>
+          <tr class = "lightrow">
+        <% else %>
+          <tr class = "darkrow">
+        <% end %>
+         <td><%= link_to(image_tag(recent.listing_images.first.photo.url(:thumb)), recent) %></td>
+         <td><div class="table_text mtop"><%= link_to(recent.title, recent ) %></div></td>
+         <td><div class="table_text mtop"><%= "$" + recent.price.to_s %></div></td> 
+         <td><div class="table_text mtop"><%= truncate(recent.description, :length => 200) %></div></td> 
+         <td><div class="table_text mtop"><%= recent.user.alias %></div></td>
+         <td class = "valign"><%= link_to 'Edit', edit_listing_path(recent.id), :class => "color_button blue mini right edit" -%></td>
+         <td class = "valign"><div class = "valign"><%= link_to "x", listing_path(recent.id), :method=>:delete, :class=>"color_button red mini right edit", :confirm=>"Are you sure?"  %></div></td
+        </tr> 
+		      <% end %>
+    <% end -%>
+<<<<<<< HEAD
+  </table>
+
+=======
+    </table>
+	<p class="title">Your Housings</p>
+	      <div id = "recent_items">
+	     <% @housings.each_with_index do |recent, count| %>
+	      <% if count%4 == 0 and count != 0 %>
+	      <div id = "clear"></div> 
+	      </div>
+	      <div id = "recent_items">
+	      <% end %>
+	        <div class="item">
+		<div class ="item_image"><%= link_to(image_tag(recent.housing_images.first.photo.url(:small)), recent) %></div>
+          <div class = "item_text">
+	            <div class = "item_title"><%= link_to(truncate(recent.title, 40, "..."), recent ) %></div>
+	            <div class = "item_author"><%= link_to(recent.user.alias, recent ) %></div>
+	            <div class = "item_price"><%= "$" + recent.price.to_s %></div>
+	          </div> 
+	        </div><!-- item end -->        
+	        <% end -%> 
+	        <div id = "clear"></div>    
+</div>
+>>>>>>> 75b9e3236694eb1201e9a3dda7f697b312e929e4
+
+    <h3>Moderate Housing Listings</h3>
+    <table id = "dashboard">
+      <tr>
+        <td><div class = "b">Image</div></td>
+        <td><div class = "table_text b">Title</div></td>
+        <td><div class = "table_text b">Price</div></td>
+        <td><div class = "table_text b">Description</div></td> 
+        <td><div class = "table_text b">Poster</div></td>
+      </tr>
+    <% @mod_housings.each_with_index do |recent, count| %>
+        <% if recent.housing_images.length > 0 %>
+        <% if count%2 == 0%>
+          <tr class = "lightrow">
+        <% else %>
+          <tr class = "darkrow">
+        <% end %>
+         <td><%= link_to(image_tag(recent.housing_images.first.photo.url(:thumb)), recent) %></td>
+         <td><div class="table_text mtop"><%= link_to(recent.title, recent ) %></div></td>
+         <td><div class="table_text mtop"><%= "$" + recent.price.to_s %></div></td> 
+         <td><div class="table_text mtop"><%= truncate(recent.description, :length => 200) %></div></td> 
+         <td><div class="table_text mtop"><%= recent.user.alias %></div></td>
+         <td class = "valign"><%= link_to 'Edit', edit_housing_path(recent.id), :class => "color_button blue mini right edit" -%></td>
+         <td class = "valign"><div class = "valign"><%= link_to "x", housing_path(recent.id), :method=>:delete, :class=>"color_button red mini right edit", :confirm=>"Are you sure?"  %></div></td
+        </tr> 
+		      <% end %>
+    <% end -%>
+    </table>
+
+
+<% end %>
+</div>
+</div>
