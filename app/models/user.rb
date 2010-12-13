@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   # Associations
   has_many :listings
   has_many :housings
+  has_many :messages
   # Paperclip
   has_attached_file :avatar,
                     :storage => :s3,

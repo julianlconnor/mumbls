@@ -1,0 +1,44 @@
+<div id = "middle">
+  <div id = "middle_content">   
+    <!-- rendering partial for search_bar -->
+    <div id = "container">
+    <p class="title">Categories</p>
+    <div id = "categories">
+      <ul>
+        <li class="subtitle">Items</li>
+		<% @categories.each do |category| %>
+        <li><%= link_to category.name + " (" + category.listing.count.to_s + ")", listings_path + "/category/#{category.name.downcase.sub('(','').sub(')','').sub(' ','-')}" %></li>
+		<% end %>
+      </ul>
+    </div>
+    </div>
+    <div id = "content">
+      <p class="title">All Messages</p>
+	      <div id = "recent_items">
+	      <% @messages.each_with_index do |msg, count| %>
+	          <% if recent.listing_images.length > 0 %>
+	      <% if count%4 == 0 and count != 0 %>
+	      <div id = "clear"></div> 
+	      </div>
+	      <div id = "recent_items">
+	      <% end %>
+         <div class="item">
+          <div class = "item_text">
+            <div class = "item_title"><%= msg.title %></div>
+            <div class = "item_author"><%= msg.user.name %></div>
+          </div>
+        </div>          
+			<% end %>
+	    <% end -%>      
+        <div class="bigarrow"></div>
+        <div id = "clear"></div>
+      </div>      
+    </div> <!-- content -->
+    <div id = "clear"></div>
+  </div><!-- middle content -->
+  <div id = "clear"></div>
+
+</div><!-- middle end -->    
+<div id = "clear"></div>
+
+

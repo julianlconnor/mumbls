@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101212214418) do
+ActiveRecord::Schema.define(:version => 20101213013406) do
 
   create_table "categories", :force => true do |t|
     t.string "name"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(:version => 20101212214418) do
     t.string   "city"
     t.string   "zip_code"
     t.string   "state"
+    t.integer  "views",            :default => 0
   end
 
   create_table "listing_images", :force => true do |t|

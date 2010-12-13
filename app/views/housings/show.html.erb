@@ -13,6 +13,9 @@
       <tr>
     		<td class = "bold">Price:</td><td><div class="table_text">$<%= @housing.price %>/month</div></td>
       </tr>
+	<tr>
+    		<td class = "bold">Address:</td><td><div class="table_text"><%= "#{@address}" %></div></td>
+      </tr>
       <tr>
     			<% @housing.housing_images.each do |image| %>
             <td colspan="2">
@@ -25,7 +28,10 @@
         <td colspan = "2"><div id="map" style="width: 500px; height: 320px; border: 1px solid #777; overflow: hidden; margin: 0 auto;"></div> </td>
       </tr>
       <tr>
-        <td colspan = "2" class = 'light'>Listed on <%= @housing.created_at.to_formatted_s(:long_ordinal)  %></div></td>
+        <td colspan = "2" class = 'light'>Listed on <%= @housing.created_at.strftime("%b %d, %Y at %I:%M %p") %></div></td>
+      </tr>
+		<tr>
+        <td colspan = "2" class = 'light'>Views : <%= @housing.views %></div></td>
       </tr>   
     </table>
                 
@@ -42,7 +48,7 @@
         <%= image_tag "/images/no_user_picture.png", :class => 'avatar' %>
         <% end %>
       </div>
-      <div class = "left posted_by table_text"><div class = 'bold user'><%= link_to @housing.user.alias %></div>
+      <div class = "left posted_by table_text"><div class = 'bold user'><%= link_to @housing.user.alias, '/profile/'+@housing.user.alias %></div>
       <div class = "school">Senior @ RPI</div>
           <div>
             <% if @housing.user.email_is_public %>

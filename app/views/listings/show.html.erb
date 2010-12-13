@@ -30,6 +30,9 @@
   <tr>
     <td colspan = "2" class = 'light'>Listed on <%= @show_listing.created_at.strftime("%b %d, %Y at %I:%M %p")  %></div></td>
   </tr>
+	<tr>
+    <td colspan = "2" class = 'light'>Views : <%= @show_listing.views %></div></td>
+  </tr>
 </table>
 </div><!-- display_box end -->
 
@@ -47,7 +50,6 @@
     </div>
     <div class = "left posted_by table_text"><div class = 'bold user'><%= link_to @show_listing.user.alias, '/profile/'+@show_listing.user.alias %></div>
         <div class = "school">Senior @ RPI</div>
-		<div class = "school">Views: <%= @show_listing.views %></div>
         <div>
         <% if @show_listing_author.first.email_is_public %>
           <%= mail_to(@show_listing_author.first.email, 'Contact ' + @show_listing.user.alias)%>

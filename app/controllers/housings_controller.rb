@@ -18,6 +18,8 @@ class HousingsController < ApplicationController
   def show
     @housing = Housing.find(params[:id])
     @address = @housing.address.to_s + ', '  + @housing.city.to_s + ', ' + @housing.state.to_s    
+    @housing.views = @housing.views + 1
+    @housing.save
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @housing }
